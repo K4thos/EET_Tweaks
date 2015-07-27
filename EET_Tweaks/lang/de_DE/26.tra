@@ -1,0 +1,50 @@
+//IWD:EE @40774
+@26000000 = ~priester des tempus~
+//IWD:EE @40775
+@26000001 = ~Priester des Tempus~
+//IWD:EE @40776
+@26000002 = ~PRIESTER DES TEMPUS: Tempus, auch bekannt als der Herr des Schlachten oder der Feindeshammer, ist in seiner Gunst willkürlich, doch seine chaotische Natur begünstigt alle Seiten gleichermaßen. Er kann an einem Tag auf der Seite einer Armee stehen und am nächsten Tag gegen sie; so ist das Wesen des Krieges. Tempuspriesterschaft ist auf beiden Seiten eines Konflikts zu finden, da niemand je wirklich wissen kann, wen der Kriegsgott bevorzugt.
+
+Vorteile:
+- Kann Heilige Macht für jeweils 5 Stufen des Anwenders einmal täglich aussprechen (beginnend mit einmal täglich auf Stufe 1)
+- kann Schlachtenchaos für jeweils 10 Stufen des Anwenders einmal täglich aussprechen (beginnend mit einmal täglich auf Stufe 1)
+
+SCHLACHTENCHAOS: Schlachtenchaos bringt allen Verbündeten Boni und allen Feinden Abzüge, innerhalb eines Radius von 20 Metern um den Anwender. Der Zauber wirkt eine Phase lang je Stufe des Anwenders, und wird zufällig die Rüstungsklasse, Schadenspunkte, ETW0-Wert, Rettungswürfe oder das Glück des Ziels beeinflussen. Die Wirkung beginnt bei einer Größe von 1 (5 für Schadenspunkte) auf Stufe eins und wird alle sechs Stufen des Anwenders um 1 steigen (5 für Schadenspunkte).
+
+Nachteile:
+- Gesinnung muss entweder chaotisch sein oder absolut neutral.~
+//IWD:EE @36319
+@26000003 = ~Heilige Kraft~
+//IWD:EE @36320
+@26000004 = ~Heilige Kraft
+
+Grad: 4
+Schule: Hervorrufung
+Reichweite: Anwender
+Dauer: 1 Runde/Stufe
+Zeitaufwand: 6
+Bereich: Anwender
+Rettungswurf: Nein
+
+Dieser Zauber erfüllt den Anwender mit heiliger Kraft, wodurch er die Fähigkeiten eines Kämpfers der gleichen Stufe erhält. Seine Stärke wird auf 18/00 gesetzt (auch dann, wenn sie eigentlich höher ist) und er erhält den ETW0 eines Kämpfers der gleichen Stufe sowie einen temporären Trefferpunkt je Stufe. Die temporären Trefferpunkte bleiben erhalten, bis der Zauber endet oder gebannt wird.~
+//IWD:EE @40778
+@26000005 = ~Schlachtenchaos~
+//IWD:EE @40779
+@26000006 = ~Schlachtenchaos
+
+Schlachtenchaos bringt allen Verbündeten Boni und allen Feinden Abzüge, innerhalb eines Radius von 20 Metern um den Anwender. Der Zauber wirkt eine Phase lang je Stufe des Anwenders, und wird zufällig die Rüstungsklasse, Schadenspunkte, ETW0-Wert, Rettungswürfe oder das Glück des Ziels beeinflussen. Die Wirkung beginnt bei einer Größe von 1 (5 für Schadenspunkte) auf Stufe eins und wird alle sechs Stufen des Anwenders um 1 steigen (5 für Schadenspunkte).~
+//IWD:EE @40256
+@26000007 = ~Kampfboni~
+//IWD:EE @40257
+@26000008 = ~Kampfhandikaps~
+//BG2:EE @65112 (Lathander -> Tempus)
+@25000009 = ~Heiliges Symbol des Tempus~
+//BG2:EE @66455 (Dawnbringer -> Lord of Battles)
+@25000010 = ~Nur die treuesten und würdigsten Diener des Herrn der Schlachten erhalten diese mächtigen heiligen Symbole.
+
+EIGENSCHAFTEN:
+
+Stärke: +1
+Zauber: +1 (Grad 6 bis 7)
+Magiewiderstand: 5%
+Gewicht: 0~

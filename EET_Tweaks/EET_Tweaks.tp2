@@ -17,7 +17,11 @@ LANGUAGE ~Polski (Polish)~
 	~pl_PL~
 	~EET_Tweaks/lang/pl_PL/prompts.tra~
 	~EET_Tweaks/lang/pl_PL/setup.tra~
-
+LANGUAGE ~Deutsch (German)~
+	~de_DE~
+	~EET_Tweaks/lang/de_DE/prompts.tra~
+	~EET_Tweaks/lang/de_DE/setup.tra~
+	
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\

@@ -1,0 +1,51 @@
+//IWD:EE @40681 (lower cased)
+@25000000 = ~tyr-priester~
+//IWD:EE @40681
+@25000001 = ~Tyr-Priester~
+//IWD:EE @40682
+@25000002 = ~TYR-PRIESTER: Tyr ist die Gottheit des Rechts und der Gerechtigkeit und befasst sich vorwiegend mit der Bestrafung von Übeltätern und der allgemeinen Förderung des Rechts und des Guten in der Welt. Der Glaube an Gerechtigkeit durch (wohlwollende) Machtausübung, oder zumindest bewaffnete Wachsamkeit, ist der Grund für Tyrs Dasein. Tyr ist in der Götterwelt von großer Bedeutung, weil er die Triade anführt, ein Trio rechtschaffen guter Götter, die sich gemeinschaftlich den Ideen von Mut, Gerechtigkeit, Beharrlichkeit, Erlösung vom Leiden, Pflichterfüllung, Gehorsam, Ehre und bis zu einem gewissen Grad auch dem rechtschaffenen Martyrium verschrieben haben.
+
+Vorteile:
+- Kann je 5 Stufen einmal täglich "Zuspruch" aussprechen (beginnend mit einem Mal auf der ersten Stufe).
+
+ZUSPRUCH: Durch diesen Zauber kann ein Priester jedem anderen Wesen außer sich selbst beistehen und es schützen. Durch eine Berührung beseitigt der Anwender die Wirkung von Furcht, Schlaf, Schwachsinn, Bewusstlosigkeit und Rausch sowie Berserkerwut und Verwirrung. Außerdem ist der Empfänger für eine Phase geschützt vor Zaubern und anderen Angriffen, die diese Wirkungen hervorrufen.
+
+- Kann je 10 Stufen einmal täglich "Göttliche Gunst" aussprechen (beginnend mit einem Mal auf der ersten Stufe)
+
+GÖTTLICHE GUNST: Dieser Zauberspruch gewährt dem Aussprechenden einen Bonus von +1 auf Treffer- und Schadenswürfe für jeweils drei Stufen des Anwenders. Die Wirkung hält 2 Runden lang an.
+
+Nachteile:
+- Gesinnung beschränkt auf rechtschaffen gut, neutral gut oder rechtschaffen neutral.~
+//IWD:EE @21414
+@25000003 = ~Begeisterung~
+//IWD:EE @40841
+@25000004 = ~Begeisterung 
+(Bannzauber)
+
+Grad: 1
+Heilzyklus
+Reichweite: Berührung
+Wirkungsdauer: 1 Phase
+Zeitaufwand: 1 Runde
+Wirkungsbereich: 1 Wesen
+Rettungswurf: Nein
+
+Durch diesen Zauber kann ein Priester jedem anderen Wesen außer sich selbst beistehen und es schützen. Durch eine Berührung beseitigt der Anwender die Wirkung von Furcht, Schlaf, Schwachsinn, Bewusstlosigkeit und Rausch sowie Berserkerwut und Verwirrung. Außerdem ist der Empfänger während der Wirkungsdauer dieses Zaubers geschützt vor Zaubern und anderen Angriffen, die diese Wirkungen hervorrufen.~
+//IWD:EE @26818 + @21414
+@25000005 = ~Begeisterung ohne Wirkung.~
+//IWD:EE @40683
+@25000006 = ~Göttliche Gunst~
+//IWD:EE @40686
+@25000007 = ~Göttliche Gunst
+Dieser Zauberspruch gewährt dem Aussprechenden einen Bonus von +1 auf Treffer- und Schadenswürfe für jeweils drei Stufen des Anwenders. Die Wirkung hält 2 Runden lang an.~
+//BG2:EE @65112 (Lathander -> Tyr)
+@25000008 = ~Heiliges Symbol des Tyr~
+//BG2:EE @66455 (Dawnbringer -> Maimed God)
+@25000009 = ~Nur die treuesten und würdigsten Diener des Verstümmelten Gottes erhalten diese mächtigen heiligen Symbole.
+
+EIGENSCHAFTEN:
+
+Stärke: +1
+Zauber: +1 (Grad 6 bis 7)
+Magiewiderstand: 5%
+Gewicht: 0~
