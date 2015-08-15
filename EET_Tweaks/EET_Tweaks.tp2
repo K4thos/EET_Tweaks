@@ -1853,9 +1853,9 @@ INSERT INTO portraits ROWS
 	'HMW3_', 1,
 	'HMW4_', 1,
 	'HMW_', 1,
-    '2MBAR1_', 1,
-    '2MHUM1_', 1,
-    '2MORC1_', 1,
+	'2MBAR1_', 1,
+	'2MHUM1_', 1,
+	'2MORC1_', 1,
 	'DFF_', 2,
 	'EFC_', 2,
 	'EFF_', 2,
@@ -2020,42 +2020,42 @@ INCLUDE ~EET_Tweaks/lib/fl#add_kit_ee.tpa~
 LAF ~fl#add_kit_ee~
 	INT_VAR
 	//CLASTEXT.2DA       BIOGRAPHY
-		biography     = ~kit_biography~
+	    biography     = ~kit_biography~
 	//CLASTEXT.2DA       BRIEFDESC
-		briefdesc     = ~kit_briefdesc~
+	    briefdesc     = ~kit_briefdesc~
 	//CLASTEXT.2DA       FALLEN
-		fallen        = ~0~
+	    fallen        = ~0~
 	//CLASTEXT.2DA       FALLEN_NOTICE
-		fallen_notice = ~-1~
+	    fallen_notice = ~-1~
 	STR_VAR
 	//internal kit name
-		kit_name      = ~OHTYR~
+	    kit_name      = ~OHTYR~
 	//BACKSTAB.2DA       0     1     2     3     4     5     6     7     8     9     10     11     12     13     14     15     16     17     18     19     20     21     22     23     24     25     26     27     28     29     30     31     32     33     34     35     36     37     38     39     40     41     42     43     44     45     46     47     48     49     50
-		//backstab    = ~~
+	    //backstab    = ~~
 	//CLSWPBON.2DA       GETS_PROF_APR       UNARMED_DIVISOR     ZERO_SKILL_THAC0
-		clswpbon      = ~0                   0                   3~
+	    clswpbon      = ~0                   0                   3~
 	//NUMWSLOT.2DA       SLOTS
-		numwslot      = ~2~
+	    numwslot      = ~2~
 	//THIEFSKL.2DA       START_POINTS       LEVEL_POINTS
-		//thiefskl    = ~~
+	    //thiefskl    = ~~
 	//TRAPLIMT.2DA       LIMIT
-		//traplimt    = ~~
+	    //traplimt    = ~~
 	//CLASCOLR.2DA       METAL     MINOR_CLOTH     MAIN_CLOTH     LEATHER     ARMOR
-		clascolr      = ~105       118             125            98          93~
+	    clascolr      = ~105       118             125            98          93~
 	//CLASISKL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS
-		clasiskl      = ~0                0              0              0                 0                   0                   0~
+	    clasiskl      = ~0                0              0              0                 0                   0                   0~
 	//THIEFSCL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS     STEALTH)
-		thiefscl      = ~0                0              0              0                 0                   0                   0             0~
+	    thiefscl      = ~0                0              0              0                 0                   0                   0             0~
 	//HPCLASS.2DA        TABLE
-		hpclass       = ~HPPRS~
+	    hpclass       = ~HPPRS~
 	//CLSRCREQ.2DA       HUMAN               ELF                 HALF_ELF            DWARF               HALFLING            GNOME               HALFORC
-		clsrcreq      = ~1                   1                   1                   1                   1                   1                   1~
+	    clsrcreq      = ~1                   1                   1                   1                   1                   1                   1~
 	//CLASTHAC.2DA       BONUS
-		clasthac      = ~0~
+	    clasthac      = ~0~
 	//SNEAKATT.2DA       0     1     2     3     4     5     6     7     8     9     10     11     12     13     14     15     16     17     18     19     20     21     22     23     24     25     26     27     28     29     30     31     32     33     34     35     36     37     38     39     40     41     42     43     44     45     46     47     48     49     50
-		//sneakatt    = ~~
+	    //sneakatt    = ~~
 	//CRIPPSTR.2DA       0     1     2     3     4     5     6     7     8     9     10     11     12     13     14     15     16     17     18     19     20     21     22     23     24     25     26     27     28     29     30     31     32     33     34     35     36     37     38     39     40     41     42     43     44     45     46     47     48     49     50
-		//crippstr    = ~~
+	    //crippstr    = ~~
 END
 
 ACTION_FOR_EACH file IN CLASWEAP WEAPPROF ABCLASRQ ABCLSMOD ABDCDSRQ ABDCSCRQ ALIGNMNT DUALCLAS KITTABLE KITLIST LUABBR 25STWEAP CLASTEXT BACKSTAB CLSWPBON NUMWSLOT THIEFSKL TRAPLIMT CLASCOLR CLASISKL THIEFSCL HPCLASS CLSRCREQ CLASTHAC SNEAKATT CRIPPSTR K_C_H K_C_D K_C_G K_C_E K_C_HE K_C_HL K_C_HO BEGIN
@@ -2205,42 +2205,42 @@ INCLUDE ~EET_Tweaks/lib/fl#add_kit_ee.tpa~
 LAF ~fl#add_kit_ee~
 	INT_VAR
 	//CLASTEXT.2DA       BIOGRAPHY
-		biography     = ~kit_biography~
+	    biography     = ~kit_biography~
 	//CLASTEXT.2DA       BRIEFDESC
-		briefdesc     = ~kit_briefdesc~
+	    briefdesc     = ~kit_briefdesc~
 	//CLASTEXT.2DA       FALLEN
-		fallen        = ~0~
+	    fallen        = ~0~
 	//CLASTEXT.2DA       FALLEN_NOTICE
-		fallen_notice = ~-1~
+	    fallen_notice = ~-1~
 	STR_VAR
 	//internal kit name
-		kit_name      = ~OHTEMPUS~
+	    kit_name      = ~OHTEMPUS~
 	//BACKSTAB.2DA       0     1     2     3     4     5     6     7     8     9     10     11     12     13     14     15     16     17     18     19     20     21     22     23     24     25     26     27     28     29     30     31     32     33     34     35     36     37     38     39     40     41     42     43     44     45     46     47     48     49     50
-		//backstab    = ~~
+	    //backstab    = ~~
 	//CLSWPBON.2DA       GETS_PROF_APR       UNARMED_DIVISOR     ZERO_SKILL_THAC0
-		clswpbon      = ~0                   0                   3~
+	    clswpbon      = ~0                   0                   3~
 	//NUMWSLOT.2DA       SLOTS
-		numwslot      = ~2~
+	    numwslot      = ~2~
 	//THIEFSKL.2DA       START_POINTS       LEVEL_POINTS
-		//thiefskl    = ~~
+	    //thiefskl    = ~~
 	//TRAPLIMT.2DA       LIMIT
-		//traplimt    = ~~
+	    //traplimt    = ~~
 	//CLASCOLR.2DA       METAL     MINOR_CLOTH     MAIN_CLOTH     LEATHER     ARMOR
-		clascolr      = ~80        126             127            93          97~
+	    clascolr      = ~80        126             127            93          97~
 	//CLASISKL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS
-		clasiskl      = ~0                0              0              0                 0                   0                   0~
+	    clasiskl      = ~0                0              0              0                 0                   0                   0~
 	//THIEFSCL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS     STEALTH)
-		thiefscl      = ~0                0              0              0                 0                   0                   0             0~
+	    thiefscl      = ~0                0              0              0                 0                   0                   0             0~
 	//HPCLASS.2DA        TABLE
-		hpclass       = ~HPPRS~
+	    hpclass       = ~HPPRS~
 	//CLSRCREQ.2DA       HUMAN               ELF                 HALF_ELF            DWARF               HALFLING            GNOME               HALFORC
-		clsrcreq      = ~1                   1                   1                   1                   1                   1                   1~
+	    clsrcreq      = ~1                   1                   1                   1                   1                   1                   1~
 	//CLASTHAC.2DA       BONUS
-		clasthac      = ~0~
+	    clasthac      = ~0~
 	//SNEAKATT.2DA       0     1     2     3     4     5     6     7     8     9     10     11     12     13     14     15     16     17     18     19     20     21     22     23     24     25     26     27     28     29     30     31     32     33     34     35     36     37     38     39     40     41     42     43     44     45     46     47     48     49     50
-		//sneakatt    = ~~
+	    //sneakatt    = ~~
 	//CRIPPSTR.2DA       0     1     2     3     4     5     6     7     8     9     10     11     12     13     14     15     16     17     18     19     20     21     22     23     24     25     26     27     28     29     30     31     32     33     34     35     36     37     38     39     40     41     42     43     44     45     46     47     48     49     50
-		//crippstr    = ~~
+	    //crippstr    = ~~
 END
 
 ACTION_FOR_EACH file IN CLASWEAP WEAPPROF ABCLASRQ ABCLSMOD ABDCDSRQ ABDCSCRQ ALIGNMNT DUALCLAS KITTABLE KITLIST LUABBR 25STWEAP CLASTEXT BACKSTAB CLSWPBON NUMWSLOT THIEFSKL TRAPLIMT CLASCOLR CLASISKL THIEFSCL HPCLASS CLSRCREQ CLASTHAC SNEAKATT CRIPPSTR K_C_H K_C_D K_C_G K_C_E K_C_HE K_C_HL K_C_HO BEGIN
