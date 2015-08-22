@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EETT)</title>
+	<title>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks)</title>
 	<style type="text/css">/*<![CDATA[*/
     <!-- 
       body {
@@ -10,7 +10,9 @@
         cursor: default;
         text-align: center;
         color: #000;
-        background: #e3e3db url('http://spellholdstudios.net/images/sh_bg_main.jpg');
+        background: #e3e3db url('http://athkatla.cob-bg.pl/templates/chilldren/images/aa_tlo4.jpg');
+        background-attachment: fixed;
+        background-size: cover;
       }
       
       #wrap {
@@ -84,6 +86,7 @@
       }
       
       h2 {
+        color: #333;
         display: block;
         font-family: Verdana, Trebuchet MS, Arial, serif;
         text-align: left;
@@ -102,14 +105,15 @@
       }
       
       #maindiv p {
-	font-size: 100%;
-	font-style: normal;
-	line-height: 150%;
-	padding: 0px;
-	margin: 10px auto;
-	width: 90%;
-	display: block;
-	text-align: justify;
+        color: #333;
+        font-size: 100%;
+        font-style: normal;
+        line-height: 150%;
+        padding: 0px;
+        margin: 10px auto;
+        width: 90%;
+        display: block;
+        text-align: justify;
       }
       
       #maindiv address a:link,
@@ -151,18 +155,18 @@
         display: block;
         text-align: right;
       }
-	  
+      
       #maindiv .spoiler {
         font-size: 100%;
-		text-indent: 0px;
+        text-indent: 0px;
         font-style: normal;
         line-height: 150%;
         padding: 0px;
         margin: 10px auto;
-		margin-right: 5%;
+        margin-right: 5%;
         display: block;
         text-align: justify;
-		text-justify: auto;
+        text-justify: auto;
       }
 	  
       #maindiv .important {
@@ -191,7 +195,7 @@
       }
       
       #maindiv ul {
-	margin: -10px 0 0 30px;
+        margin: -10px 0 0 30px;
         *margin-left: 65px;
       }
       
@@ -209,16 +213,16 @@
       }
       
       #maindiv ul li {
-	list-style-type: square;
-	line-height: 150%;
-	text-align: justify;
-	margin-right: 5%;
+        list-style-type: square;
+        line-height: 150%;
+        text-align: justify;
+        margin-right: 5%;
       }
       
       #maindiv ol li {
-	line-height: 150%;
-	text-align: justify;
-	margin-right: 5%;
+        line-height: 150%;
+        text-align: justify;
+        margin-right: 5%;
       }
       
       .t1 {
@@ -318,6 +322,7 @@
       }
 
       .tg td{
+        color: #333;
 	    text-align:justify;
         font-family:Verdana, sans-serif;
 		font-size:12px;
@@ -329,6 +334,7 @@
       }
 
       .tg th{
+        color: #333;
 	    text-align:justify;
         font-family:Verdana, sans-serif;
 		font-size:12px;
@@ -346,11 +352,11 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 </head>
 <body>
-<p pbzloc="322"><a id="top" name="top"></a></p>
+<a id="top" name="top"></a>
 
 <div id="wrap">
 <div id="header">
-<h1>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EETT)</h1>
+<h1>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks)</h1>
 <strong>Tweak Pack for Infinity Engine games</strong>
 
 <hr />
@@ -360,7 +366,7 @@
 <p class="about">
 	<a href="http://www.spellholdstudios.net/">Mod Website</a> ·
 	<a href="http://www.shsforums.net/">Mod Forum</a> ·
-	<a href="https://github.com/K4thos/EET">Source Code</a>
+	<a href="https://github.com/K4thos/EET_Tweaks">Source Code</a>
 </p>
 
 <hr />
@@ -372,7 +378,7 @@
 <div class="content">
 <h2>Introduction</h2>
 
-<p>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EETT) is a modification that offers several optional tweaks for Infinity Engine games. Mostly related to Baldur's Gate: Enhanced Edition Trilogy (EET) mod, but some are more universal and will work with different games and IE engine versions.</p>
+<p>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks) is a modification that offers several optional tweaks for Infinity Engine games. Mostly related to Baldur's Gate: Enhanced Edition Trilogy (EET) mod, but some are more universal and will work with different games and IE engine versions.</p>
 
 <p>The components of this modification are:</p>
 <hr />
@@ -597,7 +603,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <ul class="vlisthide" id="Adjust familiar death consequences">
 	<li><strong>Constitution loss for 1 week + blocked familiar summoning for 1 week</strong> (after this time Constitution stat will return to previous value and you will be able to once again use 'Summon familiar' spell)</li>
 	<li><strong>Constitution loss for 1 week</strong> (toned down version of above)</li>
-	<li><strong>Disable Constitution loss</strong> (this one can definitely be considered a cheat)</li>
+	<li><strong>Disable Constitution loss</strong></li>
 	<li><strong>Option 1 custom time</strong> (works the same as first option, but you type in how many days penalties lasts)</li>
 	<li><strong>Option 2 custom time</strong> (as above, but for the second option)</li>
 </ul></p>
@@ -605,17 +611,18 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <!--
 <h3>Adjust summon familiar selection</h3>
 <p>Compatibility: EET</p>
-<p>In vanilla game familiars are picked after Protagonist's Alignment. This tweak allows you to change it in following ways:</p>
+<p>In vanilla game familiars are picked after Protagonist's alignment. This tweak allows you to change it in following ways:</p>
 <p><a href="#" onclick="toggle('Adjust familiar selection'); return false;">Unhide/Collapse details</a></p>
 <ul class="vlisthide" id="Adjust familiar selection">
-	<li><strong>Choose any familiar</strong> (choice is no longer dependent on Protagonist's Alignment at all)</li>
-	<li><strong>Choose from the pool of 3 restricted to closest Alignment</strong> (for example Chaotic Good character will be able to pick up familiars normally assigned to Neutral Good, Chaotic Good and Lawful Neutral Alignments)</li>
-	<li><strong>Choose from the pool of 3 restricted to general Alignment</strong> (for example if you have one of the Evil Alignments than you are restricted only to familiars normally assigned to Lawful Evil, Neutral Evil and Chaotic Evil Alignments)</li>
+	<li><strong>Choose any familiar</strong> (choice is no longer dependent on Protagonist's alignment at all)</li>
+	<li><strong>Choose from the pool of 3 restricted to closest alignment</strong> (for example Chaotic Good character will be able to pick up familiars normally assigned to Neutral Good, Chaotic Good and Lawful Neutral Alignments)</li>
+	<li><strong>Choose from the pool of 3 restricted to general alignment</strong> (for example if you have one of the Evil Alignments than you are restricted only to familiars normally assigned to Lawful Evil, Neutral Evil and Chaotic Evil Alignments)</li>
+	<li><strong>Choose a familiar with an alignment up to one step away on each of the alignment axes</strong> (lawful through chaotic, good through evil. Implementation as in 3e PnP rules).</li>
 </ul></p>
 <hr />
 -->
 <h3>IWD:EE portraits</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET
+<p>Compatibility: BG:EE, BG2:EE, EET</p>
 <div class="important">
 <p>Requires IWD:EE to be present on your computer during installation</p>
 </div>
@@ -623,7 +630,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <hr />
 
 <h3>IWD:EE soundsets</h3>
-<p>Compatibility: BG2:EE, EET
+<p>Compatibility: BG2:EE, EET</p>
 <div class="important">
 <p>Requires IWD:EE to be present on your computer during installation</p>
 </div>
@@ -631,37 +638,37 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <hr />
 
 <h3>Add Priest of Tyr kit for Priests</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET
-<p>Implements playable Priest of Tyr kit from IWD:EE (also present in BG2:EE Dorn's questline).<p>
+<p>Compatibility: BG:EE, BG2:EE, EET</p>
+<p>Implements playable Priest of Tyr kit from IWD:EE (also present in BG2:EE Dorn's questline).</p>
 <hr />
 
 <h3>Add Priest of Tempus kit for Priests</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET
-<p>Implements playable Priest of Tempus kit from IWD:EE.<p>
+<p>Compatibility: BG:EE, BG2:EE, EET</p>
+<p>Implements playable Priest of Tempus kit from IWD:EE.</p>
 <hr />
 
 <h3>Add racial enemies from IWD</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET
+<p>Compatibility: BG:EE, BG2:EE, EET</p>
 <p>Ranger racial enemies: Cadaverous undead, Giant, Goblin, Lizard men, Orc, Salamander, Spectral undead, Spider, Troll, Umber hulk, Yuan-ti. If any of these is already on the list than only description will be updated to use the more detailed one from IWD:EE.</p>
 <hr />
 
 <h3>Remove junk from global scripts</h3>
-<p>Compatibility: BG2:EE, EET
+<p>Compatibility: BG2:EE, EET</p>
 <p>Both Bioware and Beamdog script coding lefts a lot to be desired performance wise when it comes to handling global scripts stuff (code that is working constantly for the entire game). This tweak aims to remove things from BALDUR.BCS and BALDUR25.BCS that can be achieved locally, which in the end should result in better in-game performance.</p>
 <p><a href="#" onclick="toggle('Sane coding'); return false;">Unhide/Collapse details</a></p>
 <ul class="vlisthide" id="Sane coding">
-	<li><strong>Cleric's Holy Symbols</strong> - this is probably the worst offender. As far as I know <em>HasItem</em> action is one of the most demanding actions in IE games. In order to give Cleric a Holy Symbol at level 25 (something that will be done maybe once or twice in the late BG2 portion of the game) there are 18 blocks with this action that are parsed at the same frame during entire game, whenever global script is in use. Whatever was the reason for this (looks like a thing adopted from G3 BG2 Fixpack) the implementation is just bad. This tweak changes CDHLYSYM.SPL to spawn an invisible creature with local script attached that will do exactly the same thing without any performance hit.</li>
-	<li><strong>Lilarcor (talking sword)</strong> - another situation where demanding actions are used without a good reason. Fortunately with a timer delay, but still talking weapons in global scripts are a known factor for FPS drops in IE games. Lilarcor has now new item effect added that will spawn invisible creature when item is equipped. I hope that other modders will consider using this implementation in future for their talking weapons, instead of following Bioware steps and bloating global scripts.</li>
+	<li><strong>Cleric's Holy Symbols</strong> - this is probably the worst offender. As far as I know <em>HasItem</em> trigger is one of the most demanding ones in IE games. In order to give Cleric a Holy Symbol at level 25 (something that will be done maybe once or twice in the late BG2 portion of the game) there are 18 blocks with this trigger that are parsed at the same frame during entire game, whenever global script is in use. Whatever was the reason for this (looks like a thing adopted from G3 BG2 Fixpack) the implementation is just bad. This tweak changes CDHLYSYM.SPL to spawn an invisible creature with local script attached that will do exactly the same thing without any performance hit.</li>
+	<li><strong>Lilarcor (talking sword)</strong> - another situation where demanding triggers are used without good enough reason. Fortunately with a timer delay, but still talking weapons in global scripts are a known factor for FPS drops in IE games. Lilarcor has now new item effect added that will spawn invisible creature when item is equipped. I hope that other modders will consider using this implementation in future for their talking weapons, instead of following Bioware steps and bloating global scripts.</li>
 	<li><strong>Unused test script blocks</strong> - BALDUR.BCS contains some leftover code used for testing textscreens that can be wiped out without any effect on game.</li>
 	<li><strong>Unused Familiar script blocks with wrong DV</strong> - BALDUR25.BCS has references to not existing familiar Death Variables which can be safely removed.</li>
-	<li><strong>Drow items changing to dust on surface</strong> - not so demanding for the engine thanks to the GetGlobal trigger, but still controversial when you consider that the same variable is checked 84 times in the same frame (even more if you are using mods that adds additional drow items) for the whole ToB portion of the game (only present in BALDUR25.BCS). This tweak will again spawn an invisible creature with local script, this time in all areas that sets <em>oh_drow_items_safe</em> variable to 0 (also affects mods).</li>
+	<li><strong>Drow items changing to dust on surface</strong> - not so demanding for the engine thanks to the Global trigger, but still controversial when you consider that the same variable is checked 84 times in the same frame (even more if you are using mods that adds additional drow items) for the whole ToB portion of the game (only present in BALDUR25.BCS). This tweak will again spawn an invisible creature with local script, this time in all areas that sets <em>oh_drow_items_safe</em> variable to 0 (also affects mods).</li>
 	<li><strong>Malchior Harpell´s appearance</strong> - moved the spawning method from BALDUR.BCS to AR0800.BCS. Due to this change it's possible to evade Harpell completely if you don't enter Athkatla Graveyard District (first place where you can meet him) with Drizzt's equipment, but I think that's still better than playing the game with 8 useless PartyHasItem checks. The way this has been coded (<a href="https://forum.baldursgate.com/discussion/30392/melchor-harpell-way-to-rip-me-out-of-my-immersion/p1">constantly respawning encounter</a>) is silly either way, so not much loss. I would call it improvement actually. No conflicts with <em>BG2 Tweaks - Keep Drizzt's Loot, Disable Malchor Harpell</em> component.</li>
 	<li><strong>Leftover BG:EE ARE scripts code</strong> - this is unrelated to global scripts, but still worth cleaning. In 2 cases (AR0514.BCS, AR2001.BCS) leftovers can be harmful for BG2 portion of the game because there is junk BG:EE code in scripts attached to existing areas. That is why this component fixes it via REPLACE_BCS_BLOCK. Additionally there are 33 harmless ARE scripts leftover that don't have corresponding area files (they exist only in BG:EE) - these are also cleaned to make working with Near Infinity tool faster and more reliable (no false reports when searching for resources in scripts). Ideally, it would be officially handled by Beamdog <a href="http://forum.baldursgate.com/discussion/39661/junk-data-from-bg1-scripts-in-bg2-wrong-script-attached-to-are">via patch</a>, but until it happens this tweak will do the job.</li>
-</ul></p>
+</ul>
 <hr />
 
 <h3>Restore TotSC textscreens</h3>
-<p>Compatibility: BG:EE, EET
+<p>Compatibility: BG:EE, EET</p>
 <p>In BG:EE starting and ending textscreens introduced in Baldur's Gate: Tales of the Sword Coast official expansion has not been implemented. This component restores them.</p>
 <hr />
 
@@ -672,12 +679,17 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <hr />
 <p>Not recommended for first-time players!</p>
 </div>
-<p>Ironman Mode known from The Temple of Elemental Evil and more recently - from Pillars of Eternity where it is called <a href="http://pillarsofeternity.gamepedia.com/Mode?cookieSetup=true">Trial of Iron</a>. In this mode the player has one save game that persists for the entire campaign or until player's character dies (or whole party if you also install "Protagonist can die" component). The only way to save the game is by using quick save key (Q), which will also end the current session and move you to main menu. Being defeated results in the save file being overwritten. This tweak will also change current difficulty level to "Core Rules" if it is set lower and disable "Max HP per level" in ini file if it is enabled. Everything else is just like a normal game. In other words it's a famous no-reload challenge. If you are going to try it consider sharing your experience <a href="http://forum.baldursgate.com/categories/challenges-and-playthroughs">here</a>.</p>
+<p>Ironman Mode known from The Temple of Elemental Evil and more recently - from Pillars of Eternity where it is called <a href="http://pillarsofeternity.gamepedia.com/Mode?cookieSetup=true">Trial of Iron</a>. In this mode the player has a single save game slot that persists for the entire campaign or until player's character dies (or whole party if you also install "Protagonist can die" component). The only way to save the game is by using quick save key (Q), which will also end the current session and move you to main menu. Being defeated results in the save file being overwritten. This tweak will also change current game settings:</p>
+<ul>
+	<li>Difficulty level set to "Core Rules" (only if it's currently set lower than this, adjustable later via in-game settings)</li>
+	<li>Disable "Max HP per level" (by editing INI file, easy to restore back if you don't like this change)</li>
+</ul>
+<p>In other words it's a famous no-reload challenge implemented within game. If you are going to try it consider sharing your experience <a href="http://forum.baldursgate.com/categories/challenges-and-playthroughs">here</a>.</p>
 <hr />
 
 <p>Also take a look at the mod called <a href="http://www.shsforums.net/files/file/1091-isandirs-portrait-pack/">Isandir's Portrait Pack</a> which adds beautiful portraits made by <a href="http://isandir.com/">Isandir</a> in a style similar to vanilla BG1 portraits and few in BG2 style. The mod also swaps BG2 NPC portraits with Ust Natha themed ones during Underdark questline. Both components would probably end up in this pack if it would be available back then.</p>
 
-<address><span class="footer">EETT > Introduction</span> ·<a href="#top">BACK TO TOP</a></address>
+<address><span class="footer">EET Tweaks > Introduction</span> ·<a href="#top">BACK TO TOP</a></address>
 </div>
 <!-- ================== I n s t a l l a t i o n ================== --><a id="installation" name="installation"></a>
 
@@ -688,7 +700,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <p>This mod should be installed at the end, after any mod that alters CRE, BCS, DLG, ITM, SPL, EFF files. You can safely keep it as the last mod in your load order (even after Widescreen and BP-BGT Worldmap), which will allow you to install/uninstall/re-install components during play through, without risking breaking other mods.</p>
 <p>You don't need to worry about components installation order - weidu is smart enough to reinstall previous components if needed. For example you can install 'Party XP for quests distributed individually' before or after installing 'Adjust XP for quests' component. The outcome will be the same.</p>
-<p>If you are going to use XP related components than you should avoid installing <a href=">"http://www.pocketplane.net/mambo/index.php?option=content&task=blogcategory&id=110&Itemid=83">Ding0 Experience Fixer (DEF JAM)</a>, as it does the same thing, but compared to this mod is less precise, flexible and doesn't cover mod related SPL, ITM, EFF files and new ChangeStat action added by EE engine (at least the version v6 that was the most recent one when I was writing this readme).</p>
+<p>If you are going to use XP related components than you should avoid installing <a href="http://www.pocketplane.net/mambo/index.php?option=content&task=blogcategory&id=110&Itemid=83">Ding0 Experience Fixer (DEF JAM)</a>, as it does the same thing, but compared to this mod is less precise, flexible and doesn't cover mod related SPL, ITM, EFF files and new ChangeStat action added by EE engine (at least the version v6 that was the most recent one when I was writing this readme).</p>
 <p>Don't forget to read compatibility section in the description of each component you want to install. If it is mentioned there that the same functionality is available elsewhere and you have conflicting mod installed already than installer will skip these components.</p>
 <hr />
 
@@ -722,7 +734,8 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 			<td><em>X</em></td>
 			<td>
 			<p>0 - English<br />
-			1 - Polish</p>
+			1 - Polish
+			2 - German</p>
 			</td>
 		</tr>
 		<tr>
@@ -785,7 +798,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <p>This construction installs all components of this mod using the English language, predefined IWD:EE directory, and following settings: BG2 used as a base for join-able NPCs; additional BG2:SoA XP CAP set to 2,950,000; BG:EE XP CAP set to custom value - 200,000; BG2:EE XP CAP set to custom value - 10,000,000; XP rewards for Traps, Spells and Lockpicking based on progressive table; XP rewards for killing monsters decreased to 10%; XP rewards for quests increased to custom value - 120%; FPS set to 60 frames per second; all item types with shatter chance set to 0.1%; Constitution loss for 1 week after familiar is dead.</p>
 
-<address><span class="footer">EETT > Installation and Uninstallation</span> ·<a href="#top">BACK TO TOP</a></address>
+<address><span class="footer">EET Tweaks > Installation and Uninstallation</span> ·<a href="#top">BACK TO TOP</a></address>
 </div>
 <!-- ================== C r e d i t s ================== --><a id="credits" name="credits"></a>
 
@@ -798,7 +811,6 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 	<li>Many thanks to AL|EN for integration with Big World Setup</li>
 	<li>Many thanks to Argent77 for Near Infinity development</li>
 	<li>Many thanks to Ascension64 for 3 components that have been adopted for this mod</li>
-	<li>Many thanks to Bardez who created the original Baldur's Gate Trilogy</li>
 	<li>Many thanks to Beamdog for creating Enhanced Editions of Infinity Engine games</li>
 	<li>Many thanks to Bioware and Black Isle Studios for creating Baldur's Gate series</li>
 	<li>Many thanks to Crevs Daak for GitHub contribution to the project</li>
@@ -817,7 +829,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <p><strong>Polish:</strong> K4thos</p>
 <p><strong>German:</strong> WhiteAgnus</p>
 
-<address><span class="footer">EETT > Credits</span> ·<a href="#top">BACK TO TOP</a></address>
+<address><span class="footer">EET Tweaks > Credits</span> ·<a href="#top">BACK TO TOP</a></address>
 </div>
 <!-- ================== L e g a l e s e ================== --><a id="legalese" name="legalese"></a>
 
@@ -834,9 +846,9 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <p>This is a community modification, created as a hobby for free. You can distribute among your peers as much as you like. My code is open sourced and released under the <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License version 3</a>.</p>
 
-<p>This modification is available as an open repository on <a href="https://github.com/K4thos/EET">GitHub</a>, which allows everyone to add new commits. Feel free to suggest improvements and fixes by directly modifying the code on the site. Any help on improving the mod is appreciated.</p>
+<p>This modification is available as an open repository on <a href="https://github.com/K4thos/EET_Tweaks">GitHub</a>, which allows everyone to add new commits. Feel free to suggest improvements and fixes by directly modifying the code on the site. Any help on improving the mod is appreciated.</p>
 
-<address><span class="footer">EETT > Legalese</span> ·<a href="#top">BACK TO TOP</a></address>
+<address><span class="footer">EET Tweaks > Legalese</span> ·<a href="#top">BACK TO TOP</a></address>
 </div>
 <!-- ================== V e r s i o n   H i s t o r y ================== --><a id="version" name="version"></a>
 
@@ -845,13 +857,13 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <p><a href="#" onclick="toggle('1.0'); return false;">Expand/Collapse All</a></p>
 
-<h6><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (01 Jan 15)</a></h6>
+<h6><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (no date yet)</a></h6>
 
 <ul class="vlisthide" id="1.0">
 	<li>First public release</li>
 </ul>
 
-<address><span class="footer">EETT > Version History</span> ·<a href="#top">BACK TO TOP</a></address>
+<address><span class="footer">EET Tweaks > Version History</span> ·<a href="#top">BACK TO TOP</a></address>
 </div>
 </div>
 </div>

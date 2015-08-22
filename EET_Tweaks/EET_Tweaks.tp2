@@ -2044,7 +2044,7 @@ LAF ~fl#add_kit_ee~
 	    clascolr      = ~105       118             125            98          93~
 	//CLASISKL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS
 	    clasiskl      = ~0                0              0              0                 0                   0                   0~
-	//THIEFSCL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS     STEALTH)
+	//THIEFSCL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS     STEALTH
 	    thiefscl      = ~0                0              0              0                 0                   0                   0             0~
 	//HPCLASS.2DA        TABLE
 	    hpclass       = ~HPPRS~
@@ -2229,7 +2229,7 @@ LAF ~fl#add_kit_ee~
 	    clascolr      = ~80        126             127            93          97~
 	//CLASISKL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS
 	    clasiskl      = ~0                0              0              0                 0                   0                   0~
-	//THIEFSCL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS     STEALTH)
+	//THIEFSCL.2DA       PICK_POCKETS     OPEN_LOCKS     FIND_TRAPS     MOVE_SILENTLY     HIDE_IN_SHADOWS     DETECT_ILLUSION     SET_TRAPS     STEALTH
 	    thiefscl      = ~0                0              0              0                 0                   0                   0             0~
 	//HPCLASS.2DA        TABLE
 	    hpclass       = ~HPPRS~
