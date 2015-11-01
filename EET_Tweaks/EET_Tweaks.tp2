@@ -658,7 +658,6 @@ ACTION_FOR_EACH ext IN BCS DLG BEGIN
 				END
 			END
 			~ChangeStat(%MATCH1%,XP,%XP_value%,ADD)~
-			REPLACE_TEXTUALLY ~\(Allegiance(.*,\)ANYONE)~ ~\10)~//workaround for weidu compiler bug
 		END
 	BUT_ONLY
 END
@@ -830,7 +829,6 @@ ACTION_FOR_EACH ext IN BCS DLG BEGIN
     AddXPObject(Player4,%XP_value%)
     AddXPObject(Player5,%XP_value%)
     AddXPObject(Player6,%XP_value%)~
-			REPLACE_TEXTUALLY ~\(Allegiance(.*,\)ANYONE)~ ~\10)~//workaround for weidu compiler bug
 		END
 	BUT_ONLY
 END
@@ -1006,7 +1004,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.BCS$~ ~override~
 			PATCH_PRINT ~Patching %SOURCE_FILE%: %MATCH1%%MATCH2%Wait(%MATCH3%)%MATCH4% => %new_MATCH2%SmallWait(%time%)%MATCH4%~
 		END
 		~%MATCH1%%new_MATCH2%SmallWait(%time%)%MATCH4%~
-		REPLACE_TEXTUALLY ~\(Allegiance(.*,\)ANYONE)~ ~\10)~//workaround for weidu compiler bug
 	END
 BUT_ONLY
 
@@ -1097,7 +1094,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Protagonist can die~
 //DESIGNATED 14
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.are$~ ~override~
 	READ_BYTE 0x14 "flags"
@@ -2433,7 +2430,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.BCS$~ ~override~
 			PATCH_PRINT ~Drow items invisible creature spawning added to %SOURCE_FILESPEC%~
 		END ~SetGlobal("oh_drow_items_safe","GLOBAL",0)
     CreateCreatureObject("K#DROWIT",Player1,0,0,0)~
-		REPLACE_TEXTUALLY ~\(Allegiance(.*,\)ANYONE)~ ~\10)~//workaround for weidu compiler bug
 	END
 BUT_ONLY
 
