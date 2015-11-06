@@ -30,7 +30,7 @@ END ELSE ACTION_IF ~%WEIDU_OS%~ STRING_EQUAL_CASE ~osx~ BEGIN
 	AT_INTERACTIVE_EXIT ~rm -rf EET_Tweaks/temp~
 END
 
-<<<<<<<< EET_Tweaks-inlined/blank.txt
+<<<<<<<< .../blank.txt
 >>>>>>>>
 
 /////                                                  \\\\\
@@ -124,7 +124,7 @@ DEFINE_ACTION_MACRO ~EET_Tweaks.log~ BEGIN
 	OUTER_SPRINT log ~Component %COMPONENT_NUMBER%%logOption%%logCustom%~
 	PRINT ~%log%~
 	ACTION_IF NOT FILE_EXISTS ~EET_Tweaks/EET_Tweaks.log~ BEGIN
-		COPY ~EET_Tweaks-inlined/blank.txt~ ~EET_Tweaks/EET_Tweaks.log~
+		COPY ~.../blank.txt~ ~EET_Tweaks/EET_Tweaks.log~
 	END
 	APPEND_OUTER ~EET_Tweaks/EET_Tweaks.log~ ~%log%~
 END

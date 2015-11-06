@@ -13,11 +13,11 @@ END ELSE ACTION_IF (FILE_EXISTS ~EET_Tweaks/iwdee_dir.txt~) BEGIN
 	OUTER_SET first_prompt = 1
 	PRINT ~%iwdee_dir% directory assigned via EET_Tweaks/iwdee_dir.txt~
 END ELSE ACTION_IF ~%WEIDU_OS%~ STRING_EQUAL_CASE ~win32~ BEGIN
-<<<<<<<< EET_Tweaks-inlined/programfiles.bat
+<<<<<<<< .../programfiles.bat
 echo %%var%%>EET_Tweaks/temp/%var%.txt
 >>>>>>>>
 	ACTION_FOR_EACH var IN ~programfiles~ ~programfiles(x86)~ ~ProgramW6432~ BEGIN
-		COPY + ~EET_Tweaks-inlined/programfiles.bat~ ~EET_Tweaks/temp~ EVALUATE_BUFFER
+		COPY + ~.../programfiles.bat~ ~EET_Tweaks/temp~ EVALUATE_BUFFER
 		AT_NOW ~EET_Tweaks/temp/programfiles.bat~
 		COPY - ~EET_Tweaks/temp/%var%.txt~ ~EET_Tweaks/temp~//for some reason the same file can't be used for all 3 vars
 			READ_ASCII 0x0 dir (%SOURCE_SIZE%)
@@ -89,6 +89,6 @@ Example: C:\Program Files (x86)\BeamDog\Games\00798~
 	END
 END
 
-<<<<<<<< EET_Tweaks-inlined/iwdee_dir.txt
+<<<<<<<< .../iwdee_dir.txt
 %iwdee_dir%>>>>>>>>
-COPY + ~EET_Tweaks-inlined/iwdee_dir.txt~ ~EET_Tweaks/iwdee_dir.txt~ EVALUATE_BUFFER
+COPY + ~.../iwdee_dir.txt~ ~EET_Tweaks/iwdee_dir.txt~ EVALUATE_BUFFER

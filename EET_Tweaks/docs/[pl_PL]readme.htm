@@ -412,29 +412,6 @@
 </ul>
 <hr />
 
-<h3>Dodatkowy limit doświadczenia w Cieniach Amn</h3>
-<p>Kompatybilność: EET</p>
-<p>Tak jak w przypadku oryginalnego BG2:EE, EET domyślnie nie ma limitu dla samych Cieni Amn. Ten tweak pozwala wprowadzić takowy poprzez edycję pliku BALDUR.BCS. Dostępne opcje:</p>
-<p><a href="#" onclick="toggle('Additional BG2:EE SoA XP CAP'); return false;">Rozwiń/Zwiń szczegóły</a></p>
-<ul class="vlisthide" id="Additional BG2:EE SoA XP CAP">
-	<li><strong>2,500,000</strong> (limit na poziomie z jakim startują NPC w Tronie Bhaala)</li>
-	<li><strong>2,950,000</strong> (limit jak w BG2 bez dodatku)</li>
-	<li><strong>Inna wartość</strong> (wpisz ręcznie liczbę)</li>
-</ul>
-<hr />
-
-<h3>Dostosuj limit doświadczenia w BG1</h3>
-<p>Kompatybilność: EET</p>
-<p>EET domyślnie stosuje limit doświadczenia dla etapu BG1, taki jak w BG:EE. Możesz go zmienić lub usunąć. Dostępne opcje:</p>
-<p><a href="#" onclick="toggle('Adjust BG:EE XP CAP'); return false;">Rozwiń/Zwiń szczegóły</a></p>
-<ul class="vlisthide" id="Adjust BG:EE XP CAP">
-	<li><strong> 89,000</strong> (limit na poziomie startowym w BG2:EE)</li>
-	<li><strong>161,000</strong> (limit jak w BG:EE - wartość domyślna)</li>
-	<li><strong>Znieś limit doświadczenia</strong> (limit ustawiony na 100,000,000)</li>
-	<li><strong>Inna wartość</strong> (wpisz ręcznie liczbę)</li>
-</ul>
-<hr />
-
 <h3>Dostosuj całkowity limit doświadczenia</h3>
 <p>Kompatybilność: BG2:EE, EET</p>
 <p>Całkowity limit doświadczenia w grze (edytowane pliki XPCAP.2DA i STARTARE.2DA). Dostępne opcje:</p>
@@ -443,6 +420,28 @@
 	<li><strong>2,950,000</strong> (limit jak w BG2 bez dodatku)</li>
 	<li><strong>8,000,000</strong> (limit jak w BG2:EE - wartość domyślna)</li>
 	<li><strong>Znieś limit doświadczenia</strong></li>
+	<li><strong>Inna wartość</strong> (wpisz ręcznie liczbę)</li>
+</ul>
+<hr />
+
+<h3>Dodatkowy limit doświadczenia w Baldur's Gate 1</h3>
+<p>Kompatybilność: EET</p>
+<p>EET domyślnie nie posiada limitu doświadczenia dla pierwszej części Baldura. Ten tweak pozwala wprowadzić takowy poprzez edycję pliku BALDUR.BCS. Dostępne opcje:</p>
+<p><a href="#" onclick="toggle('Adjust BG:EE XP CAP'); return false;">Rozwiń/Zwiń szczegóły</a></p>
+<ul class="vlisthide" id="Adjust BG:EE XP CAP">
+	<li><strong> 89,000</strong> (limit na poziomie startowym w BG2:EE)</li>
+	<li><strong>161,000</strong> (limit jak w BG:EE)</li>
+	<li><strong>Inna wartość</strong> (wpisz ręcznie liczbę)</li>
+</ul>
+<hr />
+
+<h3>Dodatkowy limit doświadczenia w Cieniach Amn</h3>
+<p>Kompatybilność: EET</p>
+<p>Tak jak w przypadku oryginalnego BG2:EE, EET domyślnie nie ma limitu dla samych Cieni Amn. Ten tweak pozwala wprowadzić takowy poprzez edycję pliku BALDUR.BCS. Dostępne opcje:</p>
+<p><a href="#" onclick="toggle('Additional BG2:EE SoA XP CAP'); return false;">Rozwiń/Zwiń szczegóły</a></p>
+<ul class="vlisthide" id="Additional BG2:EE SoA XP CAP">
+	<li><strong>2,500,000</strong> (limit na poziomie z jakim startują NPC w Tronie Bhaala)</li>
+	<li><strong>2,950,000</strong> (limit jak w BG2 bez dodatku)</li>
 	<li><strong>Inna wartość</strong> (wpisz ręcznie liczbę)</li>
 </ul>
 <hr />
@@ -752,9 +751,9 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 			<p>0 - Czar teleportacji<br />
 			1 - Konsekwentny wygląd NPC<br />
 			2 - Konsekwentne głosy NPC<br />
-			3 - Dodatkowy limit doświadczenia w Cieniach Amn<br />
-			4 - Dostosuj limit doświadczenia w BG1<br />
-			5 - Dostosuj całkowity limit doświadczenia<br />
+			3 - Dostosuj całkowity limit doświadczenia<br />
+			4 - Dodatkowy limit doświadczenia w BG1<br />
+			5 - Dodatkowy limit doświadczenia w Cieniach Amn<br />
 			6 - Dostosuj doświadczenie za rozbrajanie pułapek, naukę czarów i otwieranie zamków<br />
 			7 - Dostosuj doświadczenie za pokonanie stworzeń<br />
 			8 - Dostosuj doświadczenie za zadania<br />
@@ -801,10 +800,10 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 <p>Przykład:</p>
 
 <div class="important">
-<p>setup-EET_Tweaks.exe --force-install-list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 --skip-at-view --language 1 --args-list "1-2" "3-2" "4-4-200000" "5-4-10000000" "6-3" "7-5" "8-7-120" "11-1" "16-4" "17-4" "18-4" "19-4" "21-2" p "C:\Program Files (x86)\BeamDog\Games\00798"</p>
+<p>setup-EET_Tweaks.exe --force-install-list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 --skip-at-view --language 1 --args-list "1-2" "3-4-10000000" "4-4-200000" "5-2" "6-3" "7-5" "8-7-120" "11-1" "16-4" "17-4" "18-4" "19-4" "21-2" p "C:\Program Files (x86)\BeamDog\Games\00798"</p>
 </div>
 
-<p>Ten kod wiersza poleceń zainstaluje wszystkie komponenty z tego modu, używając jeżyka polskiego, podanej ścieżki do IWD:EE, i nstępujących ustawień komponentów: BG2 użyty jako baza dla wyglądu NPC; dodany limit doświadczenia w Cieniach Amn na poziome 2,950,000; limit doświadczenia w BG:EE - Inna wartość - 200,000; limit doświadczenia w BG2:EE - Inna wartość - 10,000,000; doświadczenie za rozbrajanie pułapek, naukę czarów i otwieranie zamków z wykorzystaniem progresywnej tabeli; zmniejszona ilość doświadczenia za ubijane stworki do 10%; doświadczenie za zadania - Inna wartość - 120%; FPS zmienione na 60 klatek na sekundę; szansa na strzaskanie wszystkich rodzajów przedmiotów ustalona na 0.1%; utrata Kondycji na tydzień po śmierci chowańca.</p>
+<p>Ten kod wiersza poleceń zainstaluje wszystkie komponenty z tego modu, używając jeżyka polskiego, podanej ścieżki do IWD:EE, i nstępujących ustawień komponentów: BG2 użyty jako baza dla wyglądu NPC; całkowity limit doświadczenia - Inna wartość - 10,000,000; dodatkowy limit doświadczenia w BG1 - Inna wartość - 200,000; dodatkowy limit doświadczenia w Cieniach Amn na poziome 2,950,000; doświadczenie za rozbrajanie pułapek, naukę czarów i otwieranie zamków z wykorzystaniem progresywnej tabeli; zmniejszona ilość doświadczenia za ubijane stworki do 10%; doświadczenie za zadania - Inna wartość - 120%; FPS zmienione na 60 klatek na sekundę; szansa na strzaskanie wszystkich rodzajów przedmiotów ustalona na 0.1%; utrata Kondycji na tydzień po śmierci chowańca.</p>
 
 <address><span class="footer">EET Tweaks > Instalacja</span> ·<a href="#top">POWRÓT</a></address>
 </div>

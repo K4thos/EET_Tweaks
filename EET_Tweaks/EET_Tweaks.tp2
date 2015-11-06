@@ -39,7 +39,7 @@ LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 COMPILE ~EET_Tweaks/%COMPONENT_NUMBER%/K#TELSPL.d~
 
 //modify both scripts and dialogue
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#TELCUT.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/K#TELCUT.baf
 IF
   True()
 THEN
@@ -75,7 +75,7 @@ THEN
 END
 >>>>>>>>
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/area-et.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/area-et.baf
 IF
   Global("K#BeenIn%area%","GLOBAL",0)
   //AreaCheck("%area%")
@@ -86,7 +86,7 @@ THEN
 END
 >>>>>>>>
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#TELSPL-eb.d
+<<<<<<<< .../%COMPONENT_NUMBER%/K#TELSPL-eb.d
 EXTEND_BOTTOM K#TELSPL 0
 	IF ~OR(2) Global("K#BeenIn%area%","GLOBAL",1) Global("K#DebugMode","GLOBAL",1)~ THEN REPLY ~%string%~ DO ~ClearAllActions()
 StartCutScene("K#%area%")
@@ -104,9 +104,9 @@ COPY - ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~ ~EET_Tweaks/%COMPONENT_N
 		READ_2DA_ENTRY cnt 3 4 "Orientation"
 		INNER_ACTION BEGIN
 			ACTION_IF (("%area%" STRING_EQUAL_CASE "%area_last%")=0) BEGIN
-				EXTEND_TOP ~%area%.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/area-et.baf~ EVALUATE_BUFFER
-				COPY - ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#TELCUT.baf~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#%area%.baf~
-				COMPILE ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#%area%.baf~ EVALUATE_BUFFER
+				EXTEND_TOP ~%area%.BCS~ ~.../%COMPONENT_NUMBER%/area-et.baf~ EVALUATE_BUFFER
+				COPY - ~.../%COMPONENT_NUMBER%/K#TELCUT.baf~ ~.../%COMPONENT_NUMBER%/K#%area%.baf~
+				COMPILE ~.../%COMPONENT_NUMBER%/K#%area%.baf~ EVALUATE_BUFFER
 				COPY - ~%tra_path%/%LANGUAGE%/areas.tra~ ~%tra_path%/%LANGUAGE%/areas.tra~
 					REPLACE_TEXTUALLY ~%slash%%slash%.*~ ~~
 					COUNT_2DA_ROWS 3 cntrow2
@@ -124,7 +124,7 @@ COPY - ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~ ~EET_Tweaks/%COMPONENT_N
 						END
 					END
 				ACTION_IF ("%update%" = 1) BEGIN 
-					COMPILE ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#TELSPL-eb.d~ EVALUATE_BUFFER
+					COMPILE ~.../%COMPONENT_NUMBER%/K#TELSPL-eb.d~ EVALUATE_BUFFER
 				END ELSE BEGIN
 					WARN ~Translation for %area% used in K#TELSPL.DLG not found.~
 				END
@@ -200,138 +200,13 @@ LAM ~EET_Tweaks.log~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
-///// Additional XP CAP for SoA portion of the game    \\\\\
-/////                                                  \\\\\
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-
-BEGIN ~Additional XP CAP for SoA portion of the game~
-//DESIGNATED 3
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
-
-OUTER_WHILE (valid_answer = 0) BEGIN
-	ACTION_IF (button = 1) BEGIN //2,500,000
-		OUTER_SET value = 2500000
-		OUTER_SET valid_answer = 1
-	END ELSE ACTION_IF (button = 2) BEGIN //2,950,000
-		OUTER_SET value = 2950000
-		OUTER_SET valid_answer = 1
-	END ELSE ACTION_IF (button = 3) BEGIN //Custom value
-		OUTER_WHILE NOT (IS_AN_INT %value%) OR (%value% < 1) BEGIN
-			PRINT ~Type in the integer value for XP CAP:~
-			ACTION_READLN ~value~
-		END
-		OUTER_SET logCustom = 1
-		OUTER_SET valid_answer = 1
-	END ELSE BEGIN
-		PRINT ~What value should be used for BG2:EE SoA XP CAP?
- 1] 2,500,000 - BG2:ToB starting XP for NPC
- 2] 2,950,000 - BG2 without expansion XP CAP
- 3] Custom value~
-		ACTION_READLN ~button~
-		ACTION_IF NOT (IS_AN_INT %button%) BEGIN
-			OUTER_SET button = 0
-		END
-	END
-END
-
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/baldur-eb.baf
-IF
-  GlobalLT("ENDOFBG2","GLOBAL",2)
-  XPGT(Player%number%,%value%)
-  !AreaCheck("OH8000")
-  !AreaCheck("OH9310")
-  Global("OHB_BP2_CAPTURE","GLOBAL",0)
-  Global("BPINTRO","GLOBAL",0)
-THEN
-  RESPONSE #100
-    ChangeStat(Player%number%,XP,%value%,SET)
-    Continue()
-END
->>>>>>>>
-
-ACTION_FOR_EACH number IN 1 2 3 4 5 6 BEGIN
-	EXTEND_BOTTOM ~BALDUR.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/baldur-eb.baf~ EVALUATE_BUFFER
-END
-
-LAM ~EET_Tweaks.log~
-
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-/////                                                  \\\\\
-///// Adjust XP CAP for BG1 portion of the game        \\\\\
-/////                                                  \\\\\
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-
-BEGIN ~Adjust XP CAP for BG1 portion of the game~
-//DESIGNATED 4
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
-
-OUTER_WHILE (valid_answer = 0) BEGIN
-	ACTION_IF (button = 1) BEGIN //89,000
-		OUTER_SET value = 89000
-		OUTER_SET valid_answer = 1
-	END ELSE ACTION_IF (button = 2) BEGIN //161,000
-		OUTER_SET value = 161000
-		OUTER_SET valid_answer = 1
-	END ELSE ACTION_IF (button = 3) BEGIN //Disable
-		OUTER_SET value = 100000000
-		OUTER_SET valid_answer = 1
-	END ELSE ACTION_IF (button = 4) BEGIN //Custom value
-		OUTER_WHILE NOT (IS_AN_INT %value%) OR (%value% < 1) BEGIN
-			PRINT ~Type in the integer value for XP CAP:~
-			ACTION_READLN ~value~
-		END
-		OUTER_SET logCustom = 1
-		OUTER_SET valid_answer = 1
-	END ELSE BEGIN
-		PRINT ~What value should be used for BG:EE XP CAP?
- 1]  89,000 - BG2:EE starting XP
- 2] 161,000 - BG:EE XP CAP (default)
- 3] Disable XP CAP (set to 100,000,000)
- 4] Custom value~
-		ACTION_READLN ~button~
-		ACTION_IF NOT (IS_AN_INT %button%) BEGIN
-			OUTER_SET button = 0
-		END
-	END
-END
-
-COPY_EXISTING ~BALDUR.BCS~ ~override~
-	DECOMPILE_AND_PATCH BEGIN
-		PATCH_FOR_EACH number IN 1 2 3 4 5 6 BEGIN
-			SPRINT textToReplace ~GlobalLT("ENDOFBG1","GLOBAL",2)[%newline%]*XPGT(Player%number%,[0-9]+)[%newline%]*!AreaCheck("OH8000")[%newline%]*!AreaCheck("OH9310")[%newline%]*Global("OHB_BP2_CAPTURE","GLOBAL",0)[%newline%]*Global("BPINTRO","GLOBAL",0)[%newline%]*THEN[%newline%]*RESPONSE #100[%newline%]*ChangeStat(Player%number%,XP,[0-9]+,SET)~
-			COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
-			PATCH_IF (num_matches > 0) BEGIN
-				REPLACE_TEXTUALLY ~%textToReplace%~ ~GlobalLT("ENDOFBG1","GLOBAL",2)
-  XPGT(Player%number%,%value%)
-  !AreaCheck("OH8000")
-  !AreaCheck("OH9310")
-  Global("OHB_BP2_CAPTURE","GLOBAL",0)
-  Global("BPINTRO","GLOBAL",0)
-THEN
-  RESPONSE #100
-    ChangeStat(Player%number%,XP,%value%,SET)~
-			END ELSE BEGIN
-				PATCH_WARN ~Warning: could not find EET XP CAP data in %SOURCE_FILESPEC%~
-			END
-		END
-	END
-BUT_ONLY
-
-LAM ~EET_Tweaks.log~
-
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
-/////                                                  \\\\\
 ///// Adjust total XP CAP                              \\\\\
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
 BEGIN ~Adjust total XP CAP~
-//DESIGNATED 5
+//DESIGNATED 3
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2090 ~Component already installed via BG2 Tweaks~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2091 ~Component already installed via BG2 Tweaks~
@@ -355,7 +230,7 @@ OUTER_WHILE (valid_answer = 0) BEGIN
 		OUTER_SET logCustom = 1
 		OUTER_SET valid_answer = 1
 	END ELSE BEGIN
-		PRINT ~What value should be used for BG2:EE SoA XP CAP?
+		PRINT ~What value should be used for total XP CAP?
  1] 2,950,000 - BG2 without expansion XP CAP
  2] 8,000,000 - BG2:EE XP CAP (default)
  3] Disable XP CAP
@@ -369,10 +244,128 @@ END
 
 COPY_EXISTING ~XPCAP.2DA~ ~override~
 	REPLACE_TEXTUALLY ~[1-9][0-9]+~ ~%value%~ EVALUATE_BUFFER //numbers >=10 only, otherwise, it changes 2DA as well
-	BUT_ONLY
+BUT_ONLY
 COPY_EXISTING ~STARTARE.2DA~ ~override~
-	REPLACE_TEXTUALLY ~START_XP_CAP[ %TAB%]+[-0-9]+~ ~%value%~ EVALUATE_BUFFER
-	BUT_ONLY
+	REPLACE_TEXTUALLY ~\(START_XP_CAP[ %TAB%]+\)[-0-9]+~ ~\1%value%~ EVALUATE_BUFFER
+BUT_ONLY
+
+LAM ~EET_Tweaks.log~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Additional XP CAP for BG1 portion of the game    \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN ~Additional XP CAP for BG1 portion of the game~
+//DESIGNATED 4
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+
+OUTER_WHILE (valid_answer = 0) BEGIN
+	ACTION_IF (button = 1) BEGIN //89,000
+		OUTER_SET value = 89000
+		OUTER_SET valid_answer = 1
+	END ELSE ACTION_IF (button = 2) BEGIN //161,000
+		OUTER_SET value = 161000
+		OUTER_SET valid_answer = 1
+	END ELSE ACTION_IF (button = 3) BEGIN //Custom value
+		OUTER_WHILE NOT (IS_AN_INT %value%) OR (%value% < 1) BEGIN
+			PRINT ~Type in the integer value for XP CAP:~
+			ACTION_READLN ~value~
+		END
+		OUTER_SET logCustom = 1
+		OUTER_SET valid_answer = 1
+	END ELSE BEGIN
+		PRINT ~What value should be used for BG1 XP CAP?
+ 1]  89,000 - BG2:EE starting XP
+ 2] 161,000 - BG:EE XP CAP
+ 3] Custom value~
+		ACTION_READLN ~button~
+		ACTION_IF NOT (IS_AN_INT %button%) BEGIN
+			OUTER_SET button = 0
+		END
+	END
+END
+
+<<<<<<<< .../%COMPONENT_NUMBER%/baldur-eb.baf
+IF
+  GlobalLT("ENDOFBG1","GLOBAL",2)
+  XPGT(Player%number%,%value%)
+  !AreaCheck("OH8000")
+  !AreaCheck("OH9310")
+  Global("OHB_BP2_CAPTURE","GLOBAL",0)
+  Global("BPINTRO","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeStat(Player%number%,XP,%value%,SET)
+    Continue()
+END
+>>>>>>>>
+
+ACTION_FOR_EACH number IN 1 2 3 4 5 6 BEGIN
+	EXTEND_BOTTOM ~BALDUR.BCS~ ~.../%COMPONENT_NUMBER%/baldur-eb.baf~ EVALUATE_BUFFER
+END
+
+LAM ~EET_Tweaks.log~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Additional XP CAP for SoA portion of the game    \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN ~Additional XP CAP for SoA portion of the game~
+//DESIGNATED 5
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+
+OUTER_WHILE (valid_answer = 0) BEGIN
+	ACTION_IF (button = 1) BEGIN //2,500,000
+		OUTER_SET value = 2500000
+		OUTER_SET valid_answer = 1
+	END ELSE ACTION_IF (button = 2) BEGIN //2,950,000
+		OUTER_SET value = 2950000
+		OUTER_SET valid_answer = 1
+	END ELSE ACTION_IF (button = 3) BEGIN //Custom value
+		OUTER_WHILE NOT (IS_AN_INT %value%) OR (%value% < 1) BEGIN
+			PRINT ~Type in the integer value for XP CAP:~
+			ACTION_READLN ~value~
+		END
+		OUTER_SET logCustom = 1
+		OUTER_SET valid_answer = 1
+	END ELSE BEGIN
+		PRINT ~What value should be used for Shadows of Amn XP CAP?
+ 1] 2,500,000 - BG2:ToB starting XP for NPC
+ 2] 2,950,000 - BG2 without expansion XP CAP
+ 3] Custom value~
+		ACTION_READLN ~button~
+		ACTION_IF NOT (IS_AN_INT %button%) BEGIN
+			OUTER_SET button = 0
+		END
+	END
+END
+
+<<<<<<<< .../%COMPONENT_NUMBER%/baldur-eb.baf
+IF
+  GlobalLT("ENDOFBG2","GLOBAL",2)
+  XPGT(Player%number%,%value%)
+  !AreaCheck("OH8000")
+  !AreaCheck("OH9310")
+  Global("OHB_BP2_CAPTURE","GLOBAL",0)
+  Global("BPINTRO","GLOBAL",0)
+THEN
+  RESPONSE #100
+    ChangeStat(Player%number%,XP,%value%,SET)
+    Continue()
+END
+>>>>>>>>
+
+ACTION_FOR_EACH number IN 1 2 3 4 5 6 BEGIN
+	EXTEND_BOTTOM ~BALDUR.BCS~ ~.../%COMPONENT_NUMBER%/baldur-eb.baf~ EVALUATE_BUFFER
+END
 
 LAM ~EET_Tweaks.log~
 
@@ -860,7 +853,7 @@ ACTION_IF (FILE_EXISTS ~%USER_DIRECTORY%/Baldur.ini~) BEGIN
 		END
 	BUT_ONLY
 END ELSE BEGIN
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/Baldur.ini
+<<<<<<<< .../%COMPONENT_NUMBER%/Baldur.ini
 CREATE TABLE options (
 	section string,
 	name string,
@@ -870,7 +863,7 @@ INSERT INTO options ROWS (
 	'Game Options',	'3E Thief Sneak Attack',	'1'
 );
 >>>>>>>>
-	COPY ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/Baldur.ini~ ~%USER_DIRECTORY%/Baldur.ini~ EVALUATE_BUFFER
+	COPY ~.../%COMPONENT_NUMBER%/Baldur.ini~ ~%USER_DIRECTORY%/Baldur.ini~ EVALUATE_BUFFER
 END
 
 ACTION_BASH_FOR ~EET_Tweaks/%COMPONENT_NUMBER%~ ~.*\.2DA$~ BEGIN
@@ -955,7 +948,7 @@ ACTION_IF (FILE_EXISTS ~%USER_DIRECTORY%/Baldur.ini~) BEGIN
 		END
 	BUT_ONLY
 END ELSE ACTION_IF ENGINE_IS ~bgee bg2ee iwdee~ BEGIN
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/Baldur.ini
+<<<<<<<< .../%COMPONENT_NUMBER%/Baldur.ini
 CREATE TABLE options (
 	section string,
 	name string,
@@ -965,7 +958,7 @@ INSERT INTO options ROWS (
 	'Program Options',	'Maximum Frame Rate',	'%value%'
 );
 >>>>>>>>
-	COPY ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/Baldur.ini~ ~%USER_DIRECTORY%/Baldur.ini~ EVALUATE_BUFFER
+	COPY ~.../%COMPONENT_NUMBER%/Baldur.ini~ ~%USER_DIRECTORY%/Baldur.ini~ EVALUATE_BUFFER
 END ELSE BEGIN
 	//create ini file for non EE games
 END
@@ -1108,7 +1101,7 @@ END ELSE BEGIN
 	OUTER_SPRINT save_eval ~~
 END*/
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/baldur-et.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/baldur-et.baf
 IF
   OR(3)
     NumInPartyAlive(0)
@@ -1123,7 +1116,7 @@ END
 
 ACTION_FOR_EACH script IN BALDUR BALDUR25 BEGIN
 	ACTION_IF FILE_EXISTS_IN_GAME ~%script%.BCS~ BEGIN
-		EXTEND_TOP ~%script%.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/baldur-et.baf~ EVALUATE_BUFFER
+		EXTEND_TOP ~%script%.BCS~ ~.../%COMPONENT_NUMBER%/baldur-et.baf~ EVALUATE_BUFFER
 	END
 END
 
@@ -1141,7 +1134,7 @@ BEGIN ~Disable item shattering for enemies~
 //DESIGNATED 15
 REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#SHAT-et.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/K#SHAT-et.baf
 IF
   !InParty(LastSummonerOf(Myself))
 THEN
@@ -1151,7 +1144,7 @@ END
 >>>>>>>>
 
 ACTION_FOR_EACH file IN K#SHATWE K#SHATSH K#SHATAR K#SHATHE BEGIN
-	EXTEND_TOP ~%file%.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#SHAT-et.baf~
+	EXTEND_TOP ~%file%.BCS~ ~.../%COMPONENT_NUMBER%/K#SHAT-et.baf~
 END
 
 LAM ~EET_Tweaks.log~
@@ -1547,7 +1540,7 @@ OUTER_WHILE (valid_answer = 0) BEGIN
 	END
 END
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#FAMSUM-et.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/K#FAMSUM-et.baf
 IF
   GlobalTimerNotExpired("K#TimerFamiliar","GLOBAL")
 THEN
@@ -1565,7 +1558,7 @@ COPY_EXISTING ~K#FAMKIL.BCS~ ~override~
 			REPLACE_TEXTUALLY ~ChangeStat(Player1,CON,-1,ADD)~ ~ActionOverride(Player1,ApplySpellRES("K#FAMCON",Myself))~
 			INNER_ACTION BEGIN
 				COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#FAMCON.SPL~ ~override~
-				EXTEND_TOP ~K#FAMSUM.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#FAMSUM-et.baf~
+				EXTEND_TOP ~K#FAMSUM.BCS~ ~.../%COMPONENT_NUMBER%/K#FAMSUM-et.baf~
 			END
 		END ELSE PATCH_IF (button = 2) BEGIN //Constitution loss for 1 week
 			REPLACE_TEXTUALLY ~ActionOverride(Player1,DisplayString(Myself,21004))~ ~~
@@ -1582,7 +1575,7 @@ COPY_EXISTING ~K#FAMKIL.BCS~ ~override~
 			INNER_ACTION BEGIN
 				COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#FAMCON.SPL~ ~override~
 					WRITE_LONG 0xa8 ~%time%~
-				EXTEND_TOP ~K#FAMSUM.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/K#FAMSUM-et.baf~
+				EXTEND_TOP ~K#FAMSUM.BCS~ ~.../%COMPONENT_NUMBER%/K#FAMSUM-et.baf~
 			END
 		END ELSE PATCH_IF (button = 5) BEGIN //Option 2 custom time
 			REPLACE_TEXTUALLY ~ActionOverride(Player1,DisplayString(Myself,21004))~ ~~
@@ -1722,7 +1715,7 @@ END ELSE BEGIN
 	AT_NOW ~%WEIDU_EXECUTABLE% --noautoupdate --no-auto-tp2 --game "%iwdee_dir%" --out "EET_Tweaks/temp" --biff-get-rest "CHARSND.2DA"~
 END
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/CHARSND.txt
+<<<<<<<< .../%COMPONENT_NUMBER%/CHARSND.txt
 %index2%
 >>>>>>>>
 
@@ -1737,7 +1730,7 @@ COPY - ~EET_Tweaks/temp/CHARSND.2DA~ ~EET_Tweaks~
 			COUNT_2DA_ROWS cntcol2 "cntrow2"
 			FOR (cnt1 = 0 ; cnt1 < cntcol2 - 1 ; cnt1 = cnt1 + 1) BEGIN
 				INNER_ACTION BEGIN
-					COPY - ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/CHARSND.txt~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/CHARSND.txt~
+					COPY - ~.../%COMPONENT_NUMBER%/CHARSND.txt~ ~.../%COMPONENT_NUMBER%/CHARSND.txt~
 						REPLACE_TEXTUALLY ~\(index2.+\)~ ~\1 -1~
 				END
 			END
@@ -1763,7 +1756,7 @@ COPY - ~EET_Tweaks/temp/CHARSND.2DA~ ~EET_Tweaks~
 						READ_2DA_ENTRY_FORMER table_charsnd cnt4 0 "index2"
 						READ_2DA_ENTRY_FORMER table_charsnd cnt4 (cnt2 + 1) "string"
 						PATCH_IF (NOT FILE_CONTAINS_EVALUATED (~CHARSND.2DA~ ~^%index2%~)) BEGIN
-							APPEND_FILE ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/CHARSND.txt~ EVALUATE_BUFFER
+							APPEND_FILE ~.../%COMPONENT_NUMBER%/CHARSND.txt~ EVALUATE_BUFFER
 						END
 						PATCH_IF (string > 0) BEGIN
 							REPLACE_TEXTUALLY ~^\(%index2% .+\)$~ ~\1 999%string%~
@@ -1907,7 +1900,7 @@ END ELSE BEGIN //eet
 END
 
 ACTION_IF GAME_IS ~bg2ee eet~ BEGIN //add only missing data (kit is already there in patch 1.3, just not enabled for player)
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/KITTABLE.2DA
+<<<<<<<< .../%COMPONENT_NUMBER%/KITTABLE.2DA
 %kit_number% 40
 >>>>>>>>
 	COPY_EXISTING ~KITLIST.2DA~ ~override~
@@ -1928,7 +1921,7 @@ ACTION_IF GAME_IS ~bg2ee eet~ BEGIN //add only missing data (kit is already ther
 			READ_2DA_ENTRY (cntrow - 1) 0 2 "kit_number"
 			SET kit_number = kit_number + 1
 			PATCH_PRINT ~kit_number = %kit_number%~
-			APPEND_FILE ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/KITTABLE.2DA~ EVALUATE_BUFFER
+			APPEND_FILE ~.../%COMPONENT_NUMBER%/KITTABLE.2DA~ EVALUATE_BUFFER
 		BUT_ONLY
 	END
 END ELSE BEGIN //bgee
@@ -2321,7 +2314,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY "table_EETT_strrefIDS" BEGIN
 	~YUAN_TI~ , ~27000022~ , ~27000023~ => ~154~
 END
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/HATERACE.2DA
+<<<<<<<< .../%COMPONENT_NUMBER%/HATERACE.2DA
 %strref% %strref_1% %IDS% %strref_2%
 >>>>>>>>
 
@@ -2340,7 +2333,7 @@ COPY_EXISTING ~HATERACE.2DA~ ~override~
 			END
 		END
 		PATCH_IF (noupdate = 0) BEGIN
-			APPEND_FILE ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/HATERACE.2DA~ EVALUATE_BUFFER
+			APPEND_FILE ~.../%COMPONENT_NUMBER%/HATERACE.2DA~ EVALUATE_BUFFER
 		END
 		REPLACE ~%strref_1%~ ( AT "strref_1" )
 		REPLACE ~%strref_2%~ ( AT "strref_2" )
@@ -2362,7 +2355,7 @@ BEGIN ~Remove junk from global scripts~
 //DESIGNATED 28
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
 
-<<<<<<<< EET_Tweaks-inlined/K#DROWIT-et.baf
+<<<<<<<< .../K#DROWIT-et.baf
 IF
   HasItem("%MATCH1%",%MATCH2%)
 THEN
@@ -2371,7 +2364,7 @@ THEN
 END
 >>>>>>>>
 
-COPY - ~EET_Tweaks-inlined/blank.txt~ ~EET_Tweaks-inlined/blank.baf~
+COPY - ~.../blank.txt~ ~.../blank.baf~
 
 COMPILE ~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.baf~
 	~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.baf~
@@ -2379,20 +2372,20 @@ COMPILE ~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.baf~
 
 COPY_EXISTING ~BALDUR.BCS~ ~override~
 	~BALDUR25.BCS~ ~override~
-	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/HolySymbols.baf~ ~EET_Tweaks-inlined/blank.baf~
-	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Lilarcor.baf~ ~EET_Tweaks-inlined/blank.baf~
+	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/HolySymbols.baf~ ~.../blank.baf~
+	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Lilarcor.baf~ ~.../blank.baf~
 	PATCH_IF ~%SOURCE_RES%~ STRING_EQUAL_CASE ~BALDUR~ BEGIN
 		//Unused test script blocks
-		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Unused.baf~ ~EET_Tweaks-inlined/blank.baf~
+		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Unused.baf~ ~.../blank.baf~
 		//Malchior Harpell´s appearance
 		PATCH_IF FILE_EXISTS_IN_GAME ~cdt03160.g3~ BEGIN //BG2 Tweaks "Keep Drizzt's Loot, Disable Malchor Harpell" component detected
-			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/compat/bg2tweaks/Harpell.baf~ ~EET_Tweaks-inlined/blank.baf~
+			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/compat/bg2tweaks/Harpell.baf~ ~.../blank.baf~
 		END ELSE BEGIN
-			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Harpell.baf~ ~EET_Tweaks-inlined/blank.baf~
+			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Harpell.baf~ ~.../blank.baf~
 		END
 	END ELSE BEGIN
 		//Unused Familiar script blocks with wrong DV
-		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Familiar.baf~ ~EET_Tweaks-inlined/blank.baf~
+		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Familiar.baf~ ~.../blank.baf~
 	END
 	DECOMPILE_AND_PATCH BEGIN
 		//Lilarcor (talking sword)
@@ -2417,7 +2410,7 @@ COPY_EXISTING ~BALDUR.BCS~ ~override~
 			END
 			REPLACE_EVALUATE CASE_INSENSITIVE ~%textToReplace%~ BEGIN
 				INNER_ACTION BEGIN
-					EXTEND_TOP ~K#DROWIT.BCS~ ~EET_Tweaks-inlined/K#DROWIT-et.baf~ EVALUATE_BUFFER
+					EXTEND_TOP ~K#DROWIT.BCS~ ~.../K#DROWIT-et.baf~ EVALUATE_BUFFER
 				END
 			END ~~
 		END
@@ -2456,15 +2449,15 @@ COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.CRE~ ~override~
 //Leftover BG:EE ARE scripts code
 ACTION_FOR_EACH file IN AR0100 AR0101 AR0103 AR0106 AR0108 AR0111 AR0112 AR0114 AR0115 AR0119 AR0121 AR0123 AR0125 AR0128 AR0130 AR0137 AR0138 AR0145 AR0146 AR0149 AR0153 AR0608 AR0612 AR1803 AR2301 AR2609 AR2611 AR2626 AR3300 AR3304 AR3352 AR5400 AR5405 BEGIN
 	ACTION_IF NOT FILE_EXISTS_IN_GAME ~%file%.ARE~ BEGIN //just to be sure that other mod didn't add these areas
-		COPY - ~EET_Tweaks-inlined/blank.txt~ ~EET_Tweaks-inlined/%file%.baf~
-		COMPILE ~EET_Tweaks-inlined/%file%.baf~
+		COPY - ~.../blank.txt~ ~.../%file%.baf~
+		COMPILE ~.../%file%.baf~
 	END
 END
 
 //Leftover BG:EE ARE scripts code used in scripts that are also used in BG2:EE
 ACTION_FOR_EACH file IN AR0514 AR2001 BEGIN
 	COPY_EXISTING ~%file%.BCS~ ~override~
-		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/%file%.baf~ ~EET_Tweaks-inlined/blank.baf~
+		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/%file%.baf~ ~.../blank.baf~
 	BUT_ONLY
 END
 
@@ -2482,7 +2475,7 @@ BEGIN ~Restore TotSC textscreens~
 //DESIGNATED 29
 REQUIRE_PREDICATE GAME_IS ~bgee eet~ ~This component is not compatible with your game.~
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/AR1000-et.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/AR1000-et.baf
 IF
   Global("MissionPackSave","GLOBAL",0)
 THEN
@@ -2499,13 +2492,13 @@ COPY_EXISTING ~BALDUR.BCS~ ~override~
 BUT_ONLY
 
 ACTION_IF GAME_IS ~bgee~ BEGIN
-	EXTEND_TOP ~AR1000.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/AR1000-et.baf~
+	EXTEND_TOP ~AR1000.BCS~ ~.../%COMPONENT_NUMBER%/AR1000-et.baf~
 	COPY_EXISTING ~TOSCST.2DA~ ~override~
 		REPLACE_TEXTUALLY ~\(REPUTATION[ %TAB%]+-1[ %TAB%]+\)\([0-9]+\)~ ~\1 24105~
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END ELSE BEGIN
-	EXTEND_TOP ~BG1000.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/AR1000-et.baf~
+	EXTEND_TOP ~BG1000.BCS~ ~.../%COMPONENT_NUMBER%/AR1000-et.baf~
 END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -2532,7 +2525,7 @@ http://forum.baldursgate.com/discussion/40487/opcode-338-disable-rest-or-save-se
 
 LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/dplayer3-et.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/dplayer3-et.baf
 IF
   HotKey(Q)
   !Detect(NearestEnemyOf(Myself))
@@ -2550,7 +2543,7 @@ THEN
     RestParty()
 END*/
 >>>>>>>>
-EXTEND_TOP ~DPLAYER3.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/dplayer3-et.baf~
+EXTEND_TOP ~DPLAYER3.BCS~ ~.../%COMPONENT_NUMBER%/dplayer3-et.baf~
 
 //alternative for spell - area flag patching
 /*COPY_EXISTING_REGEXP GLOB ~^.+\.are$~ ~override~
@@ -2563,7 +2556,7 @@ BUT_ONLY
 
 ACTION_IF (%are_set% = 1) BEGIN
 	PRINT ~Areas with 'no sleep' flag:%WNL%%are_sprint%~
-	COPY - ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/dplayer3-et.baf~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/dplayer3-et.baf~
+	COPY - ~.../%COMPONENT_NUMBER%/dplayer3-et.baf~ ~.../%COMPONENT_NUMBER%/dplayer3-et.baf~
 		REPLACE_TEXTUALLY ~\(!Detect(NearestEnemyOf(Myself))\)~ ~\1%are_sprint%~
 END
 
@@ -2592,7 +2585,7 @@ COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#IRONM.SPL~ ~override~
 ACTION_FOR_EACH script IN BALDUR BALDUR25 BEGIN
 	ACTION_IF FILE_EXISTS_IN_GAME ~%script%.BCS~ BEGIN
 		ACTION_IF NOT MOD_IS_INSTALLED ~EET_Tweaks/EET_Tweaks.tp2~ ~14~ BEGIN
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/baldur-et.baf
+<<<<<<<< .../%COMPONENT_NUMBER%/baldur-et.baf
 IF
   Global("K#IRONMAN","GLOBAL",0)
 THEN
@@ -2619,7 +2612,7 @@ THEN
     GoToStartScreen()
 END
 >>>>>>>>
-			EXTEND_TOP ~%script%.BCS~ ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/baldur-et.baf~
+			EXTEND_TOP ~%script%.BCS~ ~.../%COMPONENT_NUMBER%/baldur-et.baf~
 		END ELSE BEGIN
 			COPY ~%script%.BCS~ ~override~
 				DECOMPILE_AND_PATCH BEGIN
@@ -2656,7 +2649,7 @@ ACTION_IF (FILE_EXISTS ~%USER_DIRECTORY%/Baldur.ini~) BEGIN
 		END
 	BUT_ONLY
 END ELSE BEGIN
-<<<<<<<< EET_Tweaks-inlined/%COMPONENT_NUMBER%/Baldur.ini
+<<<<<<<< .../%COMPONENT_NUMBER%/Baldur.ini
 CREATE TABLE options (
 	section string,
 	name string,
@@ -2667,7 +2660,7 @@ INSERT INTO options ROWS (
 	'Game Options',	'Maximum HP',	'0'
 );
 >>>>>>>>
-	COPY ~EET_Tweaks-inlined/%COMPONENT_NUMBER%/Baldur.ini~ ~%USER_DIRECTORY%/Baldur.ini~
+	COPY ~.../%COMPONENT_NUMBER%/Baldur.ini~ ~%USER_DIRECTORY%/Baldur.ini~
 END
 
 LAM ~EET_Tweaks.log~
