@@ -207,7 +207,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust total XP CAP~
 //DESIGNATED 3
-REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc soa tob iwd how totlm iwd2 tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2090 ~Component already installed via BG2 Tweaks~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2091 ~Component already installed via BG2 Tweaks~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2092 ~Component already installed via BG2 Tweaks~
@@ -223,7 +223,7 @@ OUTER_WHILE (valid_answer = 0) BEGIN
 		OUTER_SET value = "-1"
 		OUTER_SET valid_answer = 1
 	END ELSE ACTION_IF (button = 4) BEGIN //Custom value
-		OUTER_WHILE NOT (IS_AN_INT %value%) OR (%value% < 10) BEGIN
+		OUTER_WHILE NOT (IS_AN_INT %value%) BEGIN
 			PRINT ~Type in the integer value for XP CAP:~
 			ACTION_READLN ~value~
 		END
@@ -243,11 +243,51 @@ OUTER_WHILE (valid_answer = 0) BEGIN
 END
 
 COPY_EXISTING ~XPCAP.2DA~ ~override~
-	REPLACE_TEXTUALLY ~[1-9][0-9]+~ ~%value%~ EVALUATE_BUFFER //numbers >=10 only, otherwise, it changes 2DA as well
+	PRETTY_PRINT_2DA
+	//SET_2DA_ENTRY 1 0 1 "%value%"
+	COUNT_2DA_ROWS 2 "cntrow"
+	FOR (cnt = 1; cnt < "%cntrow%"; cnt = cnt + 1) BEGIN
+		SET_2DA_ENTRY cnt 1 2 "%value%"
+	END
+	PRETTY_PRINT_2DA
 BUT_ONLY
-COPY_EXISTING ~STARTARE.2DA~ ~override~
-	REPLACE_TEXTUALLY ~\(START_XP_CAP[ %TAB%]+\)[-0-9]+~ ~\1%value%~ EVALUATE_BUFFER
+
+COPY_EXISTING ~XPLEVEL.2DA~ ~override~
+	PRETTY_PRINT_2DA
+	COUNT_2DA_COLS "cntcol"
+	COUNT_2DA_ROWS cntcol "cntrow"
+	READ_2DA_ENTRY 0 (cntcol - 2) (cntcol - 1) "last_lvl"
+	PATCH_IF (last_lvl = 31) OR (last_lvl = 41) OR (last_lvl = 51) BEGIN
+		FOR (cnt = 0; cnt < "%cntrow%"; cnt = cnt + 1) BEGIN
+			SET_2DA_ENTRY cnt (cntcol - 1) cntcol "-1"
+		END
+		SET last_lvl = 0
+	END ELSE BEGIN //game doesn't have column with unreachable level yet
+		SET last_lvl = last_lvl + 1
+		SPRINT col ~dummy_entry dummy_entry %last_lvl%~
+		FOR (cnt = 0; cnt < "%cntrow%"; cnt = cnt + 1) BEGIN
+			SPRINT col ~%col% -1~
+		END
+	END
+	PRETTY_PRINT_2DA
 BUT_ONLY
+
+ACTION_IF (last_lvl > 0) BEGIN
+	//PRINT ~Appending column to XPLEVEL.2DA: %col%~
+	APPEND_COL ~XPLEVEL.2DA~ ~%col%~
+	COPY_EXISTING ~XPLEVEL.2DA~ ~override~
+		REPLACE_TEXTUALLY ~dummy_entry~ ~~
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~STARTARE.2DA~) BEGIN
+	COPY_EXISTING ~STARTARE.2DA~ ~override~
+		REPLACE_TEXTUALLY ~\(START_XP_CAP[ %TAB%]+\)[-0-9]+~ ~\1%value%~
+		REPLACE_TEXTUALLY ~\(START_MP_XP_CAP[ %TAB%]+\)[-0-9]+~ ~\1%value%~
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
 
 LAM ~EET_Tweaks.log~
 

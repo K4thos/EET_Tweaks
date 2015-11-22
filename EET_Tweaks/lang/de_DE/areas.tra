@@ -29,7 +29,7 @@
 @BG2700 = "Löwenweg" //@781016
 @BG2800 = "Küstenweg"
 @BG2900 = "Larswood" //@781031
-@BG3000 = "Scharfzahnwald" //@782001
+@BG3000 = "Der###Ostwald" //@781032
 @BG3100 = "Das###Schiffswrack" //@781033
 @BG3200 = "Hohe###Hecke" //@781021
 @BG3300 = "Beregost" //@781017
