@@ -77,18 +77,17 @@ END
 
 <<<<<<<< .../%COMPONENT_NUMBER%/area-et.baf
 IF
-  Global("K#BeenIn%area%","GLOBAL",0)
-  //AreaCheck("%area%")
+  !Global("%area%_visited","GLOBAL",1)
 THEN
   RESPONSE #100
-    SetGlobal("K#BeenIn%area%","GLOBAL",1)
+    SetGlobal("%area%_visited","GLOBAL",1)
     Continue()
 END
 >>>>>>>>
 
 <<<<<<<< .../%COMPONENT_NUMBER%/K#TELSPL-eb.d
 EXTEND_BOTTOM K#TELSPL 0
-	IF ~OR(2) Global("K#BeenIn%area%","GLOBAL",1) Global("K#DebugMode","GLOBAL",1)~ THEN REPLY ~%string%~ DO ~ClearAllActions()
+	IF ~OR(2) Global("%area%_visited","GLOBAL",1) Global("K#DebugMode","GLOBAL",1)~ THEN REPLY ~%string%~ DO ~ClearAllActions()
 StartCutScene("K#%area%")
 DestroySelf()~ EXIT
 END
@@ -104,7 +103,15 @@ COPY - ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~ ~EET_Tweaks/%COMPONENT_N
 		READ_2DA_ENTRY cnt 3 4 "Orientation"
 		INNER_ACTION BEGIN
 			ACTION_IF (("%area%" STRING_EQUAL_CASE "%area_last%")=0) BEGIN
-				EXTEND_TOP ~%area%.BCS~ ~.../%COMPONENT_NUMBER%/area-et.baf~ EVALUATE_BUFFER
+				COPY_EXISTING - ~%area%.BCS~ ~override~
+					DECOMPILE_AND_PATCH BEGIN
+						COUNT_REGEXP_INSTANCES ~!Global("%area%_visited","GLOBAL",1)~ num_matches
+						PATCH_IF (num_matches = 0) BEGIN
+							INNER_ACTION BEGIN
+								EXTEND_TOP ~%area%.BCS~ ~.../%COMPONENT_NUMBER%/area-et.baf~ EVALUATE_BUFFER
+							END
+						END
+					END
 				COPY - ~.../%COMPONENT_NUMBER%/K#TELCUT.baf~ ~.../%COMPONENT_NUMBER%/K#%area%.baf~
 				COMPILE ~.../%COMPONENT_NUMBER%/K#%area%.baf~ EVALUATE_BUFFER
 				COPY - ~%tra_path%/%LANGUAGE%/areas.tra~ ~%tra_path%/%LANGUAGE%/areas.tra~
