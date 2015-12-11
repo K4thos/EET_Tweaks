@@ -98,7 +98,7 @@
 
 //BG2:ToB Areas
 @AR3000 = "Watcher's###Keep" //@777025
-@AR4000 = "Godsheads" //@777034
+@AR4000 = "Sacred###Groove" //name used in ToB intro
 @AR5000 = "Saradush" //@777026
 @AR5200 = "Marching###Mountains" //@777030
 @AR5202 = "Forest###of###Mir###-###The###Temple" //@777029
@@ -107,7 +107,7 @@
 @AR6000 = "Abazigal's###Lair" //@777032
 @AR6100 = "Sendai's###Enclave" //@777033
 @AR6300 = "The###Oasis" //@777031
-@AR6400 = "Road###to###Marching###Mountains" //@777035
+@AR6400 = "Forest###Valley"
 
 //BG2EE:ToB Areas
 @OH4200 = "Deepstone###Clanhold" //@800007
