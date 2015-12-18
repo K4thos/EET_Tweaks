@@ -427,6 +427,14 @@ LAM ~EET_Tweaks.log~
 BEGIN ~Adjust XP for Traps, Spells and Lockpicking~
 //DESIGNATED 6
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 7 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 8 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 9 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 10 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 11 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 12 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 13 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 14 ~Similar component already installed via DEFJAM~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //BG1 (default)
@@ -511,6 +519,13 @@ LAM ~EET_Tweaks.log~
 BEGIN ~Adjust XP for killing creatures~
 //DESIGNATED 7
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 0 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 1 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 2 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 3 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 4 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 5 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 6 ~Similar component already installed via DEFJAM~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //150%
@@ -585,6 +600,13 @@ LAM ~EET_Tweaks.log~
 BEGIN ~Adjust XP for quests~
 //DESIGNATED 8
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 15 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 16 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 17 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 18 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 19 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 20 ~Similar component already installed via DEFJAM~
+FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 21 ~Similar component already installed via DEFJAM~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //150%

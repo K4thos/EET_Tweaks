@@ -152,87 +152,87 @@ IF
 THEN
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",20580) // All right, listen, beefy. I may be an intelligent sword, but I've had no formal edumication.
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",20779) // Can we go kill something now? Huh?
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",20780) // C'mon, what about now? ...No? C'mon, c'mon, I'm gettin' itchy! Let's go!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",20956) // Come on, let's kill something *now*! Hahahaha!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",24939) // I'm gonna kill now! Mmmm mmm mmm mmm mmm mmm... now?
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",25349) // Come on, what about now? Let's kill!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31258) // Now? Please, come on. Pretty please!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31259) // I don't know what you were expecting, but as a sword, I'm pretty one-dimensional in what I want!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31260) // Can we go whack something now?
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31638) // C'mon, c'mon! Let's go whack something EVIL!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31639) // Why don't we kill, uh... that over there?
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31640) // You know, once, long time ago... Yeah. I was like a... a moonblade! Eheheheh!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31641) // You really need to clean me. I like ta SHINE! Hahahaha!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31646) // Are we gonna kill something now? Come on, maybe? Somethin' small, ANYTHING! Huh?
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31649) // You know, my last owner always said I was "sharp" and "edgy." Heh heh! He was such an ass.
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31651) // I don't chop wood. Okay? I'm not an axe.
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31652) // Now! Now! Come on, kill something now! Yeah!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31654) // Boring! Boring! Booooo-ring!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31655) // Ugghh... Come ON!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",31656) // Rustle—friggin' saw a rabbit—c'mon, c'mon, c'mon, c'mon!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
   RESPONSE #10
     DisplayStringHeadOwner("sw2h14",6433) // Wanna go kill that over there? C'mon, let's kill somethin'!
-    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",TWENTY_MINUTES)
+    RealSetGlobalTimer("K#LILARCTimer100","GLOBAL",100)
     DestroySelf()
 END
 

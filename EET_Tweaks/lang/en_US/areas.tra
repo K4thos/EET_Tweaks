@@ -98,7 +98,7 @@
 
 //BG2:ToB Areas
 @AR3000 = "Watcher's###Keep" //@777025
-@AR4000 = "Sacred###Groove" //name used in ToB intro
+@AR4000 = "Sacred###Grove" //name used in ToB intro
 @AR5000 = "Saradush" //@777026
 @AR5200 = "Marching###Mountains" //@777030
 @AR5202 = "Forest###of###Mir###-###The###Temple" //@777029
