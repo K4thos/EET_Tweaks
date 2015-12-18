@@ -1,6 +1,6 @@
 BACKUP ~EET_Tweaks/backup~
 AUTHOR ~K4thos (swit)~
-VERSION ~beta 0.1~
+VERSION ~beta 0.9~
 README ~EET_Tweaks/docs/[%LANGUAGE%]readme.htm~ ~EET_Tweaks/docs/[en_US]readme.htm~
 //ASK_EVERY_COMPONENT
 //AUTO_TRA ~EET_Tweaks/lang/%s~//%~
@@ -2435,85 +2435,100 @@ END
 
 COPY - ~.../blank.txt~ ~.../blank.baf~
 
-COMPILE ~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.baf~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.baf~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#LILARC.baf~
-
+OUTER_SPRINT log ~~
 COPY_EXISTING ~BALDUR.BCS~ ~override~
 	~BALDUR25.BCS~ ~override~
-	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/HolySymbols.baf~ ~.../blank.baf~
-	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Lilarcor.baf~ ~.../blank.baf~
+	SET skip_HolySymbols = 0
+	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/HolySymbols.baf~ ~.../blank.baf~ ON_MISMATCH SET skip_HolySymbols = 1 SPRINT log ~%log%Skipping Holy Symbols tweak, some other mod already changed the default implementation.%LNL%~ END
+	SET skip_Lilarcor = 0
+	REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Lilarcor.baf~ ~.../blank.baf~ ON_MISMATCH SET skip_Lilarcor = 1 SPRINT log ~%log%Skipping Lilarcor tweak, some other mod already changed the default implementation.%LNL%~ END
 	PATCH_IF ~%SOURCE_RES%~ STRING_EQUAL_CASE ~BALDUR~ BEGIN
 		//Unused test script blocks
-		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Unused.baf~ ~.../blank.baf~
+		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Unused.baf~ ~.../blank.baf~ ON_MISMATCH SPRINT log ~%log%Skipping unused test script blocks cleaning, some other mod already changed the default implementation.%LNL%~ END
 		//Malchior Harpell´s appearance
-		PATCH_IF FILE_EXISTS_IN_GAME ~cdt03160.g3~ BEGIN //BG2 Tweaks "Keep Drizzt's Loot, Disable Malchor Harpell" component detected
-			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/compat/bg2tweaks/Harpell.baf~ ~.../blank.baf~
+		SET skip_Harpell = 0
+		PATCH_IF (FILE_EXISTS_IN_GAME ~cdt03160.g3~) BEGIN //BG2 Tweaks "Keep Drizzt's Loot, Disable Malchor Harpell" component detected
+			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/compat/bg2tweaks/Harpell.baf~ ~.../blank.baf~ ON_MISMATCH SET skip_Harpell = 1 SPRINT log ~%log%Skipping Malchior Harpell tweak, some other mod already changed the default implementation.%LNL%~ END
 		END ELSE BEGIN
-			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Harpell.baf~ ~.../blank.baf~
+			REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Harpell.baf~ ~.../blank.baf~ ON_MISMATCH SET skip_Harpell = 1 SPRINT log ~%log%Skipping Malchior Harpell tweak, some other mod already changed the default implementation.%LNL%~ END
 		END
 	END ELSE BEGIN
 		//Unused Familiar script blocks with wrong DV
-		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Familiar.baf~ ~.../blank.baf~
+		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/Familiar.baf~ ~.../blank.baf~ ON_MISMATCH SPRINT log ~%log%Skipping unused Familiar code cleaning, some other mod already changed the default implementation.%LNL%~ END
 	END
 	DECOMPILE_AND_PATCH BEGIN
 		//Lilarcor (talking sword)
-		COUNT_REGEXP_INSTANCES ~DisplayStringHeadOwner("sw2h14",20580)~ num_matches
-		PATCH_IF (num_matches > 0) BEGIN
-			PATCH_WARN ~Warning: DisplayStringHeadOwner("sw2h14",20580) still found in %SOURCE_FILESPEC% after patching. Some other mod may have changed Lilarcor script blocks. Consider uninstalling this component if you can't analyse it yourself and/or send %SOURCE_FILESPEC% and weidu.log to me.~
+		PATCH_IF (skip_Lilarcor = 0) BEGIN
+			COUNT_REGEXP_INSTANCES ~DisplayStringHeadOwner("sw2h14",20580)~ num_matches
+			PATCH_IF (num_matches > 0) BEGIN
+				PATCH_WARN ~Warning: DisplayStringHeadOwner("sw2h14",20580) still found in %SOURCE_FILESPEC% after patching. Some other mod may have changed Lilarcor script blocks. Consider uninstalling this component if you can't analyse it yourself and/or send %SOURCE_FILESPEC% and weidu.log to me.~
+			END
 		END
 		//Cleric's Holy Symbols
-		PATCH_FOR_EACH match IN BELT14 BELT13 BELT12 BEGIN
-			COUNT_REGEXP_INSTANCES ~TransformItem("CDHLYSYM","%match%")~ num_matches
-			PATCH_IF (num_matches > 0) BEGIN
-				PATCH_WARN ~Warning: %match% still found %num_matches% times in %SOURCE_FILESPEC% after patching. Some other mod may have changed Cleric's Holy Symbols script blocks. Consider uninstalling this component if you can't analyse it yourself and/or send %SOURCE_FILESPEC% and weidu.log to me.~
+		PATCH_IF (skip_HolySymbols = 0) BEGIN
+			PATCH_FOR_EACH match IN BELT14 BELT13 BELT12 BEGIN
+				COUNT_REGEXP_INSTANCES ~TransformItem("CDHLYSYM","%match%")~ num_matches
+				PATCH_IF (num_matches > 0) BEGIN
+					PATCH_WARN ~Warning: %match% still found %num_matches% times in %SOURCE_FILESPEC% after patching. Some other mod may have changed Cleric's Holy Symbols script blocks. Consider uninstalling this component if you can't analyse it yourself and/or send %SOURCE_FILESPEC% and weidu.log to me.~
+				END
 			END
 		END
 		PATCH_IF ~%SOURCE_RES%~ STRING_EQUAL_CASE ~BALDUR25~ BEGIN
 			//Drow items changing to dust on surface
+			SET skip_DROWIT = 0
 			SPRINT textToReplace ~IF[%newline%]*Global("oh_drow_items_safe","GLOBAL",0)[%newline%]*HasItem("\(.+\)",\(Player.\))[%newline%]*THEN[%newline%]*RESPONSE #100[%newline%]*TakeItemReplace("DWDUST",".+",Player.)[%newline%]*END~
 			COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
 			PATCH_PRINT ~Patching: %num_matches% matches wiped out from %SOURCE_FILESPEC%~
 			PATCH_IF (num_matches < 84) BEGIN
-				PATCH_WARN ~Warning: could not find %textToReplace% in %SOURCE_FILESPEC% at least 84 times. Some other mod may have changed these blocks. Consider uninstalling this component if you can't analyse it yourself and/or send %SOURCE_FILESPEC% and weidu.log to me.~
+				SET skip_DROWIT = 1
+				SPRINT log ~%log%Skipping Drow items tweak, some other mod already changed the default implementation (Could not find %textToReplace% in %SOURCE_FILESPEC% at least 84 times).%LNL%~
+			END ELSE BEGIN
+				REPLACE_EVALUATE CASE_INSENSITIVE ~%textToReplace%~ BEGIN
+					INNER_ACTION BEGIN
+						EXTEND_TOP ~K#DROWIT.BCS~ ~.../K#DROWIT-et.baf~ EVALUATE_BUFFER
+					END
+				END ~~
 			END
-			REPLACE_EVALUATE CASE_INSENSITIVE ~%textToReplace%~ BEGIN
-				INNER_ACTION BEGIN
-					EXTEND_TOP ~K#DROWIT.BCS~ ~.../K#DROWIT-et.baf~ EVALUATE_BUFFER
-				END
-			END ~~
 		END
 	END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.BCS$~ ~override~
-	DECOMPILE_AND_PATCH BEGIN
-		REPLACE_EVALUATE CASE_INSENSITIVE ~SetGlobal("oh_drow_items_safe","GLOBAL",0)~ BEGIN
-			PATCH_PRINT ~Drow items invisible creature spawning added to %SOURCE_FILESPEC%~
-		END ~SetGlobal("oh_drow_items_safe","GLOBAL",0)
-    CreateCreatureObject("K#DROWIT",Player1,0,0,0)~
-	END
-BUT_ONLY
+ACTION_IF (skip_HolySymbols = 0) BEGIN
+	COPY_EXISTING ~CDHLYSYM.SPL~ ~override~
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 /*Use EFF File*/ target = 1 power = 4 parameter1 = 0 parameter2 = 2 timing = 1 resist_dispel = 2 STR_VAR resource = "K#HLYSYM" END
+	BUT_ONLY
+	COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.CRE~ ~override~
+		~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.EFF~ ~override~
+	COMPILE ~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.baf~
+END
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~cdt03160.g3~ BEGIN //BG2 Tweaks "Keep Drizzt's Loot, Disable Malchor Harpell" component not detected
+ACTION_IF (skip_Lilarcor = 0) BEGIN
+	COPY_EXISTING ~SW2H14.ITM~ ~override~
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 272 /*Use EFF file on condition*/ target = 1 parameter1 = 6 parameter2 = 3 timing = 2 STR_VAR resource = "K#LILARC" END
+	BUT_ONLY
+	COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#LILARC.CRE~ ~override~
+		~EET_Tweaks/%COMPONENT_NUMBER%/K#LILARC.EFF~ ~override~
+	COMPILE ~EET_Tweaks/%COMPONENT_NUMBER%/K#LILARC.baf~
+END
+
+ACTION_IF (skip_Harpell = 0) AND (NOT FILE_EXISTS_IN_GAME ~cdt03160.g3~) BEGIN //BG2 Tweaks "Keep Drizzt's Loot, Disable Malchor Harpell" component not detected
 	EXTEND_BOTTOM ~AR0800.BCS~ ~EET_Tweaks/%COMPONENT_NUMBER%/Harpell.baf~
 END
 
-COPY_EXISTING ~CDHLYSYM.SPL~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 /*Use EFF File*/ target = 1 power = 4 parameter1 = 0 parameter2 = 2 timing = 1 resist_dispel = 2 STR_VAR resource = "K#HLYSYM" END
-BUT_ONLY
-
-COPY_EXISTING ~SW2H14.ITM~ ~override~
-	LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 272 /*Use EFF file on condition*/ target = 1 parameter1 = 6 parameter2 = 3 timing = 2 STR_VAR resource = "K#LILARC" END
-BUT_ONLY
-
-COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.CRE~ ~override~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#HLYSYM.EFF~ ~override~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.CRE~ ~override~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.EFF~ ~override~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.SPL~ ~override~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#LILARC.CRE~ ~override~
-	~EET_Tweaks/%COMPONENT_NUMBER%/K#LILARC.EFF~ ~override~
+ACTION_IF (skip_DROWIT = 0) BEGIN
+	COPY_EXISTING_REGEXP GLOB ~^.+\.BCS$~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_EVALUATE CASE_INSENSITIVE ~SetGlobal("oh_drow_items_safe","GLOBAL",0)~ BEGIN
+				PATCH_PRINT ~Drow items invisible creature spawning added to %SOURCE_FILESPEC%~
+			END ~SetGlobal("oh_drow_items_safe","GLOBAL",0)
+		CreateCreatureObject("K#DROWIT",Player1,0,0,0)~
+		END
+	BUT_ONLY
+	COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.CRE~ ~override~
+		~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.EFF~ ~override~
+		~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.SPL~ ~override~
+	COMPILE ~EET_Tweaks/%COMPONENT_NUMBER%/K#DROWIT.baf~
+END
 
 //Leftover BG:EE ARE scripts code
 ACTION_FOR_EACH file IN AR0100 AR0101 AR0103 AR0106 AR0108 AR0111 AR0112 AR0114 AR0115 AR0119 AR0121 AR0123 AR0125 AR0128 AR0130 AR0137 AR0138 AR0145 AR0146 AR0149 AR0153 AR0608 AR0612 AR1803 AR2301 AR2609 AR2611 AR2626 AR3300 AR3304 AR3352 AR5400 AR5405 BEGIN
@@ -2526,9 +2541,11 @@ END
 //Leftover BG:EE ARE scripts code used in scripts that are also used in BG2:EE
 ACTION_FOR_EACH file IN AR0514 AR2001 BEGIN
 	COPY_EXISTING ~%file%.BCS~ ~override~
-		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/%file%.baf~ ~.../blank.baf~
+		REPLACE_BCS_BLOCK ~EET_Tweaks/%COMPONENT_NUMBER%/%file%.baf~ ~.../blank.baf~ ON_MISMATCH SPRINT log ~%log%Skipping %file%.BCS cleaning, some other mod already changed the default implementation.%LNL%~ END
 	BUT_ONLY
 END
+
+PRINT ~%log%~
 
 LAM ~EET_Tweaks.log~
 
