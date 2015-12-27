@@ -1158,6 +1158,8 @@ BEGIN ~Protagonist can die~
 //DESIGNATED 14
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
 
+APPEND ~ACTION.IDS~ ~366 GameOver(I:StrRef*)~ UNLESS ~366 GameOver(I:StrRef*)~
+
 COPY_EXISTING_REGEXP GLOB ~^.+\.are$~ ~override~
 	READ_BYTE 0x14 "flags"
 	WRITE_BYTE 0x14 ("%flags%" BOR 0b00010000)
