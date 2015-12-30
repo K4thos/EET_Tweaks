@@ -1,6 +1,6 @@
 BACKUP ~EET_Tweaks/backup~
 AUTHOR ~K4thos (swit)~
-VERSION ~beta 0.9~
+VERSION ~1.0~
 README ~EET_Tweaks/docs/[%LANGUAGE%]readme.htm~ ~EET_Tweaks/docs/[en_US]readme.htm~
 //ASK_EVERY_COMPONENT
 //AUTO_TRA ~EET_Tweaks/lang/%s~//%~
