@@ -29,8 +29,7 @@
 @BG2700 = "Löwenweg" //@781016
 @BG2800 = "Küstenweg"
 @BG2900 = "Larswood" //@781031
-@BG3000 = "Der###Ostwald" //@781032
-@BG3100 = "Das###Schiffswrack" //@781033
+@BG3000 = "Spinnenwald"
 @BG3200 = "Hohe###Hecke" //@781021
 @BG3300 = "Beregost" //@781017
 @BG3400 = "Tempel###des###Lathander" //@781034
@@ -38,10 +37,10 @@
 @BG3600 = "Leuchtturm" //@781036
 @BG3700 = "Roter###Canyon" //@781037
 @BG3800 = "Nördliche###Handelsstraße"
-@BG3900 = "Ulcaster" //@781518
+@BG3900 = "Schule###von###Ulcaster"
 @BG4000 = "Gullykin" //@781040
-@BG4100 = "Die###Höhlen###von###Kozah"
-@BG4200 = "Fischersee"
+@BG4100 = "Antike###Ruinen"
+@BG4200 = "Wilder###See"
 @BG4300 = "Südliche###Handelsstraße"
 @BG4400 = "Einsame###Gipfel"
 @BG4500 = "Feuerweinbrücke" //@781005
@@ -54,7 +53,6 @@
 @BG5200 = "Westliche###Wolkengipfel" //@781012
 @BG5300 = "Feuerlaubwald"
 @BG5400 = "Minen###von###Nashkell" //@781014
-@BG5500 = "Drachenlauf" //@781015
 
 //BGEE Areas
 @OH2000 = "Adoys###Enklave" //@810001
@@ -98,7 +96,7 @@
 
 //BG2:ToB Areas
 @AR3000 = "Wachende###Festung" //@777025
-@AR4000 = "Gottesköpfe" //@777034
+@AR4000 = "Heiliger###Hain"
 @AR5000 = "Saradush" //@777026
 @AR5200 = "Wandernde###Berge" //@777030
 @AR5202 = "Mirwald###-###Der###Tempel" //@777029
@@ -107,7 +105,7 @@
 @AR6000 = "Abazigals###Lagerstätte" //@777032
 @AR6100 = "Sendais###Enklave" //@777033
 @AR6300 = "Die###Oase" //@777031
-@AR6400 = "Zu###den###Wandernden###Bergen" //@777035
+@AR6400 = "Waldsenke"
 
 //BG2EE:ToB Areas
 @OH4200 = "Tiefstein###Clanfeste" //@800007
