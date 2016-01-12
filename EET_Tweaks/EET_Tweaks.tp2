@@ -1,7 +1,7 @@
 BACKUP ~EET_Tweaks/backup~
 AUTHOR ~K4thos (swit)~
 VERSION ~1.0~
-README ~EET_Tweaks/docs/[%LANGUAGE%]readme.htm~ ~EET_Tweaks/docs/[en_US]readme.htm~
+README ~EET_Tweaks/lang/[%LANGUAGE%]/readme.html~ ~EET_Tweaks/readme-EET_Tweaks.html~
 //ASK_EVERY_COMPONENT
 //AUTO_TRA ~EET_Tweaks/lang/%s~//%~
 
@@ -32,7 +32,7 @@ LANGUAGE ~Deutsch (German)~
 
 BEGIN ~Teleport spell~
 //DESIGNATED 0
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 
@@ -163,7 +163,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Consistent NPC appearance~
 //DESIGNATED 1
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //BG:EE
@@ -195,8 +195,8 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Consistent NPC voices~
 //DESIGNATED 2
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
-REQUIRE_PREDICATE ("%LANGUAGE%" STRING_EQUAL_CASE ~pl_PL~) ~This component is only for Polish language (unless someone will suggest changes for other languages in future).~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
+REQUIRE_PREDICATE ("%LANGUAGE%" STRING_EQUAL_CASE ~pl_PL~) ~This component is only for Polish language (unless someone will suggest changes for other languages in future)~
 
 LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 
@@ -214,7 +214,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust total XP CAP~
 //DESIGNATED 3
-REQUIRE_PREDICATE GAME_IS ~bg1 totsc soa tob iwd how totlm iwd2 tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bg1 totsc soa tob iwd how totlm iwd2 tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2090 ~Component already installed via BG2 Tweaks~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2091 ~Component already installed via BG2 Tweaks~
 FORBID_COMPONENT ~bg2_tweaks/setup-bg2_tweaks.tp2~ 2092 ~Component already installed via BG2 Tweaks~
@@ -308,7 +308,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Additional XP CAP for BG1 portion of the game~
 //DESIGNATED 4
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //89,000
@@ -367,7 +367,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Additional XP CAP for SoA portion of the game~
 //DESIGNATED 5
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //2,500,000
@@ -426,7 +426,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust XP for Traps, Spells and Lockpicking~
 //DESIGNATED 6
-REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 7 ~Similar component already installed via DEFJAM~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 8 ~Similar component already installed via DEFJAM~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 9 ~Similar component already installed via DEFJAM~
@@ -518,7 +518,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust XP for killing creatures~
 //DESIGNATED 7
-REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 0 ~Similar component already installed via DEFJAM~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 1 ~Similar component already installed via DEFJAM~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 2 ~Similar component already installed via DEFJAM~
@@ -599,7 +599,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust XP for quests~
 //DESIGNATED 8
-REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 15 ~Similar component already installed via DEFJAM~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 16 ~Similar component already installed via DEFJAM~
 FORBID_COMPONENT ~xpmod/setup-xpmod.tp2~ 17 ~Similar component already installed via DEFJAM~
@@ -843,7 +843,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Party XP for quests distributed individually~
 //DESIGNATED 9
-REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 
 COPY_EXISTING ~XPLIST.2da~ ~override~
 	COUNT_2DA_COLS "cntcol"
@@ -907,7 +907,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~3E Thief Sneak Attack~
 //DESIGNATED 10
-REQUIRE_PREDICATE GAME_IS ~eet bg2ee~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet bg2ee~ ~This component is not compatible with your game~
 
 LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 
@@ -974,7 +974,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust FPS and fix audio skipping in cutscenes~
 //DESIGNATED 11
-REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //60
@@ -1081,7 +1081,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~More bandit scalps~
 //DESIGNATED 12
-REQUIRE_PREDICATE GAME_IS ~bgee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ ~This component is not compatible with your game~
 FORBID_COMPONENT ~Setup-BGTTweak.tp2~ 1400 ~Component already installed via BGT Tweaks~
 
 ACTION_FOR_EACH cre IN britik credus hakt raiken taugos tersus teven vax venkt zal BEGIN
@@ -1119,7 +1119,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Put Sword of Chaos +2 in Sarevok's inventory~
 //DESIGNATED 13
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 FORBID_COMPONENT ~Setup-BGTTweak.tp2~ 2700 ~Component already installed via BGT Tweaks~
 
 //check if Sarevok already has the sword
@@ -1156,7 +1156,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Protagonist can die~
 //DESIGNATED 14
-REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game~
 
 APPEND ~ACTION.IDS~ ~366 GameOver(I:StrRef*)~ UNLESS ~366 GameOver(I:StrRef*)~
 
@@ -1203,7 +1203,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Disable item shattering for enemies~
 //DESIGNATED 15
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 <<<<<<<< .../%COMPONENT_NUMBER%/K#SHAT-et.baf
 IF
@@ -1230,7 +1230,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust BG1 weapon shattering~
 //DESIGNATED 16
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //1%
@@ -1303,7 +1303,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust BG1 shield shattering~
 //DESIGNATED 17
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //1%
@@ -1376,7 +1376,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust BG1 armor shattering~
 //DESIGNATED 18
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //1%
@@ -1449,7 +1449,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust BG1 helmet shattering~
 //DESIGNATED 19
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //1%
@@ -1522,7 +1522,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Disable hostile reaction after charm~
 //DESIGNATED 20
-REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 FORBID_COMPONENT ~Setup-BGTTweak.tp2~ 2300 ~Component already installed via BGT Tweaks~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
@@ -1580,7 +1580,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Adjust familiar death consequences~
 //DESIGNATED 21
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 
 OUTER_WHILE (valid_answer = 0) BEGIN
 	ACTION_IF (button = 1) BEGIN //Constitution loss for 1 week + blocked familiar summoning for 1 week
@@ -1671,7 +1671,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Reserved slot for future tweak~
 //DESIGNATED 22
-REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~eet~ ~This component is not compatible with your game~
 DEPRECATED ~Nothing to see here for now~
 
 LAM ~EET_Tweaks.log~
@@ -1686,7 +1686,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~IWD:EE soundsets~
 //DESIGNATED 23
-REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game~
 
 INCLUDE ~EET_Tweaks/lib/iwdee_dir.tph~
 
@@ -1856,7 +1856,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~IWD:EE portraits~
 //DESIGNATED 24
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game~
 
 INCLUDE ~EET_Tweaks/lib/iwdee_dir.tph~
 
@@ -1955,7 +1955,8 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Add Priest of Tyr kit for Priests~
 //DESIGNATED 25
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game~
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~ohtyr.2da~ ~This kit is already in the game~
 
 LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 
@@ -2167,7 +2168,8 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Add Priest of Tempus kit for Priests~
 //DESIGNATED 26
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game~
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~ohtempus.2da~ ~This kit is already in the game~
 
 LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 
@@ -2366,7 +2368,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Add racial enemies from IWD~
 //DESIGNATED 27
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game~
 
 LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
 
@@ -2424,7 +2426,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Remove junk from global scripts~
 //DESIGNATED 28
-REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game~
 
 <<<<<<<< .../K#DROWIT-et.baf
 IF
@@ -2561,7 +2563,7 @@ LAM ~EET_Tweaks.log~
 
 BEGIN ~Restore TotSC textscreens~
 //DESIGNATED 29
-REQUIRE_PREDICATE GAME_IS ~bgee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ ~This component is not compatible with your game~
 
 <<<<<<<< .../%COMPONENT_NUMBER%/AR1000-et.baf
 IF
@@ -2607,7 +2609,7 @@ END
 
 BEGIN ~Ironman Mode~
 //DESIGNATED 100
-REQUIRE_PREDICATE GAME_IS ~bg2ee iwdee eet~ ~This component is not compatible with your game.~
+REQUIRE_PREDICATE GAME_IS ~bg2ee iwdee eet~ ~This component is not compatible with your game~
 DEPRECATED ~This component is currently broken:
 http://forum.baldursgate.com/discussion/40487/opcode-338-disable-rest-or-save-seems-to-be-partially-broken~
 
