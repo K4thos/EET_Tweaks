@@ -56,7 +56,7 @@
 <h2>Installation</h2>
 <div class="section">
 
-<h5>Windows</h5>
+<h3>Windows</h3>
 
 <p>EET Tweaks is packaged and installed with WeiDU and is distributed as a self-extracting archive. To install, simply double-click the archive and follow the instructions on screen.</p>
 
@@ -64,11 +64,11 @@
 
 <p>Please run setup-EET_Tweaks.exe in your game folder to reinstall, uninstall, or otherwise change components.</p>
 
-<h5>Mac OS X</h5>
+<h3>Mac OS X</h3>
 
 <p>EET_Tweaks is packaged and installed with WeiDU and is distributed as a compressed archive. Extract the contents of the archive and move them to your game folder. Your game folder should then contain a EET_Tweaks folder, setup-EET_Tweaks, and setup-EET_Tweaks.command. To install, simply double-click <strong>setup-EET_Tweaks.command</strong> and follow the instructions on screen.</p>
 
-<h5>Auto-installation (for expert users)</h5>
+<h3>Auto-installation (for expert users)</h3>
 
 <p>Instead of directly starting the installation go to the command line, navigate to your installation directory, and execute setup-EET.exe using the construction below. Alternatively, place the construction in a batch file or the Run... dialog in the Start menu.</p>
 
@@ -440,7 +440,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <h2>Credits</h2>
 <div class="section">
 
-<h5>Kudos (in alphabetical order)</h5>
+<h3>Kudos (in alphabetical order)</h3>
 
 <ul>
 	<li>Many thanks to AL|EN for integration with Big World Setup and support</li>
@@ -459,7 +459,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 	<li>Many thanks to you and all the other players who have contributed to the completeness of this modification</li>
 </ul>
 
-<h5>Translations</h5>
+<h3>Translations</h3>
 
 <p><strong>Polish:</strong> K4thos</p>
 <p><strong>German:</strong> WhiteAgnus</p>
@@ -488,13 +488,13 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <p><a href="#" onclick="toggle('1.0'); return false;">Expand/Collapse All</a></p>
 
-<h6><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (30.12.2015)</a></h6>
+<h3><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (30.12.2015)</a></h3>
 
 <ul class="hidelist" id="1.0">
 	<li>First public release</li>
 </ul>
 
-<h6><a href="#" onclick="toggle('1.1'); return false;">Version 1.1 (12.01.2016)</a></h6>
+<h3><a href="#" onclick="toggle('1.1'); return false;">Version 1.1 (12.01.2016)</a></h3>
 
 <ul class="hidelist" id="1.1">
 	<li>Collaboration with The Gibberlings 3 Modding Community</li>
@@ -504,29 +504,34 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 </div>
 </div>
 </div>
-<number><script type="text/javascript">
-    <!--
-      function toggle(id) {
-        element = document.getElementById(id);
-        if ( element.style.display == 'none' ) {
-          element.style.display = '';
-          if ( document.all ) {
-            document.getElementById('vhistoryaddress').style.display = 'none'; // IE hack
-          }
-        } else {
-          element.style.display = 'none';
-          if ( document.all ) {
-            document.getElementById('vhistoryaddress').style.display = ''; // IE hack
-          }
-        }
-      }
 
-      elements = document.getElementsByTagName('*');
-      for ( var i = 0; i < elements.length; i++ ) {
-        if ( elements[i].className == 'hidelist' ) {
-          elements[i].style.display = 'none';
+<number>
+  <script type="text/javascript">
+  <!--
+    function toggle(id) {
+      element = document.getElementById(id);
+      if ( element.style.display == 'none' ) {
+        element.style.display = '';
+        if ( document.all ) {
+          document.getElementById('vhistoryaddress').style.display = 'none'; // IE hack
+        }
+      } else {
+        element.style.display = 'none';
+        if ( document.all ) {
+          document.getElementById('vhistoryaddress').style.display = ''; // IE hack
         }
       }
-    //-->
-    </script></number></body>
+    }
+
+    elements = document.getElementsByTagName('*');
+    for ( var i = 0; i < elements.length; i++ ) {
+      if ( elements[i].className == 'hidelist' ) {
+        elements[i].style.display = 'none';
+      }
+    }
+  //-->
+  </script>
+</number>
+
+</body>
 </html>
