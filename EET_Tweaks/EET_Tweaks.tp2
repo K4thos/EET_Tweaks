@@ -1,8 +1,8 @@
 BACKUP ~EET_Tweaks/backup~
 AUTHOR ~K4thos (swit)~
-VERSION ~1.0~
-README ~EET_Tweaks/lang/[%LANGUAGE%]/readme.html~ ~EET_Tweaks/readme-EET_Tweaks.html~
-//ASK_EVERY_COMPONENT
+VERSION ~1.2~
+README ~EET_Tweaks/lang/%LANGUAGE%/readme-EET_Tweaks.html~ ~EET_Tweaks/readme-EET_Tweaks.html~
+ASK_EVERY_COMPONENT
 //AUTO_TRA ~EET_Tweaks/lang/%s~//%~
 
 ALWAYS
@@ -93,7 +93,7 @@ DestroySelf()~ EXIT
 END
 >>>>>>>>
 
-COPY - ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~ ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~
+COPY - ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~ ~.../EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~
 	COUNT_2DA_ROWS 4 cntrow
 	FOR (cnt = 1; cnt < "%cntrow%"; cnt = cnt + 1) BEGIN
 		SET update = 0
@@ -103,7 +103,11 @@ COPY - ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~ ~EET_Tweaks/%COMPONENT_N
 		READ_2DA_ENTRY cnt 3 4 "Orientation"
 		INNER_ACTION BEGIN
 			ACTION_IF (("%area%" STRING_EQUAL_CASE "%area_last%")=0) BEGIN
-				COPY_EXISTING - ~%area%.BCS~ ~override~
+				ACTION_IF NOT FILE_EXISTS_IN_GAME ~%area%.BCS~ BEGIN
+					COPY - ~.../blank.txt~ ~.../%area%.baf~
+					COMPILE ~.../%area%.baf~
+				END
+				COPY_EXISTING - ~%area%.BCS~ ~.../override~
 					DECOMPILE_AND_PATCH BEGIN
 						COUNT_REGEXP_INSTANCES ~!Global("%area%_visited","GLOBAL",1)~ num_matches
 						PATCH_IF (num_matches = 0) BEGIN
@@ -112,9 +116,10 @@ COPY - ~EET_Tweaks/%COMPONENT_NUMBER%/EET-teleport.tbl~ ~EET_Tweaks/%COMPONENT_N
 							END
 						END
 					END
+				BUT_ONLY
 				COPY - ~.../%COMPONENT_NUMBER%/K#TELCUT.baf~ ~.../%COMPONENT_NUMBER%/K#%area%.baf~
 				COMPILE ~.../%COMPONENT_NUMBER%/K#%area%.baf~ EVALUATE_BUFFER
-				COPY - ~%tra_path%/%LANGUAGE%/areas.tra~ ~%tra_path%/%LANGUAGE%/areas.tra~
+				COPY - ~%tra_path%/%LANGUAGE%/areas.tra~ ~.../%tra_path%/%LANGUAGE%/areas.tra~
 					REPLACE_TEXTUALLY ~%slash%%slash%.*~ ~~
 					COUNT_2DA_ROWS 3 cntrow2
 					FOR (cnt2 = 0; cnt2 < "%cntrow2%"; cnt2 = cnt2 + 1) BEGIN
@@ -150,6 +155,7 @@ COPY ~EET_Tweaks/%COMPONENT_NUMBER%/K#TELSPL.ITM~ ~override~
 
 COPY_EXISTING ~25Spell.sto~ ~override~
 	ADD_STORE_ITEM "K#TELSPL" #1 #0 #0 ~IDENTIFIED~ #2
+BUT_ONLY
 
 LAM ~EET_Tweaks.log~
 
@@ -1165,14 +1171,15 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.are$~ ~override~
 	WRITE_BYTE 0x14 ("%flags%" BOR 0b00010000)
 BUT_ONLY
 
-//Ironman Mode detection scrapped for now
-/*ACTION_IF MOD_IS_INSTALLED ~EET_Tweaks/EET_Tweaks.tp2~ ~15~ BEGIN
-	OUTER_SPRINT save_eval ~SaveGame(0)~
-END ELSE BEGIN
-	OUTER_SPRINT save_eval ~~
-END*/
-
 <<<<<<<< .../%COMPONENT_NUMBER%/baldur-et.baf
+IF
+  Global("K#DISABLE_PC_CAN_DIE","GLOBAL",1)
+  StateCheck(Player1,STATE_REALLY_DEAD)
+THEN
+  RESPONSE #100
+    GameOver(19377)
+END
+
 IF
   OR(3)
     NumInPartyAlive(0)
@@ -1180,7 +1187,6 @@ IF
     StateCheck(Player1,STATE_FROZEN_DEATH)
 THEN
   RESPONSE #100
-	//%save_eval%
     GameOver(19377)
 END
 >>>>>>>>
@@ -1679,19 +1685,21 @@ LAM ~EET_Tweaks.log~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
-///// IWD:EE soundsets                                 \\\\\
+///// IWD:EE soundsets (requires installed IWD:EE)     \\\\\
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~IWD:EE soundsets~
+BEGIN ~IWD:EE soundsets (requires installed IWD:EE)~
 //DESIGNATED 23
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game~
 
 INCLUDE ~EET_Tweaks/lib/iwdee_dir.tph~
 
+MKDIR ~EET_Tweaks/temp~
+
 ACTION_IF FILE_EXISTS ~%iwdee_dir%/weidu.conf~ BEGIN
-	COPY - ~%iwdee_dir%/weidu.conf~ ~%iwdee_dir%/weidu.conf~
+	COPY - ~%iwdee_dir%/weidu.conf~ ~.../%iwdee_dir%/weidu.conf~
 		READ_2DA_ENTRY 0 2 3 "LANGUAGE_IWDEE"
 END
 
@@ -1705,7 +1713,7 @@ END
 
 PRINT ~LANGUAGE_IWDEE = %LANGUAGE_IWDEE%~
 
-COPY - ~weidu.conf~ ~weidu.conf~
+COPY - ~weidu.conf~ ~.../weidu.conf~
 	READ_2DA_ENTRY 0 2 3 "LANGUAGE_BG2"
 PRINT ~LANGUAGE_BG2 = %LANGUAGE_BG2%~
 
@@ -1790,7 +1798,7 @@ END
 %index2%
 >>>>>>>>
 
-COPY - ~EET_Tweaks/temp/CHARSND.2DA~ ~EET_Tweaks~
+COPY - ~EET_Tweaks/temp/CHARSND.2DA~ ~.../EET_Tweaks/temp~
 	COUNT_2DA_COLS "cntcol"
 	COUNT_2DA_ROWS (cntcol - 1) "cntrow"
 	READ_2DA_ENTRIES_NOW table_charsnd (cntcol - 1)
@@ -1849,12 +1857,12 @@ LAM ~EET_Tweaks.log~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
-///// IWD:EE portraits                                 \\\\\
+///// IWD:EE portraits (requires installed IWD:EE)     \\\\\
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~IWD:EE portraits~
+BEGIN ~IWD:EE portraits (requires installed IWD:EE)~
 //DESIGNATED 24
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ ~This component is not compatible with your game~
 
@@ -1986,6 +1994,7 @@ ACTION_IF GAME_IS ~bg2ee eet~ BEGIN //add only missing data (kit is already ther
 	COPY_EXISTING ~CLASTEXT.2DA~ ~override~
 		PRETTY_PRINT_2DA
 		REPLACE_TEXTUALLY ~^OHTYR .+$~ ~~
+	BUT_ONLY
 	ACTION_FOR_EACH file IN K_C_H K_C_D K_C_G K_C_E K_C_HE K_C_HL K_C_HO BEGIN
 		COPY_EXISTING ~%file%.2DA~ ~override~
 			PRETTY_PRINT_2DA

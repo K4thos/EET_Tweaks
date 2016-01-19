@@ -14,7 +14,7 @@
     <strong>Author</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=6804">K4thos</a><br>
 	<strong>Contributors</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=2909">WhiteAgnus</a>, <a href="http://gibberlings3.net/forums/index.php?showuser=7356">CrevsDaak</a></p>
   <p><strong>On the web: </strong><a href="http://www.gibberlings3.net/eet_tweaks/"><strong>Home page</strong></a> and <a href="http://gibberlings3.net/forums/index.php?showforum=196"><strong>discussion forum</strong></a></p>
-  <p><strong>Version 1.0</strong><br />
+  <p><strong>Version 1.2</strong><br />
     <strong>Languages: </strong>English, Polish, German <br />
     <strong>Platforms: </strong>Windows, Mac OS X </p>
 </div>
@@ -44,7 +44,7 @@
 <!-- ================== C o m p a t i b i l i t y ================== --><a id="compatibility" name="compatibility"></a>
 <h2>Compatibility</h2>
 <div class="section">
-<p>This mod should be installed at the end, after any mod that alters CRE, BCS, DLG, ITM, SPL, EFF files. You can safely keep it as the last mod in your load order (even after Widescreen and BP-BGT Worldmap), which will allow you to install/uninstall/re-install components during play through, without risking breaking other mods.</p>
+<p>Like all the other tweak packs the mod should be installed at the end. At least after any mod that alters CRE, BCS, DLG, ITM, SPL, EFF files. You can safely keep it as the last mod in your load order, which will allow you to install/uninstall/re-install components during play through, without risking breaking other mods.</p>
 <p>You don't need to worry about components installation order - weidu is smart enough to reinstall previous components if needed. For example you can install 'Party XP for quests distributed individually' before or after installing 'Adjust XP for quests' component. The outcome will be the same.</p>
 <p>If you are going to use XP related components than you should avoid installing <a href="http://www.pocketplane.net/mambo/index.php?option=content&task=blogcategory&id=110&Itemid=83">Ding0 Experience Fixer (DEF JAM)</a>, as it does the same thing, but compared to this mod is less precise, flexible and doesn't cover mod related SPL, ITM, EFF files and new ChangeStat action added by EE engine (at least the version v6 that was the most recent one when I was writing this readme).</p>
 <p>Don't forget to read compatibility section in the description of each component you want to install. If it is mentioned that the same functionality is available elsewhere and you have conflicting mod installed already than installer will skip these components.</p>
@@ -115,21 +115,21 @@
 			20 - install Disable hostile reaction after charm<br />
 			21 - install Adjust familiar death consequences<br />
 			//22 - reserved slot<br />
-			23 - install IWD:EE portraits<br />
-			24 - install IWD:EE soundsets<br />
+			23 - install IWD:EE portraits (requires IWD:EE installation)<br />
+			24 - install IWD:EE soundsets (requires IWD:EE installation)<br />
 			25 - Add Priest of Tyr kit for Priests<br />
 			26 - Add Priest of Tyr kit for Priests<br />
 			27 - Add racial enemies from IWD<br />
 			28 - Remove junk from global scripts<br />
 			29 - Restore TotSC textscreens<br />
-			//30. Ironman Mode (not available yet)</p>
+			//30 - Ironman Mode (not available yet)</p>
 			</td>
 		</tr>
 		<tr>
 			<td><em>[options]</em></td>
 			<td>
 				<p>Some components allows you to choose options during installation. If this is the case than you can skip the prompt and choose them here by typing number of the component followed by '-' and the value that represents the chosen option and followed by another '-' and the value, if the chosen option expects exact value typed in via keyboard.</p>
-				<p>p or P - informs WeiDU that pre-define full path to the Icewind Dale: Enhanced Edition directory is provided; if the path is invalid, setup will prompt for a valid path. Used only by components 23 and 24. Should the last argument in order, followed by <em>[path]</em>.</p>
+				<p>p or P - informs WeiDU that pre-define full path to the Icewind Dale: Enhanced Edition directory is provided; if the path is invalid, setup will prompt for a valid path. Used only by components 23 and 24. Should be the last argument in order, followed by <em>[path]</em>.</p>
 			</td>
 		</tr>
 		<tr>
@@ -156,7 +156,7 @@
 <div class="section">
 <h3>0. Teleport spell</h3>
 <p>Compatibility: EET</p>
-<p>Leftover from the earlier version of EET that didn't have native worldmap support for going back to BG1 areas after starting BG2. Teleport is still a nice and lore friendly feature, so it's now part of this tweak pack. Learning this spell will allow your party fast travel to areas that you have previously visited. Additionally modders can use this spell for easier mod debugging by typing in the console: SetGlobal("K#DebugMode","GLOBAL",1) which will enable teleportation to all areas regardless if you visited them. The spell itself can be bought from Lazarus in ToB after completing his quest (the one with Lazarus' Teleport Scroll). You can also spawn it via console: CreateItem("K#TELSPL",1)</p>
+<p>Leftover from the earlier version of EET that didn't have native worldmap support for going back to BG1 areas after starting BG2. Teleport is still a nice and lore friendly feature, so it's now part of this tweak pack. Learning this spell will allow your party fast travel to areas that you have previously visited. Additionally modders can use this spell for easier mod debugging by typing in the console: SetGlobal("K#DebugMode","GLOBAL",1) which will enable teleportation to all worldmap areas regardless if you visited them. The spell itself can be bought from Lazarus in ToB after completing his quest (the one about Lazarus' Teleport Scroll). You can also spawn it via console: CreateItem("K#TELSPL",1)</p>
 
 <h3>1. Consistent NPC appearance</h3>
 <p>Compatibility: EET (BGT version will be added soon)</p>
@@ -254,7 +254,7 @@
 
 <h3>9. Party XP for quests distributed individually</h3>
 <p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
-<p>This tweak converts every single party XP reward in game (also affects mods) to rewards distributed individually for each of the party member. Total XP pool is not changed by this tweak (excluding integer rounding), so if you are playing with party of 6 you won't notice any difference in your game because all party members will receive their XP.</p>
+<p>This tweak converts every single party XP reward in game (also affects mods) to rewards distributed individually for each of the party member. It will affect solo and smaller party players significantly, but total XP pool is not changed by this tweak (excluding integer rounding), so if you are playing with party of 6 you won't notice any difference in your game because all party members will receive their XP.</p>
 
 <h3>10. 3E Thief Sneak Attack</h3>
 <p>Compatibility: BG2:EE, EET</p>
@@ -282,12 +282,12 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <h3>14. Protagonist can die</h3>
 <p>Compatibility: BG2:EE, EET</p>
-<p>Adds a flag to all areas in game to prevent Game Over screen when protagonist dies, but other party members are still alive (also affects mods).</p>
+<p>Adds a flag to all areas in game to prevent Game Over screen when protagonist dies, but other party members are still alive (also affects mods). Tweak can be disabled in-game by setting K#DISABLE_PC_CAN_DIE global variable to 1.</p>
 <!--
 <p>Available options:</p>
 <ol>
 	<li><strong>Protagonist can die</strong></li>
-	<li><strong>Protagonist can be either Imprisoned, Petrified or Charmed without party</strong> (Bhaal essence is lost only when character dies)</li>
+	<li><strong>Protagonist can be either Imprisoned, Petrified or Charmed</strong> (Bhaal essence is lost only when character really dies or there is no one left to bring him/her back from middle death state)</li>
 </ol>
 -->
 
@@ -353,7 +353,8 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <h3>21. Adjust familiar death consequences</h3>
 <p>Compatibility: EET</p>
-<p>Normally when your familiar is killed summoner looses 1 Constitution point permanently. This tweak allows you to change this behaviour. Familiars in EET are completely unhardcoded, so adjusting such things is very simple. Available options:</p>
+<p>Normally when your familiar is killed summoner looses 1 Constitution point permanently. This tweak allows you to change this behaviour. Familiars in EET are completely unhardcoded, so adjusting such things is very simple.</p>
+<p>Available options:</p>
 <ol>
 	<li><strong>Constitution loss for 1 week + blocked familiar summoning for 1 week</strong> (after this time Constitution stat will return to previous value and you will be able to once again use 'Summon familiar' spell)</li>
 	<li><strong>Constitution loss for 1 week</strong> (toned down version of above)</li>
@@ -378,22 +379,22 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 </ol>
 -->
 
-<h3>23. IWD:EE portraits</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET</p>
+<h3>23. IWD:EE portraits (requires IWD:EE installation)</h3>
+<p>Compatibility: BG:EE, BG2:EE, EET (skipped if you installed IWD-in-EET)</p>
 <div class="code">
 <p>Requires IWD:EE to be present on your computer during installation</p>
 </div>
 <p>Copies and integrates with GUI all 59 portraits from IWD:EE.</p>
 
-<h3>24. IWD:EE soundsets</h3>
-<p>Compatibility: BG2:EE, EET</p>
+<h3>24. IWD:EE soundsets (requires IWD:EE installation)</h3>
+<p>Compatibility: BG2:EE, EET (skipped if you installed IWD-in-EET)</p>
 <div class="code">
 <p>Requires IWD:EE to be present on your computer during installation</p>
 </div>
 <p>Imports all 30 soundsets from IWD:EE right into your BG2:EE / EET game. It covers not only media files, but also in-game subtitles (translation taken directly from IWD:EE dialog.tlk) and integrating it with GUI menu.</p>
 
 <h3>25. Add Priest of Tyr kit for Priests</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET</p>
+<p>Compatibility: BG:EE, BG2:EE, EET (skipped if you installed IWD-in-EET)</p>
 <p>Implements playable Priest of Tyr kit from IWD:EE (also present in BG2:EE Dorn's questline).</p>
 
 <h3>26. Add Priest of Tempus kit for Priests</h3>
@@ -401,7 +402,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <p>Implements playable Priest of Tempus kit from IWD:EE.</p>
 
 <h3>27. Add racial enemies from IWD</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET</p>
+<p>Compatibility: BG:EE, BG2:EE, EET (skipped if you installed IWD-in-EET)</p>
 <p>Ranger racial enemies: Cadaverous undead, Giant, Goblin, Lizard men, Orc, Salamander, Spectral undead, Spider, Troll, Umber hulk, Yuan-ti. If any of these is already on the list than only description will be updated to use the more detailed one from IWD:EE.</p>
 
 <h3>28. Remove junk from global scripts</h3>
@@ -413,13 +414,13 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 	<li><strong>Unused test script blocks</strong> - BALDUR.BCS contains some leftover code used for testing textscreens that can be wiped out without any effect on game.</li>
 	<li><strong>Unused Familiar script blocks with wrong DV</strong> - BALDUR25.BCS has references to not existing familiar Death Variables which can be safely removed.</li>
 	<li><strong>Drow items changing to dust on surface</strong> - not so demanding for the engine thanks to the Global trigger, but still controversial when you consider that the same variable is checked 84 times in the same frame (even more if you are using mods that adds additional drow items) for the whole ToB portion of the game (only present in BALDUR25.BCS). This tweak will again spawn an invisible creature with local script, this time in all areas that sets <em>oh_drow_items_safe</em> variable to 0 (also affects mods).</li>
-	<li><strong>Malchior Harpell´s appearance</strong> - moved the spawning method from BALDUR.BCS to AR0800.BCS. Due to this change it's possible to evade Harpell completely if you don't enter Athkatla Graveyard District (first place where you can meet him) with Drizzt's equipment, but I think that's still better than playing the game with 8 useless PartyHasItem checks. The way this has been coded (<a href="https://forum.baldursgate.com/discussion/30392/melchor-harpell-way-to-rip-me-out-of-my-immersion/p1">constantly respawning encounter</a>) is silly either way, so not much loss. I would call it improvement actually. No conflicts with <em>BG2 Tweaks - Keep Drizzt's Loot, Disable Malchor Harpell</em> component.</li>
+	<li><strong>Malchior Harpell´s appearance</strong> - moved the spawning method from BALDUR.BCS to AR0800.BCS. Due to this change it's possible to evade Harpell completely if you don't enter Athkatla Graveyard District (first place where you can meet him) with Drizzt's equipment, but I think that's still better than playing whole game game with 8 useless PartyHasItem checks present in global script. The way this has been originally coded (<a href="https://forum.baldursgate.com/discussion/30392/melchor-harpell-way-to-rip-me-out-of-my-immersion/p1">constantly respawning encounter</a>) is silly either way, so not much loss. I would call it improvement actually. No conflicts with <em>BG2 Tweaks - Keep Drizzt's Loot, Disable Malchor Harpell</em> component.</li>
 	<li><strong>Leftover BG:EE ARE scripts code</strong> - this is unrelated to global scripts, but still worth cleaning. In 2 cases (AR0514.BCS, AR2001.BCS) leftovers can be harmful for BG2 portion of the game because there is junk BG:EE code in scripts attached to existing areas. That is why this component fixes it via REPLACE_BCS_BLOCK. Additionally there are 33 harmless ARE scripts leftover that don't have corresponding area files (they exist only in BG:EE) - these are also cleaned to make working with Near Infinity tool faster and more reliable (no false reports when searching for resources in scripts). Ideally, it would be officially handled by Beamdog <a href="http://forum.baldursgate.com/discussion/39661/junk-data-from-bg1-scripts-in-bg2-wrong-script-attached-to-are">via patch</a>, but until it happens this tweak will do the job.</li>
 </ul>
 
 <h3>29. Restore TotSC textscreens</h3>
 <p>Compatibility: BG:EE, EET</p>
-<p>In BG:EE starting and ending textscreens introduced in Baldur's Gate: Tales of the Sword Coast official expansion has not been implemented. This component restores them.</p>
+<p>In BG:EE starting and ending textscreens introduced in Baldur's Gate: Tales of the Sword Coast official expansion has not been implemented. This component restores them. Nothing special to be honest considering there is no dubbing. In future I will probably implement music to them.</p>
 
 <h3>30. Ironman Mode</h3>
 <p>Compatibility: BG2:EE, IWD:EE, EET</p>
@@ -448,13 +449,13 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 	<li>Many thanks to Ascension64 for 3 components that have been adopted for this mod</li>
 	<li>Many thanks to Beamdog for creating Enhanced Editions of Infinity Engine games</li>
 	<li>Many thanks to Bioware and Black Isle Studios for creating Baldur's Gate series</li>
-	<li>Many thanks to Crevs Daak for GitHub contribution to the project</li>
+	<li>Many thanks to Crevs Daak for GitHub contributions to the project</li>
 	<li>Many thanks to Ding0 for Experience Fixer that inspired some XP related tweaks in this package</li>
 	<li>Many thanks to Fouinto for beta testing</li>
-	<li>Many thanks to The Gibberlings 3 Modding Community for hosting</li>
+	<li>Many thanks to Gibberlings 3 Modding Community for hosting</li>
 	<li>Many thanks to porfirion for Sarevok's edited voices in BG2:SoA Hell Trials</li>
 	<li>Many thanks to Weimer for creating the WeiDU utility</li>
-	<li>Many thanks to WhiteAgnus for GitHub contribution to the project and German translation</li>
+	<li>Many thanks to WhiteAgnus for GitHub contributions to the project and German translation</li>
 	<li>Many thanks to Wisp for the Enhanced Edition WeiDU development</li>
 	<li>Many thanks to you and all the other players who have contributed to the completeness of this modification</li>
 </ul>
@@ -473,7 +474,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <p>1998 BioWare Corp. All Rights Reserved. BioWare, the BioWare Infinity Engine and the BioWare logo are trademarks of Bioware Corp. Black Isle Studios and the Black Isle Studios logo are trademarks of Interplay Entertainment Corp.</p>
 
-<p>2012 - 2014 Beamdog. All Rights Reserved.</p>
+<p>2012 - 2016 Beamdog. All Rights Reserved.</p>
 
 <p><strong>USE THIS MODIFICATION AT YOUR OWN RISK. This modification is not developed, supported, or endorsed by BioWare Corp., Hasbro, Beamdog.</strong></p>
 
@@ -486,7 +487,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <h2>Version History</h2>
 <div class="section">
 
-<p><a href="#" onclick="toggle('1.0'); return false;">Expand/Collapse All</a></p>
+<p><a href="#" onclick="toggle('1.0');toggle('1.1'); return false;;toggle('1.2'); return true;">Expand/Collapse older history</a></p>
 
 <h3><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (30.12.2015)</a></h3>
 
@@ -499,6 +500,16 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <ul class="hidelist" id="1.1">
 	<li>Collaboration with The Gibberlings 3 Modding Community</li>
 	<li>Updated readme file</li>
+</ul>
+
+<h3><a href="#" onclick="toggle('1.2'); return false;">Version 1.2 (18.01.2016)</a></h3>
+
+<ul class="hidelist" id="1.2">
+	<li>Fixed a problem with component 0 installation</li>
+	<li>Added a way to close IWD:EE path interface screen</li>
+	<li>Protagonist can die tweak can be disabled in-game via global variable</li>
+	<li>Mod will ask about each component for installation</li>
+	<li>Polish readme now uses new HTML template</li>
 </ul>
 
 </div>
@@ -529,6 +540,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
         elements[i].style.display = 'none';
       }
     }
+	toggle('1.2');
   //-->
   </script>
 </number>

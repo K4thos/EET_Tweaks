@@ -77,11 +77,15 @@ OUTER_WHILE (valid_dir = 0) BEGIN
 	END
 	ACTION_IF NOT (FILE_EXISTS ~%iwdee_dir%/data/IWDEE.bif~) BEGIN
 		PRINT ~~
-		PRINT ~Invalid IWD:EE directory, or incorrect IWD:EE installation.
-It is safe to abort this installation by closing this window or pressing Ctrl+C.~
+		PRINT ~Invalid IWD:EE directory, or incorrect IWD:EE installation.~
 		PRINT ~Enter the full path to your IWD:EE installation then press Enter.
-Example: C:\Program Files (x86)\BeamDog\Games\00798~
+Example: C:\Program Files (x86)\BeamDog\Games\00798
+
+If you don't have IWD:EE installed type 's' letter and press Enter to skip this component.~
 		ACTION_READLN ~iwdee_dir~
+		ACTION_IF (~%iwdee_dir%~ STRING_EQUAL_CASE ~s~) BEGIN
+			FAIL ~Component won't be installed. Ignore errors below this message.~
+		END
 	END ELSE BEGIN
 		OUTER_SET valid_dir = 1
 		PRINT ~IWD:EE directory used for this installation:
