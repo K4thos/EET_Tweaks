@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <style type="text/css">/*<![CDATA[*/
 <!--
 body  {
@@ -142,8 +143,6 @@ a:hover.spoiler {
 -->
 /*]]>*/
 </style>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<link href="style/g3icon.ico" rel="icon" type="image/bmp" />
 </head>
 <body>
 <h1>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks)</h1>
@@ -152,7 +151,7 @@ a:hover.spoiler {
     <strong>Autor</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=6804">K4thos</a><br>
 	<strong>Kontrybutorzy na GitHub</strong>: WhiteAgnus, Crevs Daak</p>
   <p><strong>W sieci: </strong><strong><a href="http://baldur.cob-bg.pl/">Strona</a></strong> i <a href="http://athkatla.cob-bg.pl/viewforum.php?f=190"><strong>Forum dyskusyjne</strong></a></p>
-  <p><strong>Wersja 1.2</strong><br />
+  <p><strong>Wersja 1.3</strong><br />
     <strong>Dostępne wersje językowe: </strong>Angielski, Polski, Niemiecki<br />
     <strong>Wsparcie dla systemów operacyjnych: </strong>Windows, Mac OS X</p>
 </div>
@@ -260,7 +259,8 @@ a:hover.spoiler {
 			27 - Wrogowie rasowi z IWD<br />
 			28 - Porządki w skryptach globalnych<br />
 			29 - Przywrócenie textscreenów z Opowieści z Wybrzeża Mieczy<br />
-			//30 - Tryb gry "Człowiek ze stali" (komponent jeszcze niedostępny)</p>
+			30 - Rzucanie zaklęć ze zwojów zgodne z zasadami papierowego D&D<br />
+			//100 - Tryb gry "Człowiek ze stali" (komponent jeszcze niedostępny)</p>
 			</td>
 		</tr>
 		<tr>
@@ -283,7 +283,7 @@ a:hover.spoiler {
 <p>Przykład:</p>
 
 <div class="code">
-<p>setup-EET_Tweaks.exe --force-install-list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 --skip-at-view --language 0 --args-list "1-2" "3-4-10000000" "4-4-200000" "5-2" "6-3" "7-5" "8-7-120" "11-1" "16-4" "17-4" "18-4" "19-4" "21-2" p "C:\Program Files (x86)\BeamDog\Games\00798"</p>
+<p>setup-EET_Tweaks.exe --force-install-list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 30 --skip-at-view --language 0 --args-list "1-2" "3-4-10000000" "4-4-200000" "5-2" "6-3" "7-5" "8-7-120" "11-1" "16-4" "17-4" "18-4" "19-4" "21-2" p "C:\Program Files (x86)\BeamDog\Games\00798"</p>
 </div>
 
 <p>Ten kod wiersza poleceń zainstaluje wszystkie komponenty z tego modu, używając języka polskiego, podanej ścieżki do IWD:EE, i następujących ustawień komponentów: BG2 użyty jako baza dla wyglądu NPC; całkowity limit doświadczenia - Inna wartość - 10,000,000; dodatkowy limit doświadczenia w BG1 - Inna wartość - 200,000; dodatkowy limit doświadczenia w Cieniach Amn na poziome 2,950,000; doświadczenie za rozbrajanie pułapek, naukę czarów i otwieranie zamków z wykorzystaniem progresywnej tabeli; zmniejszona ilość doświadczenia za ubijane stworki do 10%; doświadczenie za zadania - Inna wartość - 120%; FPS zmienione na 60 klatek na sekundę; szansa na strzaskanie wszystkich rodzajów przedmiotów ustalona na 0.1%; utrata Kondycji na tydzień po śmierci chowańca.</p>
@@ -485,8 +485,8 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 	<li><strong>Inna wartość</strong> (wpisz ręcznie liczbę od 0 do 100 - zostanie podzielona przez 10, przykładowo: 1 = 0.1%, 100 = 10%)</li>
 </ol>
 
-<h3>20. Brak wrogiej reakcji po uzyciu Zauroczenia</h3>
-<p>Kompatybilność: BG2, Tutu, BGT (wersja BGT dostępna w modzie <em>BGT Tweaks</em>), CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET<br />
+<h3>20. Brak wrogiej reakcji po użyciu Zauroczenia</h3>
+<p>Kompatybilność: BG2, Tutu, BGT (wersja BGT dostępna w modzie <em>BGT Tweaks</em>), CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
 <p>Komponent przeniesiony z paczki tweaków dla BGT. Edytuje efekt czaru 'Charm Specific Creature' we wszystkich plikach ITM, SPL i EFF, wyłączając wrogą reakcję, gdy przestaje działać efekt Zauroczenia i/lub Okropnego Zauroczenia (dotyczy również zasobów dodanych przez mody).</p>
 
 <h3>21. Dostosuj konsekwencje śmierci chowańców</h3>
@@ -518,21 +518,21 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 -->
 
 <h3>23. Portrety z IWD:EE</h3>
-<p>Kompatybilność: BG:EE, BG2:EE, EET (instalacja pominieta, jeśli zainstalowano IWD-in-EET)</p>
+<p>Kompatybilność: BG:EE, BG2:EE, EET (instalacja pominięta, jeśli zainstalowano IWD-in-EET)</p>
 <div class="code">
 <p>Wymagana zainstalowana gra IWD:EE</p>
 </div>
 <p>Kopiuje i integruje z GUI gry wszystkie 59 portretów z IWD:EE.</p>
 
 <h3>24. Dźwięki z IWD:EE</h3>
-<p>Kompatybilność: BG2:EE, EET (instalacja pominieta, jeśli zainstalowano IWD-in-EET)</p>
+<p>Kompatybilność: BG2:EE, EET (instalacja pominięta, jeśli zainstalowano IWD-in-EET)</p>
 <div class="code">
 <p>Wymagana zainstalowana gra IWD:EE</p>
 </div>
 <p>Importuje i integruje z GUI gry 30 zestawów dźwiękowych z IWD:EE, które można przydzielić CHARNAME. Dźwięki wraz z napisami (tłumaczenie stringów brane bezpośrednio z pliku dialog.tlk IWD:EE).</p>
 
 <h3>25. Podklasa Kapłan Tyra</h3>
-<p>Kompatybilność: BG:EE, BG2:EE, EET (instalacja pominieta, jeśli zainstalowano IWD-in-EET)</p>
+<p>Kompatybilność: BG:EE, BG2:EE, EET (instalacja pominięta, jeśli zainstalowano IWD-in-EET)</p>
 <p>Podklasa Kapłan Tyra z IWD:EE (znana również z zadania Dorna w BG2:EE).</p>
 
 <h3>26. Podklasa Kapłan Tempusa</h3>
@@ -540,7 +540,7 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 <p>Podklasa Kapłan Tempusa z IWD:EE.</p>
 
 <h3>27. Wrogowie rasowi z IWD</h3>
-<p>Kompatybilność: BG:EE, BG2:EE, EET (instalacja pominieta, jeśli zainstalowano IWD-in-EET)</p>
+<p>Kompatybilność: BG:EE, BG2:EE, EET (instalacja pominięta, jeśli zainstalowano IWD-in-EET)</p>
 <p>Nowi wrogowie rasowi dla Łowcy: Drapieżni nieumarli, Olbrzym, Goblin, Jaszczuroludzie, Ork, Salamandra, Widmowi nieumarli, Pająk, Troll, Umbrowy kolos, Yuan-ti. Jeśli którekolwiek z tych stworzeń znajduje się już na liście to zostanie zaktualizowany tylko opis, używając tego z IWD:EE.</p>
 
 <h3>28. Porządki w skryptach globalnych</h3>
@@ -560,7 +560,31 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 <p>Kompatybilność: BG:EE, EET</p>
 <p>W BG:EE nie zaimplementowano początkowego i końcowego textscreena z dodatku do BG1 zatytułowanego "Opowieści z Wybrzeża Mieczy". Ten komponent je przywraca, chociaż nie spodziewajcie się rewelacji - tekst w oryginale nie miał dubbingu. W przyszłości planuję dodać do textscreenów muzykę.</p>
 
-<h3>30. Tryb gry "Człowiek ze stali"</h3>
+<h3>30. Rzucanie zaklęć ze zwojów zgodne z zasadami papierowego D&D</h3>
+<p>Kompatybilność: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET<br />
+Koncepcyjnie niekompatybilny z komponentem BG2 Tweaks "Rzucaj czary ze zwojów (i innych przedmiotów) na poziomie postaci" (instalacja pominięta w przypadku wykrycia)</p>
+<p>Tweak <a href="https://forums.beamdog.com/discussion/46720/scroll-caster-level-mod">AstroBryGuy'a</a>, ustawiający poziom z jakim rzucane są czary ze zwojów na  minimalny poziom wymagany do rzucenia danego poziomu zaklęcia + 1, przy czym poziom nie może być niższy niż 6 (zgodnie z 'Podręcznikiem Mistrza Gry' papierowej edycji D&D). Mod zadziała tylko ze zwojami odnoszącymi się do zaklęć wykorzystujących standardowe nazewnictwo - prefiksy SPWI i SPPR.</p>
+
+<p>Poziomy rzucania czaru w przypadku zaklęć maga:</p>
+<ul>
+	<li>Czary poziomu 1-3: 6</li>
+	<li>Czary poziomu 4: 8</li>
+	<li>Czary poziomu 5: 10</li>
+	<li>Czary poziomu 6: 13</li>
+	<li>Czary poziomu 7: 15</li>
+	<li>Czary poziomu 8: 17</li>
+	<li>Czary poziomu 9: 19</li>
+</ul>
+<p>Poziomy rzucania czaru w przypadku zaklęć kapłańskich:</p>
+<ul>
+	<li>Czary poziomu 1-3: 6</li>
+	<li>Czary poziomu 4: 8</li>
+	<li>Czary poziomu 5: 10</li>
+	<li>Czary poziomu 6: 12</li>
+	<li>Czary poziomu 7: 15</li>
+</ul>
+
+<h3>100. Tryb gry "Człowiek ze stali"</h3>
 <p>Kompatybilność: BG2:EE, IWD:EE, EET</p>
 <div class="code">
 <p>W związku z <a href="http://forum.baldursgate.com/discussion/40487/opcode-338-disable-rest-or-save-seems-to-be-partially-broken">bugiem silnika</a> w chwili obecnej tweak nie jest dostępny, wczesna jego wersja jest jednak zakodowana w pliku tp2. Problem jest już zidentyfikowany przez Beamdoga, więc prawdopodobnie zostanie naprawiony w następnym patchu.</p>
@@ -584,6 +608,7 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 <ul>
 	<li>AL|EN za integrację moda z Big World Setup</li>
 	<li>Argent77 za prace nad narzędziem Near Infinity</li>
+	<li>AstroBryGuy za tweak 'Rzucanie zaklęć ze zwojów zgodne z zasadami papierowego D&D'</li>
 	<li>Ascension64 za 3 komponenty zapożyczone z modu BGT Tweaks</li>
 	<li>Beamdog za wersje Enhanced Editions gier na silniku Infinity Engine</li>
 	<li>Bioware i Black Isle za stworzenie gier z serii Baldur's Gate</li>
@@ -626,7 +651,7 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 <h2>Historia zmian</h2>
 <div class="section">
 
-<p><a href="#" onclick="toggle('1.0');toggle('1.1'); return false;;toggle('1.2'); return true;">Pokaż/ukryj poprzednie logi</a></p>
+<p><a href="#" onclick="toggle('1.0'); toggle('1.1'); return false; toggle('1.2'); return true;">Pokaż/ukryj poprzednie logi</a></p>
 
 <h3><a href="#" onclick="toggle('1.0'); return false;">Wersja 1.0 (30.12.2015)</a></h3>
 
@@ -649,6 +674,12 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
 	<li>Możliwość wyłączenia komponentu 'Protagonista może umrzeć' w czasie gry, korzystając z konsoli</li>
 	<li>Instalator od teraz będzie zawsze pytał o każdy komponent z osobna</li>
 	<li>Aktualizacja polskiego readme</li>
+</ul>
+
+<h3><a href="#" onclick="toggle('1.3'); return false;">Wersja 1.3 (24.01.2016)</a></h3>
+
+<ul class="hidelist" id="1.3">
+	<li>Dodano komponent 'Rzucanie zaklęć ze zwojów zgodne z zasadami papierowego D&D' autorstwa AstroBryGuy'a</li>
 </ul>
 
 </div>
@@ -679,7 +710,7 @@ Pełna kompatybilność z modem <a href="http://www.shsforums.net/files/file/111
         elements[i].style.display = 'none';
       }
     }
-	toggle('1.2');
+	toggle('1.3');
   //-->
   </script>
 </number>

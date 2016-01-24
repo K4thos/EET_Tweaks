@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks)</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="style/g3readme.css" type="text/css" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <link href="style/g3icon.ico" rel="icon" type="image/bmp" />
+<link rel="stylesheet" href="style/g3readme.css" type="text/css" />
 </head>
 <body>
 <h1>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks)</h1>
@@ -14,9 +13,9 @@
     <strong>Author</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=6804">K4thos</a><br>
 	<strong>Contributors</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=2909">WhiteAgnus</a>, <a href="http://gibberlings3.net/forums/index.php?showuser=7356">CrevsDaak</a></p>
   <p><strong>On the web: </strong><a href="http://www.gibberlings3.net/eet_tweaks/"><strong>Home page</strong></a> and <a href="http://gibberlings3.net/forums/index.php?showforum=196"><strong>discussion forum</strong></a></p>
-  <p><strong>Version 1.2</strong><br />
-    <strong>Languages: </strong>English, Polish, German <br />
-    <strong>Platforms: </strong>Windows, Mac OS X </p>
+  <p><strong>Version 1.3</strong><br />
+    <strong>Languages: </strong>English, Polish, German<br />
+    <strong>Platforms: </strong>Windows, Mac OS X</p>
 </div>
 
 <!-- ================== T a b l e ================== --><a id="table" name="Table of Contents"></a>
@@ -37,17 +36,16 @@
 <h2>Overview</h2>
 <div class="section">
 
-<p>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks) is a modification that offers several optional tweaks for Infinity Engine games. Mostly related to Baldur's Gate: Enhanced Edition Trilogy (EET) mod, but some are more universal and will work with different games and IE engine versions.</p>
+<p>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks) is a modification that offers several optional tweaks for Infinity Engine games.</p>
 
 </div>
 
 <!-- ================== C o m p a t i b i l i t y ================== --><a id="compatibility" name="compatibility"></a>
 <h2>Compatibility</h2>
 <div class="section">
-<p>Like all the other tweak packs the mod should be installed at the end. At least after any mod that alters CRE, BCS, DLG, ITM, SPL, EFF files. You can safely keep it as the last mod in your load order, which will allow you to install/uninstall/re-install components during play through, without risking breaking other mods.</p>
-<p>You don't need to worry about components installation order - weidu is smart enough to reinstall previous components if needed. For example you can install 'Party XP for quests distributed individually' before or after installing 'Adjust XP for quests' component. The outcome will be the same.</p>
-<p>If you are going to use XP related components than you should avoid installing <a href="http://www.pocketplane.net/mambo/index.php?option=content&task=blogcategory&id=110&Itemid=83">Ding0 Experience Fixer (DEF JAM)</a>, as it does the same thing, but compared to this mod is less precise, flexible and doesn't cover mod related SPL, ITM, EFF files and new ChangeStat action added by EE engine (at least the version v6 that was the most recent one when I was writing this readme).</p>
-<p>Don't forget to read compatibility section in the description of each component you want to install. If it is mentioned that the same functionality is available elsewhere and you have conflicting mod installed already than installer will skip these components.</p>
+<p>Most tweaks have been designed with <acronym title="Baldur's Gate: Enhanced Edition Trilogy">EET</acronym> platform in mind. Some will also work with following games: <acronym title="Baldur's Gate">BG1</acronym>, <acronym title="Baldur's Gate 2">BG2</acronym>, <acronym title="Icewind Dale">IWD</acronym>, <acronym title="Icewind Dale 2">IWD2</acronym>, <acronym title="BG To Two">Tutu</acronym>, <acronym title="Baldur's Gate Trilogy">BGT</acronym>, <acronym title="Classic Adventures">CA</acronym>, <acronym title="Icewind Dale in Baldur's Gate 2">IWD-in-BG2</acronym>, <acronym title="Baldur's Gate: Enhanced Edition">BG:EE</acronym>, <acronym title="Baldur's Gate 2: Enhanced Edition">BG2:EE</acronym>, <acronym title="Icewind Dale: Enhanced Edition">IWD:EE</acronym> (refer to description of each tweak for platform compatibility list).</p>
+<p>In terms of installation order, EET Tweaks should be installed last or close to last. Specifically, it should be installed after any mods which add or alter CRE, BCS, DLG, ITM, SPL, EFF files.</p>
+<p>If the tweak description mentions that the same or similar functionality is available elsewhere than EET Tweaks will skip component installation if conflicting component is installed already. This is why the preferable install order would be after mods that are recognizable by EET Tweaks, such as BG2 Tweaks and others.</p>
 
 </div>
 
@@ -92,37 +90,38 @@
 		<tr>
 			<td><em>[number]</em></td>
 			<td>
-			<p>0 - install Teleport spell<br />
-			1 - install Consistent NPC appearance<br />
-			2 - install Consistent NPC voices<br />
-			3 - install Adjust total XP CAP<br />
-			4 - install Additional XP CAP for BG1 portion of the game<br />
-			5 - install Additional XP CAP for SoA portion of the game<br />
-			6 - install Adjust XP for Traps, Spells and Lockpicking<br />
-			7 - install Adjust XP for killing creatures<br />
-			8 - install Adjust XP for quests<br />
-			9 - install Party XP for quests distributed individually<br />
-			10 - install 3E Thief Sneak Attack<br />
-			11 - install Adjust FPS and fix audio skipping in cutscenes<br />
-			12 - install More bandit scalps<br />
-			13 - install Put Sword of Chaos +2 in Sarevok's inventory<br />
-			14 - install Protagonist can die<br />
-			15 - install Disable item shattering for enemies<br />
-			16 - install Adjust BG1 weapon shattering chance<br />
-			17 - install Adjust BG1 shield shattering chance<br />
-			18 - install Adjust BG1 armor shattering chance<br />
-			19 - install Adjust BG1 helmet shattering chance<br />
-			20 - install Disable hostile reaction after charm<br />
-			21 - install Adjust familiar death consequences<br />
+			<p>0 - Teleport spell<br />
+			1 - Consistent NPC appearance<br />
+			2 - Consistent NPC voices<br />
+			3 - Adjust total XP CAP<br />
+			4 - Additional XP CAP for BG1 portion of the game<br />
+			5 - Additional XP CAP for SoA portion of the game<br />
+			6 - Adjust XP for Traps, Spells and Lockpicking<br />
+			7 - Adjust XP for killing creatures<br />
+			8 - Adjust XP for quests<br />
+			9 - Party XP for quests distributed individually<br />
+			10 - 3E Thief Sneak Attack<br />
+			11 - Adjust FPS and fix audio skipping in cutscenes<br />
+			12 - More bandit scalps<br />
+			13 - Put Sword of Chaos +2 in Sarevok's inventory<br />
+			14 - Protagonist can die<br />
+			15 - Disable item shattering for enemies<br />
+			16 - Adjust BG1 weapon shattering chance<br />
+			17 - Adjust BG1 shield shattering chance<br />
+			18 - Adjust BG1 armor shattering chance<br />
+			19 - Adjust BG1 helmet shattering chance<br />
+			20 - Disable hostile reaction after charm<br />
+			21 - Adjust familiar death consequences<br />
 			//22 - reserved slot<br />
-			23 - install IWD:EE portraits (requires IWD:EE installation)<br />
-			24 - install IWD:EE soundsets (requires IWD:EE installation)<br />
+			23 - IWD:EE portraits (requires IWD:EE installation)<br />
+			24 - IWD:EE soundsets (requires IWD:EE installation)<br />
 			25 - Add Priest of Tyr kit for Priests<br />
 			26 - Add Priest of Tyr kit for Priests<br />
 			27 - Add racial enemies from IWD<br />
 			28 - Remove junk from global scripts<br />
 			29 - Restore TotSC textscreens<br />
-			//30 - Ironman Mode (not available yet)</p>
+			30 - PnP spell scroll caster levels<br />
+			//100 - Ironman Mode (not available yet)</p>
 			</td>
 		</tr>
 		<tr>
@@ -145,7 +144,7 @@
 <p>Example:</p>
 
 <div class="code">
-<p>setup-EET_Tweaks.exe --force-install-list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 --skip-at-view --language 0 --args-list "1-2" "3-4-10000000" "4-4-200000" "5-2" "6-3" "7-5" "8-7-120" "11-1" "16-4" "17-4" "18-4" "19-4" "21-2" p "C:\Program Files (x86)\BeamDog\Games\00798"</p>
+<p>setup-EET_Tweaks.exe --force-install-list 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 29 30 --skip-at-view --language 0 --args-list "1-2" "3-4-10000000" "4-4-200000" "5-2" "6-3" "7-5" "8-7-120" "11-1" "16-4" "17-4" "18-4" "19-4" "21-2" p "C:\Program Files (x86)\BeamDog\Games\00798"</p>
 </div>
 
 <p>This construction installs all components of this mod using the English language, predefined IWD:EE directory, and following settings: BG2 used as a base for join-able NPCs; total XP CAP set to custom value - 10,000,000; additional BG1 XP CAP set to custom value - 200,000; additional BG2:SoA XP CAP set to 2,950,000; XP rewards for Traps, Spells and Lockpicking based on progressive table; XP rewards for killing monsters decreased to 10%; XP rewards for quests increased to custom value - 120%; FPS set to 60 frames per second; all item types with shatter chance set to 0.1%; Constitution loss for 1 week after familiar is dead.</p>
@@ -182,7 +181,7 @@
 </ul>
 
 <h3>3. Adjust total XP CAP</h3>
-<p>Compatibility: BG1, BG2, IWD, IWD2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
+<p>Compatibility: BG1, BG2, IWD, IWD2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET (similar tweak present in BG2 Tweaks)</p>
 <p>Simply adjusts whole game XP CAP via editing XPCAP.2DA, XPLEVEL.2DA and STARTARE.2DA (if exists) files.</p>
 <p>Available options:</p>
 <ol>
@@ -213,7 +212,7 @@
 </ol>
 
 <h3>6. Adjust XP for Traps, Spells and Lockpicking</h3>
-<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
+<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET (similar tweak present in BG2 Tweaks)</p>
 <p>Adjust XP rewards for disarming Traps, learning Spells and Lockpicking via editing XPBONUS.2DA.</p>
 <p>Available options:</p>
 <ol>
@@ -225,7 +224,7 @@
 </ol>
 
 <h3>7. Adjust XP for killing creatures</h3>
-<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
+<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET (similar tweak present in DEF JAM)</p>
 <p>Adjust XP rewards for killing monsters. Edits all CRE files in game (also affects mods).</p>
 <p>Available options:</p>
 <ol>
@@ -239,7 +238,7 @@
 </ol>
 
 <h3>8. Adjust XP for quests</h3>
-<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
+<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET (similar tweak present in DEF JAM)</p>
 <p>As above but for quests. It edits XPLIST.2da, as well as all BCS, DLG, ITM, SPL, EFF files (also affects mods).</p>
 <p>Available options:</p>
 <ol>
@@ -272,11 +271,11 @@
 </ol>
 
 <h3>12. More bandit scalps</h3>
-<p>Compatibility: BG:EE, EET (BGT version available in <em>BGT Tweaks</em> mod)</p>
+<p>Compatibility: BG:EE, EET (BGT version available in BGT Tweaks mod)</p>
 <p>More BG1 bandits shall have scalps when you install this component.</p>
 
 <h3>13. Put Sword of Chaos +2 in Sarevok's inventory</h3>
-<p>Compatibility: EET (BGT version available in <em>BGT Tweaks</em> mod)<br />
+<p>Compatibility: EET (BGT version available in BGT Tweaks mod)<br />
 Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-related-tweaks/">Sarevok related tweaks</a> (load order doesn't matter)</p>
 <p>This component allows you to pick up Sarevok's Sword of Chaos +2 after he is slain.</p>
 
@@ -348,7 +347,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 </ol>
 
 <h3>20. Disable hostile reaction after charm</h3>
-<p>Compatibility: BG2, Tutu, BGT (BGT version also available in <em>BGT Tweaks</em> mod), CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET<br />
+<p>Compatibility: BG2, Tutu, BGT (BGT version also available in BGT Tweaks mod), CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
 <p>Simple tweak ported from BGT Tweaks. Changes the 'Charm Specific Creature' effect in all ITM, SPL and EFF files to disable hostile reaction after Charm/Dire Charm effect ends (also affects mods).</p>
 
 <h3>21. Adjust familiar death consequences</h3>
@@ -414,7 +413,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 	<li><strong>Unused test script blocks</strong> - BALDUR.BCS contains some leftover code used for testing textscreens that can be wiped out without any effect on game.</li>
 	<li><strong>Unused Familiar script blocks with wrong DV</strong> - BALDUR25.BCS has references to not existing familiar Death Variables which can be safely removed.</li>
 	<li><strong>Drow items changing to dust on surface</strong> - not so demanding for the engine thanks to the Global trigger, but still controversial when you consider that the same variable is checked 84 times in the same frame (even more if you are using mods that adds additional drow items) for the whole ToB portion of the game (only present in BALDUR25.BCS). This tweak will again spawn an invisible creature with local script, this time in all areas that sets <em>oh_drow_items_safe</em> variable to 0 (also affects mods).</li>
-	<li><strong>Malchior Harpell´s appearance</strong> - moved the spawning method from BALDUR.BCS to AR0800.BCS. Due to this change it's possible to evade Harpell completely if you don't enter Athkatla Graveyard District (first place where you can meet him) with Drizzt's equipment, but I think that's still better than playing whole game game with 8 useless PartyHasItem checks present in global script. The way this has been originally coded (<a href="https://forum.baldursgate.com/discussion/30392/melchor-harpell-way-to-rip-me-out-of-my-immersion/p1">constantly respawning encounter</a>) is silly either way, so not much loss. I would call it improvement actually. No conflicts with <em>BG2 Tweaks - Keep Drizzt's Loot, Disable Malchor Harpell</em> component.</li>
+	<li><strong>Malchior Harpell's appearance</strong> - moved the spawning method from BALDUR.BCS to AR0800.BCS. Due to this change it's possible to evade Harpell completely if you don't enter Athkatla Graveyard District (first place where you can meet him) with Drizzt's equipment, but I think that's still better than playing whole game game with 8 useless PartyHasItem checks present in global script. The way this has been originally coded (<a href="https://forum.baldursgate.com/discussion/30392/melchor-harpell-way-to-rip-me-out-of-my-immersion/p1">constantly respawning encounter</a>) is silly either way, so not much loss. I would call it improvement actually. No conflicts with <em>BG2 Tweaks - Keep Drizzt's Loot, Disable Malchor Harpell</em> component.</li>
 	<li><strong>Leftover BG:EE ARE scripts code</strong> - this is unrelated to global scripts, but still worth cleaning. In 2 cases (AR0514.BCS, AR2001.BCS) leftovers can be harmful for BG2 portion of the game because there is junk BG:EE code in scripts attached to existing areas. That is why this component fixes it via REPLACE_BCS_BLOCK. Additionally there are 33 harmless ARE scripts leftover that don't have corresponding area files (they exist only in BG:EE) - these are also cleaned to make working with Near Infinity tool faster and more reliable (no false reports when searching for resources in scripts). Ideally, it would be officially handled by Beamdog <a href="http://forum.baldursgate.com/discussion/39661/junk-data-from-bg1-scripts-in-bg2-wrong-script-attached-to-are">via patch</a>, but until it happens this tweak will do the job.</li>
 </ul>
 
@@ -422,7 +421,31 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <p>Compatibility: BG:EE, EET</p>
 <p>In BG:EE starting and ending textscreens introduced in Baldur's Gate: Tales of the Sword Coast official expansion has not been implemented. This component restores them. Nothing special to be honest considering there is no dubbing. In future I will probably implement music to them.</p>
 
-<h3>30. Ironman Mode</h3>
+<h3>30. PnP spell scroll caster levels</h3>
+<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET<br />
+Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Character Level" tweak (skipped if you installed it)</p>
+<p>This tweak, <a href="https://forums.beamdog.com/discussion/46720/scroll-caster-level-mod">contributed by AstroBryGuy</a>, sets the caster level of spell scrolls to be the minimum caster level for the spell + 1, with a minimum caster level of 6 (as per the Dungeon Master's Guide). This tweak only affects spell scrolls in which the spell resource uses vanilla symbolic names prefixes: SPWI and SPPR.</p>
+
+<p>For wizard spells, the minimum caster level is set to:</p>
+<ul>
+	<li>1st - 3rd: 6</li>
+	<li>4th: 8</li>
+	<li>5th: 10</li>
+	<li>6th: 13</li>
+	<li>7th: 15</li>
+	<li>8th: 17</li>
+	<li>9th: 19</li>
+</ul>
+<p>For priest spells, the minimum caster level is set to:</p>
+<ul>
+	<li>1st - 3rd: 6</li>
+	<li>4th: 8</li>
+	<li>5th: 10</li>
+	<li>6th: 12</li>
+	<li>7th: 15</li>
+</ul>
+
+<h3>100. Ironman Mode</h3>
 <p>Compatibility: BG2:EE, IWD:EE, EET</p>
 <div class="code">
 <p>Due to <a href="http://forum.baldursgate.com/discussion/40487/opcode-338-disable-rest-or-save-seems-to-be-partially-broken">engine bug</a> this tweak is not currently available, although early version is already present within the tp2 code and awaits for Beamdog move. Component has been mentioned here to increase awareness about the issue and show that it's actually worth fixing.</p>
@@ -445,6 +468,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 
 <ul>
 	<li>Many thanks to AL|EN for integration with Big World Setup and support</li>
+	<li>Many thanks to AstroBryGuy for contributing 'PnP spell scroll caster levels' tweak</li>
 	<li>Many thanks to Argent77 for Near Infinity development</li>
 	<li>Many thanks to Ascension64 for 3 components that have been adopted for this mod</li>
 	<li>Many thanks to Beamdog for creating Enhanced Editions of Infinity Engine games</li>
@@ -487,7 +511,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 <h2>Version History</h2>
 <div class="section">
 
-<p><a href="#" onclick="toggle('1.0');toggle('1.1'); return false;;toggle('1.2'); return true;">Expand/Collapse older history</a></p>
+<p><a href="#" onclick="toggle('1.0'); toggle('1.1'); return false; toggle('1.2'); return true;">Expand/Collapse older history</a></p>
 
 <h3><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (30.12.2015)</a></h3>
 
@@ -510,6 +534,12 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
 	<li>Protagonist can die tweak can be disabled in-game via global variable</li>
 	<li>Mod will ask about each component for installation</li>
 	<li>Polish readme now uses new HTML template</li>
+</ul>
+
+<h3><a href="#" onclick="toggle('1.3'); return false;">Version 1.3 (24.01.2016)</a></h3>
+
+<ul class="hidelist" id="1.3">
+	<li>New tweak: 'PnP spell scroll caster levels' by AstroBryGuy</li>
 </ul>
 
 </div>
@@ -540,7 +570,7 @@ Fully compatible with <a href="http://www.shsforums.net/files/file/1110-sarevok-
         elements[i].style.display = 'none';
       }
     }
-	toggle('1.2');
+	toggle('1.3');
   //-->
   </script>
 </number>
