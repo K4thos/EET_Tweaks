@@ -2603,12 +2603,12 @@ END
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
-///// Scroll Caster Level (by AstroBryGuy)             \\\\\
+///// PnP spell scroll caster levels (by AstroBryGuy)  \\\\\
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Scroll Caster Level~
+BEGIN ~PnP spell scroll caster levels~
 //DESIGNATED 30
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt ca iwd_in_bg2 bgee bg2ee iwdee eet~ ~This component is not compatible with your game~
 REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~cdt02170.g3~ ~BG2 Tweaks' "Cast Spells from Scrolls at Character Level" installed~
