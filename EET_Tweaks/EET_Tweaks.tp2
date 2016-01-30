@@ -2692,6 +2692,93 @@ BUT_ONLY
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
+///// Borderless Full Screen Worldmap                  \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN ~Borderless Full Screen Worldmap~
+//DESIGNATED 31
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game~
+
+OUTER_WHILE (valid_answer = 0) BEGIN
+	ACTION_IF (button = 1) BEGIN //Scaled resolution, 16:9 aspect ratio
+		OUTER_SET resX = 1366
+		OUTER_SET resY = 768
+		OUTER_SET valid_answer = 1
+	END ELSE ACTION_IF (button = 2) BEGIN //Scaled resolution, 4:3 aspect ratio
+		OUTER_SET resX = 1024
+		OUTER_SET resY = 768
+		OUTER_SET valid_answer = 1
+	END ELSE ACTION_IF (button = 3) BEGIN //Unscaled native screen resolution ('scale user interface' option must be OFF)
+		OUTER_WHILE (~%value%~ STRING_MATCHES_REGEXP ~^[0-9]+x[0-9]+$~) BEGIN
+			PRINT ~Type in your native screen resolution (example: 1920x1080)~
+			ACTION_READLN ~value~
+		END
+		OUTER_PATCH_SAVE resX ~%value%~ BEGIN
+			REPLACE_TEXTUALLY ~x[0-9]+$~ ~~
+		END
+		OUTER_PATCH_SAVE resY ~%value%~ BEGIN
+			REPLACE_TEXTUALLY ~^[0-9]+x~ ~~
+		END
+		OUTER_SET logCustom = 1
+		OUTER_SET valid_answer = 1
+	END ELSE BEGIN
+		PRINT ~Which type of boardless full screen worldmap should be installed?
+ 1] Scaled resolution, 16:9 aspect ratio
+ 2] Scaled resolution, 4:3 aspect ratio
+ 3] Unscaled native screen resolution ('scale user interface' option must be OFF)~
+		ACTION_READLN ~button~
+		ACTION_IF NOT (IS_AN_INT %button%) BEGIN
+			OUTER_SET button = 0
+		END
+	END
+END
+
+COPY_EXISTING ~GUIWMAP.CHU~ ~override~
+	READ_LONG 0x8 panel_num
+	READ_LONG 0xc ctrl_off
+	READ_LONG 0x10 panel_off
+	//FOR (index = 0 ; index < panel_num ; index = index + 1) BEGIN
+		//SET offset = ("%panel_off%" + (0x1c * "%index%"))
+		SET offset = panel_off
+		//READ_SHORT offset "panelID"
+		SET var = (1024 - resX) / 2
+		WRITE_SHORT offset + 0x4 "%var%"
+		SET var = (768 - resY) / 2
+		WRITE_SHORT offset + 0x6 "%var%"
+		WRITE_SHORT offset + 0x8 "%resX%"
+		WRITE_SHORT offset + 0xa "%resY%"
+		WRITE_ASCII offset + 0x10 "" #8
+		READ_SHORT offset + 0xe "panel_ctrl_num"
+		READ_SHORT offset + 0x18 "panel_ctrl_idx"
+		FOR (index2 = 0 ; index2 < panel_ctrl_num ; index2 = index2 + 1) BEGIN
+			READ_LONG ("%ctrl_off%" + (0x8 * ("%panel_ctrl_idx%" + "%index2%"))) "ctrl_actual_off"
+			//READ_LONG ("%ctrl_off%" + 0x4 + (0x8 * ("%panel_ctrl_idx%" + "%index2%"))) "ctrl_actual_length"
+			//READ_SHORT ctrl_actual_off "ctrlID"
+			WRITE_SHORT ctrl_actual_off + 0x4 "0"
+			WRITE_SHORT ctrl_actual_off + 0x6 "0"
+			READ_BYTE ctrl_actual_off + 0xc "ctrl_type"
+			PATCH_IF (ctrl_type = 0) BEGIN //button
+				READ_ASCII ctrl_actual_off + 0xe "ctrl_bam"
+				PATCH_IF ~%ctrl_bam%~ STRING_EQUAL_CASE ~GUICTRL~ BEGIN
+					WRITE_SHORT ctrl_actual_off + 0x8 "%resX%"
+					WRITE_SHORT ctrl_actual_off + 0xa "%resY%"
+				END ELSE BEGIN
+					WRITE_SHORT ctrl_actual_off + 0x8 "1"
+					WRITE_SHORT ctrl_actual_off + 0xa "1"
+				END
+			END ELSE BEGIN
+				WRITE_SHORT ctrl_actual_off + 0x8 "1"
+				WRITE_SHORT ctrl_actual_off + 0xa "1"
+			END
+		END
+	//END
+BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
 ///// Components below are not finished                \\\\\
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
