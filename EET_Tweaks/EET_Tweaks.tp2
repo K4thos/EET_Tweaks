@@ -2574,6 +2574,8 @@ BEGIN ~Restore TotSC textscreens~
 //DESIGNATED 29
 REQUIRE_PREDICATE GAME_IS ~bgee eet~ ~This component is not compatible with your game~
 
+LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/%COMPONENT_NUMBER%.tra~
+
 <<<<<<<< .../%COMPONENT_NUMBER%/AR1000-et.baf
 IF
   Global("MissionPackSave","GLOBAL",0)
@@ -2599,6 +2601,31 @@ ACTION_IF GAME_IS ~bgee~ BEGIN
 END ELSE BEGIN
 	EXTEND_TOP ~BG1000.BCS~ ~.../%COMPONENT_NUMBER%/AR1000-et.baf~
 END
+
+COPY_EXISTING ~TOSCST.2DA~ ~override~
+	~TOSCEND.2DA~ ~override~
+	SET updated = 0
+	COUNT_2DA_ROWS 3 "cntrow"
+	FOR (cnt = 0; cnt < "%cntrow%"; cnt = cnt + 1) BEGIN
+		READ_2DA_ENTRY cnt 0 3 "compareWith"
+		PATCH_IF (updated = 0) AND (("%compareWith%" STRING_MATCHES_REGEXP ".+_REPUTATION$")=0) BEGIN
+			READ_2DA_ENTRY cnt 2 3 "string"
+			PATCH_IF ~%SOURCE_RES%~ STRING_EQUAL_CASE ~TOSCST~ BEGIN
+				REPLACE ~%string%~ @0
+			END ELSE BEGIN
+				REPLACE ~%string%~ @1
+			END
+			SET updated = 1
+		END
+	END
+	PRETTY_PRINT_2DA
+BUT_ONLY
+
+ACTION_BASH_FOR ~EET_Tweaks/%COMPONENT_NUMBER%~ ~.*\.ogg$~ BEGIN
+	COPY ~%BASH_FOR_FILESPEC%~ ~override/%BASH_FOR_RES%.wav~
+END
+
+LAM ~EET_Tweaks.log~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -2689,15 +2716,17 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   	END
 BUT_ONLY
 
+LAM ~EET_Tweaks.log~
+
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
-///// Borderless Full Screen Worldmap                  \\\\\
+///// Borderless full screen worldmap                  \\\\\
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Borderless Full Screen Worldmap~
+BEGIN ~Borderless full screen worldmap~
 //DESIGNATED 31
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ ~This component is not compatible with your game~
 
@@ -2724,7 +2753,7 @@ OUTER_WHILE (valid_answer = 0) BEGIN
 		OUTER_SET logCustom = 1
 		OUTER_SET valid_answer = 1
 	END ELSE BEGIN
-		PRINT ~Which type of boardless full screen worldmap should be installed?
+		PRINT ~Choose borderless full screen worldmap type:
  1] Scaled resolution, 16:9 aspect ratio
  2] Scaled resolution, 4:3 aspect ratio
  3] Unscaled native screen resolution ('scale user interface' option must be OFF)~
@@ -2775,6 +2804,8 @@ COPY_EXISTING ~GUIWMAP.CHU~ ~override~
 		END
 	//END
 BUT_ONLY
+
+LAM ~EET_Tweaks.log~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\

@@ -99,7 +99,7 @@ ACTION_IF NOT ~%LANGUAGE%~ STRING_EQUAL_CASE ~en_US~ BEGIN
 		//"uk_ua" => ""
 		//"zh_cn" => ""
 	END
-	ACTION_DEFINE_ARRAY charsetsConvertArray BEGIN 0 2 10 25 26 27 100 END
+	ACTION_DEFINE_ARRAY charsetsConvertArray BEGIN 0 2 10 25 26 27 29 100 END
 	LAF ~HANDLE_CHARSETS~
 		INT_VAR
 		infer_charsets = 0
