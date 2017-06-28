@@ -1,5 +1,0 @@
-Most of EET Tweaks strings are already translated elsewhere, mostly in original games. Check out the comments for strings, as they often show where to look at for translated string.
-
-prompts.tra - this is a common file with weidu constants strings. There are many mods that come with such file, so you can just copy it over without any changes.
-
-areas.tra - if EET has been translated to your langauage than this file is almost a direct copy of map_mods_trans.tra from that mod. You can also find many of these strings translated in BP-BGT Worldmap. Check out string numbers added as comments. Also check if Miloch's Sword Coast Map Labels mod is available in your language for even more translated strings. ### instead of spaces and area names instead of string numbers are not a mistake. This file is not directly loaded, but EET reads it during installation to get these strings.

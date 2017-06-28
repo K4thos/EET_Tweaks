@@ -1,0 +1,180 @@
+COPY_EXISTING ~XPLIST.2da~ ~override~
+	COUNT_2DA_COLS "cntcol"
+	COUNT_2DA_ROWS "%cntcol%" "cntrows"
+	FOR (cnt = 0; cnt < "%cntrows%"; cnt = cnt + 1) BEGIN
+		READ_2DA_ENTRY cnt 0 "%cntcol%" "name"
+		PATCH_PRINT ~Analysing '%name%' XPLIST.2da row~
+		FOR (cnt2 = 2; cnt2 < "%cntcol%"; cnt2 = cnt2 + 1) BEGIN
+			READ_2DA_ENTRY cnt cnt2 "%cntcol%" "XP_value"
+			SET add_prefix = 0
+			SPRINT print "%XP_value%"
+			PATCH_IF NOT (IS_AN_INT %XP_value%) BEGIN
+				INNER_PATCH_SAVE ~XP_value~ ~%XP_value%~ BEGIN
+					REPLACE_TEXTUALLY ~P_~ ~~
+				END
+				SET add_prefix = 1
+			END
+			PATCH_IF ("%XP_value%" > 0) BEGIN
+				SET XP_value = ("%XP_value%" * "%value%" / 100)
+				PATCH_IF ("%XP_value%" < 1) BEGIN
+					SET XP_value = 1
+				END
+				PATCH_IF ("%add_prefix%" = 1) BEGIN
+					INNER_PATCH_SAVE ~XP_value~ ~%XP_value%~ BEGIN
+						REPLACE_TEXTUALLY ~^~ ~P_~
+					END
+				END
+				SET_2DA_ENTRY cnt cnt2 cntcol ~%XP_value%~
+				PATCH_PRINT ~Patching XPLIST.2da (row%cnt%, col%cnt2%): %print% => %XP_value%~
+			END
+		END
+	END
+	PRETTY_PRINT_2DA
+BUT_ONLY
+
+ACTION_FOR_EACH ext IN BCS DLG BEGIN
+	COPY_EXISTING_REGEXP GLOB ~.+\.%ext%~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_EVALUATE CASE_INSENSITIVE ~AddexperienceParty(\([1-9][0-9]*\))~ BEGIN
+				SET "XP_value" = "%MATCH1%"
+				PATCH_IF ("%XP_value%" > 0) BEGIN
+					SET XP_value = ("%XP_value%" * "%value%" / 100)
+					PATCH_IF ("%XP_value%" < 1) BEGIN
+						SET XP_value = 1
+					END
+					PATCH_PRINT ~Patching %SOURCE_FILE%: %MATCH1% => %XP_value%~
+				END
+			END
+			~AddexperienceParty(%XP_value%)~
+			REPLACE_EVALUATE CASE_INSENSITIVE ~AddXPObject(\(.*\),\([1-9][0-9]*\))~ BEGIN
+				SET "XP_value" = "%MATCH2%"
+				PATCH_IF ("%XP_value%" > 0) BEGIN
+					SET XP_value = ("%XP_value%" * "%value%" / 100)
+					PATCH_IF ("%XP_value%" < 1) BEGIN
+						SET XP_value = 1
+					END
+					PATCH_PRINT ~Patching %SOURCE_FILE%: %MATCH2% => %XP_value%~
+				END
+			END
+			~AddXPObject(%MATCH1%,%XP_value%)~
+			REPLACE_EVALUATE CASE_INSENSITIVE ~ChangeStat(\(.*\),XP,\([1-9][0-9]*\),ADD)~ BEGIN
+				SET "XP_value" = "%MATCH2%"
+				PATCH_IF ("%XP_value%" > 0) BEGIN
+					SET XP_value = ("%XP_value%" * "%value%" / 100)
+					PATCH_IF ("%XP_value%" < 1) BEGIN
+						SET XP_value = 1
+					END
+					PATCH_PRINT ~Patching %SOURCE_FILE%: %MATCH2% => %XP_value%~
+				END
+			END
+			~ChangeStat(%MATCH1%,XP,%XP_value%,ADD)~
+		END
+	BUT_ONLY
+END
+
+COPY_EXISTING_REGEXP GLOB ~.+\.SPL~ ~override~
+	READ_LONG 0x64 "abil_off" ELSE 0
+	READ_SHORT 0x68 "abil_num" ELSE 0
+	READ_LONG 0x6a "fx_off" ELSE 0
+	FOR (index = 0 ; index < abil_num ; index = index + 1) BEGIN
+		READ_SHORT ("%abil_off%" + 0x1e + (0x28 * "%index%")) "abil_fx_num"
+		READ_SHORT ("%abil_off%" + 0x20 + (0x28 * "%index%")) "abil_fx_idx"
+		FOR (index2 = 0 ; index2 < abil_fx_num ; index2 = index2 + 1) BEGIN
+			SET "offset" = ("%fx_off%" + (0x30 * ("%abil_fx_idx%" + "%index2%")))
+			READ_SHORT "%offset%" "opcode"
+			PATCH_IF ("%opcode%" = 104) BEGIN //XP bonus
+				READ_LONG ("%offset%" + 0x4) "XP_value" //Value
+				READ_LONG ("%offset%" + 0x8) "XP_type" //Modifier type
+				PATCH_IF ((XP_value > 0) AND (XP_type = 0)) BEGIN
+					SET print = "%XP_value%"
+					SET XP_value = ("%XP_value%" * "%value%" / 100)
+					PATCH_IF ("%XP_value%" < 1) BEGIN
+						SET XP_value = 1
+					END
+					WRITE_LONG ("%offset%" + 0x4) "%XP_value%"
+					PATCH_PRINT ~Patching %SOURCE_FILE%: %print% => %XP_value%~
+				END
+			END
+		END
+	END
+	READ_SHORT 0x70 "fx_num" ELSE 0
+	FOR (index3 = 0 ; index3 < fx_num ; index3 = index3 + 1) BEGIN
+		SET "offset" = ("%fx_off%" + (0x30 * "%index3%"))
+		READ_SHORT "%offset%" "opcode"
+		PATCH_IF ("%opcode%" = 104) BEGIN //XP bonus
+			READ_LONG ("%offset%" + 0x4) "XP_value" //Value
+			READ_LONG ("%offset%" + 0x8) "XP_type" //Modifier type
+			PATCH_IF ((XP_value > 0) AND (XP_type = 0)) BEGIN
+				SET print = "%XP_value%"
+				SET XP_value = ("%XP_value%" * "%value%" / 100)
+				PATCH_IF ("%XP_value%" < 1) BEGIN
+					SET XP_value = 1
+				END
+				WRITE_LONG ("%offset%" + 0x4) "%XP_value%"
+				PATCH_PRINT ~Patching %SOURCE_FILE%: %print% => %XP_value%~
+			END
+		END
+	END
+BUT_ONLY
+
+COPY_EXISTING_REGEXP GLOB ~.+\.ITM~ ~override~
+	READ_LONG 0x64 "abil_off" ELSE 0
+	READ_SHORT 0x68 "abil_num" ELSE 0
+	READ_LONG 0x6a "fx_off" ELSE 0
+	FOR (index = 0 ; index < abil_num ; index = index + 1) BEGIN
+		READ_SHORT ("%abil_off%" + 0x1e + (0x38 * "%index%")) "abil_fx_num"
+		READ_SHORT ("%abil_off%" + 0x20 + (0x38 * "%index%")) "abil_fx_idx"
+		FOR (index2 = 0 ; index2 < abil_fx_num ; index2 = index2 + 1) BEGIN
+			SET "offset" = ("%fx_off%" + (0x30 * ("%abil_fx_idx%" + "%index2%")))
+			READ_SHORT "%offset%" "opcode"
+			PATCH_IF ("%opcode%" = 104) BEGIN //XP bonus
+				READ_LONG ("%offset%" + 0x4) "XP_value" //Value
+				READ_LONG ("%offset%" + 0x8) "XP_type" //Modifier type
+				PATCH_IF ((XP_value > 0) AND (XP_type = 0)) BEGIN
+					SET print = "%XP_value%"
+					SET XP_value = ("%XP_value%" * "%value%" / 100)
+					PATCH_IF ("%XP_value%" < 1) BEGIN
+						SET XP_value = 1
+					END
+					WRITE_LONG ("%offset%" + 0x4) "%XP_value%"
+					PATCH_PRINT ~Patching %SOURCE_FILE%: %print% => %XP_value%~
+				END
+			END
+		END
+	END
+	READ_SHORT 0x70 "fx_num" ELSE 0
+	FOR (index3 = 0 ; index3 < fx_num ; index3 = index3 + 1) BEGIN
+		SET "offset" = ("%fx_off%" + (0x30 * "%index3%"))
+		READ_SHORT "%offset%" "opcode"
+		PATCH_IF ("%opcode%" = 104) BEGIN //XP bonus
+			READ_LONG ("%offset%" + 0x4) "XP_value" //Value
+			READ_LONG ("%offset%" + 0x8) "XP_type" //Modifier type
+			PATCH_IF ((XP_value > 0) AND (XP_type = 0)) BEGIN
+				SET print = "%XP_value%"
+				SET XP_value = ("%XP_value%" * "%value%" / 100)
+				PATCH_IF ("%XP_value%" < 1) BEGIN
+					SET XP_value = 1
+				END
+				WRITE_LONG ("%offset%" + 0x4) "%XP_value%"
+				PATCH_PRINT ~Patching %SOURCE_FILE%: %print% => %XP_value%~
+			END
+		END
+	END
+BUT_ONLY
+
+COPY_EXISTING_REGEXP GLOB ~.+\.EFF~ ~override~
+	READ_LONG 0x10 "opcode"
+	PATCH_IF ("%opcode%" = 104) BEGIN //XP bonus
+		READ_LONG 0x1c "XP_value" //Value
+		READ_LONG 0x20 "XP_type" //Modifier type
+		PATCH_IF ((XP_value > 0) AND (XP_type = 0)) BEGIN
+			SET print = "%XP_value%"
+			SET XP_value = ("%XP_value%" * "%value%" / 100)
+			PATCH_IF ("%XP_value%" < 1) BEGIN
+				SET XP_value = 1
+			END
+			WRITE_LONG 0x4 "%XP_value%"
+			PATCH_PRINT ~Patching %SOURCE_FILE%: %print% => %XP_value%~
+		END
+	END
+BUT_ONLY

@@ -1,0 +1,118 @@
+@900000 = ~Consistent NPCs~
+
+@900100 = ~Edwin appearance~
+@900101 = ~BG1~
+@900102 = ~BG2~
+
+@900200 = ~Imoen appearance~
+@900201 = ~BG1~
+@900202 = ~BG2~
+@900203 = ~SoD~
+
+@900300 = ~Jaheira appearance~
+@900301 = ~BG1~
+@900302 = ~BG2~
+
+@900400 = ~Minsc appearance~
+@900401 = ~BG1~
+@900402 = ~BG2~
+
+@900500 = ~Viconia appearance~
+@900501 = ~BG1~
+@900502 = ~BG2~
+@900503 = ~SoD~
+
+@900600 = ~Cameo NPCs appearance~
+
+@900700 = ~NPC voices~
+
+@910000 = ~XP adjustments~
+
+@910100 = ~Total XP CAP~
+@910101 = ~2,950,000 - BG2 XP CAP~
+@910102 = ~8,000,000 - BG2:ToB XP CAP (default)~
+@910103 = ~Disable XP CAP~
+@910104 = ~Custom value~
+
+@910200 = ~Additional XP CAP for BG1 portion of the game~
+@910201 = ~ 89,000 - BG2:SoA starting XP~
+@910202 = ~161,000 - BG1 XP CAP~
+@910203 = ~500,000 - SoD XP CAP~
+@910204 = ~Custom value~
+
+@910300 = ~Additional XP CAP for SoD portion of the game~
+@910301 = ~ 89,000 - BG2:SoA starting XP~
+@910302 = ~161,000 - BG1 XP CAP~
+@910303 = ~500,000 - SoD XP CAP~
+@910304 = ~Custom value~
+
+@910400 = ~Additional XP CAP for SoA portion of the game~
+@910401 = ~2,500,000 - BG2:ToB starting XP for NPC~
+@910402 = ~2,950,000 - BG2 XP CAP~
+@910403 = ~8,000,000 - BG2:ToB XP CAP~
+@910404 = ~Custom value~
+
+@910500 = ~Adjust XP for Traps, Spells and Lockpicking~
+@910501 = ~Use XP values from BG1 (default)~
+@910502 = ~Use XP values from BG2~
+@910503 = ~Vanilla friendly progressive~
+@910504 = ~Disable XP for disarming traps, lockpicking, spell learning~
+@910505 = ~Custom value~
+
+@910600 = ~Adjust XP for killing creatures~
+@910601 = ~Increase to 150%~
+@910602 = ~Decrease to 75%~
+@910603 = ~Decrease to 50%~
+@910604 = ~Decrease to 25%~
+@910605 = ~Decrease to 10%~
+@910606 = ~Disable~
+@910607 = ~Custom value~
+
+@910700 = ~Adjust XP for quests~
+@910701 = ~Increase to 150%~
+@910702 = ~Decrease to 75%~
+@910703 = ~Decrease to 50%~
+@910704 = ~Decrease to 25%~
+@910705 = ~Decrease to 10%~
+@910706 = ~Disable~
+@910707 = ~Custom value~
+
+@910800 = ~Party XP for quests distributed individually~
+
+@920000 = ~Gameplay~
+
+@920100 = ~Disable hostile reaction after charm~
+
+@920200 = ~PnP spell scroll caster levels~
+
+@920300 = ~Adjust familiar death consequences~
+@920301 = ~Constitution loss for 1 week + blocked familiar summoning for 1 week~
+@920302 = ~Constitution loss for 1 week~
+@920303 = ~Disable Constitution loss~
+
+@920400 = ~Protagonist can die~
+
+@920500 = ~Ironman Mode~
+
+@930000 = ~Miscellaneous~
+
+@930100 = ~Add Priest of Tempus kit for Priests~
+
+@930200 = ~More bandit scalps~
+
+@930300 = ~Adjust FPS and fix audio skipping in cutscenes~
+@930301 = ~60 FPS~
+@930302 = ~45 FPS~
+@930303 = ~Custom value~
+
+@930400 = ~Remove junk from global scripts~
+
+@980000 = ~Type in the integer value for XP CAP~
+@980001 = ~Type in the integer percentage value~
+@980002 = ~Type in the FPS value (range between 30 and 60)~
+
+@990000 = ~This component is not compatible with your game~
+@990001 = ~This component is not available for your language~
+@990002 = ~Similar tweak already installed~
+@990003 = ~Conflicting BG2 Tweaks component detected: Cast Spells from Scrolls at Character Level~
+@990004 = ~This kit is already in the game~

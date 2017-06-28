@@ -1,0 +1,481 @@
+OUTER_SPRINT UNHAPPY_BREAKING_POINT ~0xb8~
+
+/////                                                  \\\\\
+///// Edwin                                            \\\\\
+/////                                                  \\\\\
+
+// the same voice actor (Robert Płuszka) plays the role in both games, so there is no need for special treatment. Just added some sounds to BG1 CRE files that were introduced in BG2 (comments on nature, more attack taunts etc.)
+
+// replace cre voice entries
+ACTION_FOR_EACH npc IN EDWIN EDWIN2 EDWIN4 EDWIN6 E35 BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) BEGIN
+		COPY_EXISTING ~%npc%.cre~ ~override~
+			PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+				SAY BATTLE_CRY2 #3967
+				SAY BATTLE_CRY3 #30694
+				SAY BATTLE_CRY4 #30706
+				SAY AREA_FOREST #5345
+				SAY AREA_CITY #5346
+				SAY AREA_DUNGEON #5347
+				SAY AREA_DAY #5348
+				SAY AREA_NIGHT #5349
+				SAY SELECT_COMMON4 #30709
+				SAY SELECT_COMMON5 #30710
+				SAY SELECT_COMMON6 #30711
+				SAY SELECT_RARE1 #30716
+				SAY SELECT_RARE2 #30717
+				SAY CRITICAL_HIT #30718
+				SAY CRITICAL_MISS #30719
+				SAY TARGET_IMMUNE #30720
+				SAY INVENTORY_FULL #30721
+				SAY PICKED_POCKET #30722
+				SAY HIDDEN_IN_SHADOWS #30723
+				SAY SPELL_DISRUPTED #30724
+				SAY SET_A_TRAP #30725
+			END
+		BUT_ONLY
+	END
+END
+
+// SoD
+OUTER_SPRINT npc ~EDWIN.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~EDWIN7_.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+COPY_EXISTING ~BDEDWIN.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~[ %TAB%]+\(Global("bd_NewSounds","LOCALS",0)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches = 1) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1
+    False()~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+/////                                                  \\\\\
+///// Imoen                                            \\\\\
+/////                                                  \\\\\
+
+// it's hard to believe but the same voice actress (Anna Dużyńska) played the role in both games. The problem is that in BG1 for whatever stupid reason she used Russian accent and sounds nothing like in BG2. That is why she will now use her BG2 voice set (from later part of game, not those pessimistic lines from Irenicus Dungeon). Remaining original BG1 tracks are replaced with dummy (silent) files.
+
+// replace cre voice entries
+ACTION_FOR_EACH npc IN IMOEN IMOEN1 IMOEN2 IMOEN4 IMOEN6_ BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) BEGIN
+		COPY_EXISTING ~%npc%.cre~ ~override~
+			PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+				SAY INITIAL_MEETING #30739
+				SAY MORALE #30759
+				SAY HAPPY #30726
+				SAY UNHAPPY_ANNOYED #4338
+				SAY UNHAPPY_SERIOUS #30727
+				SAY UNHAPPY_BREAKING_POINT @4000000
+				SAY LEADER #4337
+				SAY TIRED #4339
+				SAY BORED #30760
+				SAY BATTLE_CRY1 #30761
+				SAY BATTLE_CRY2 #30762
+				SAY BATTLE_CRY3 #11035
+				SAY BATTLE_CRY4 #-1
+				SAY DAMAGE #5395
+				SAY DYING #5396
+				SAY HURT #30764
+				SAY AREA_FOREST #30731
+				SAY AREA_CITY #30732
+				SAY AREA_DUNGEON #11036
+				SAY AREA_DAY #30733
+				SAY AREA_NIGHT #30734
+				SAY SELECT_COMMON1 #30735
+				SAY SELECT_COMMON2 #30736
+				SAY SELECT_COMMON3 #30737
+				SAY SELECT_COMMON4 #30738
+				SAY SELECT_COMMON5 #30739
+				SAY SELECT_COMMON6 #30740
+				SAY SELECT_ACTION1 #11038
+				SAY SELECT_ACTION2 #11039
+				SAY SELECT_ACTION3 #4335
+				SAY SELECT_ACTION4 #4336
+				SAY SELECT_ACTION5 #11043
+				SAY SELECT_ACTION6 #11042
+				SAY SELECT_ACTION7 #11045
+				SAY SELECT_RARE1 #30741
+				SAY SELECT_RARE2 @4000001
+				SAY CRITICAL_HIT #30746
+				SAY CRITICAL_MISS #30747
+				SAY TARGET_IMMUNE #30748
+				SAY INVENTORY_FULL #30749
+				SAY PICKED_POCKET #30750
+				SAY HIDDEN_IN_SHADOWS #30751
+				SAY SPELL_DISRUPTED #30752
+				SAY SET_A_TRAP #30753
+			END
+		BUT_ONLY
+	END
+END
+
+// tortures are mentioned in original @30741 string with assigned voice track. It doesn't make sense to use it in BG1 so I edited it out
+COPY ~EET_Tweaks/base/voices/%LANGUAGE%/IMOEN~ ~override~
+
+// dummy (silent) wavs are used for the remaining voices in BG1 portion of the game (quest/banter relevant ones). In case some mods attaches original voice tracks in dialogue I replaced all of them with dummy files
+ACTION_FOR_EACH voice IN IMOEN01_ IMOEN02_ IMOEN03_ IMOEN04_ IMOEN05_ IMOEN06_ IMOEN07_ IMOEN08_ IMOEN09_ IMOEN10_ IMOEN11_ IMOEN12_ IMOEN13_ IMOEN14_ IMOEN15_ IMOEN16_ IMOEN17_ IMOEN18_ IMOEN19_ IMOEN20_ IMOEN21_ IMOEN22_ IMOEN23_ IMOEN24_ IMOEN25_ IMOEN26_ IMOEN27_ IMOEN28_ IMOEN30_ BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%voice%.wav~) BEGIN
+		COPY ~EET_Tweaks/base/voices/dummy.wav~ ~override/%voice%.wav~
+	END
+END
+
+// SoD
+OUTER_SPRINT npc ~IMOEN.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~BDIMOEN.CRE~ ~BDIMDEAD.CRE~ ~BDIMOEDO.CRE~ ~BDSHIMOE.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+/////                                                  \\\\\
+///// Jaheira                                          \\\\\
+/////                                                  \\\\\
+
+// the same voice actress (Henryka Korzycka) plays the role in both games, but she did MUCH better job in BG2 (compare "For the fallen!" line for example). So her lines remains mostly unchanged, but voices for common actions has been replaced with BG2 ones if they were available.
+
+// replace cre voice entries
+ACTION_FOR_EACH npc IN JAHEIR JAHEIR2 JAHEIR4 JAHEIR6 E36 BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) BEGIN
+		COPY_EXISTING ~%npc%.cre~ ~override~
+			PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+				SAY MORALE #4008
+				SAY HAPPY #4010
+				SAY UNHAPPY_ANNOYED #4011
+				SAY UNHAPPY_SERIOUS #4012
+				SAY UNHAPPY_BREAKING_POINT #4013
+				SAY LEADER #4014
+				SAY TIRED #4015
+				SAY BORED #4016
+				SAY BATTLE_CRY1 #4009
+				SAY BATTLE_CRY2 #30765
+				SAY BATTLE_CRY3 #30766
+				SAY DAMAGE #5353
+				SAY DYING #5354
+				SAY HURT #4017
+				SAY AREA_FOREST #4018
+				SAY AREA_CITY #4019
+				SAY AREA_DUNGEON #4020
+				SAY AREA_DAY #5352
+				SAY AREA_NIGHT #4021
+				SAY SELECT_COMMON1 #4022
+				SAY SELECT_COMMON2 #4023
+				SAY SELECT_COMMON3 #54350
+				SAY SELECT_COMMON4 #4024
+				SAY SELECT_COMMON5 #30767
+				SAY SELECT_COMMON6 #30768
+				SAY SELECT_ACTION1 #4025
+				SAY SELECT_ACTION2 #30769
+				SAY SELECT_ACTION3 #4027
+				SAY SELECT_ACTION4 #4028
+				SAY SELECT_ACTION5 #4029
+				SAY SELECT_ACTION6 #4030
+				SAY SELECT_ACTION7 #4031
+				SAY SELECT_RARE1 #30770
+				SAY SELECT_RARE2 #30771
+				SAY CRITICAL_HIT #30772
+				SAY CRITICAL_MISS #30775
+				SAY TARGET_IMMUNE #30776
+				SAY INVENTORY_FULL #30777
+				SAY PICKED_POCKET #30778
+				SAY HIDDEN_IN_SHADOWS #30779
+				SAY SPELL_DISRUPTED #30780
+				SAY SET_A_TRAP #30781
+			END
+		BUT_ONLY
+	END
+END
+
+// SoD
+OUTER_SPRINT npc ~JAHEIR.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~JAHEIR7_.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+/////                                                  \\\\\
+///// Minsc                                            \\\\\
+/////                                                  \\\\\
+
+// similar situation to Imoen - same voice actor (Janusz Marcinowicz), awesome BG2 performance, and totally different direction in BG1, where he sounds nothing like the English voice actor or his BG2 performance (I had to listen to his lines over and over to even believe that it is the same voice actor). Simply bland and even worse he is often mispronouncing Boo name in BG1 :( That is why all sounds are replaced with BG2 ones and remaining BG1 tracks are replaced with dummy (silent) files.
+
+// replace cre voice entries
+ACTION_FOR_EACH npc IN MINSC MINSC2 MINSC4 MINSC6 E32 BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) BEGIN
+		COPY_EXISTING ~%npc%.cre~ ~override~
+			PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+				SAY INITIAL_MEETING #22083
+				SAY MORALE #30788
+				SAY HAPPY #4087
+				SAY UNHAPPY_ANNOYED #4088
+				SAY UNHAPPY_SERIOUS #4089
+				SAY UNHAPPY_BREAKING_POINT #4090
+				SAY LEADER #30790
+				SAY TIRED #4092
+				SAY BORED #4093
+				SAY BATTLE_CRY1 #4086
+				SAY BATTLE_CRY2 #30793
+				SAY BATTLE_CRY3 #30794
+				SAY BATTLE_CRY4 #-1
+				SAY BATTLE_CRY5 #-1
+				SAY DAMAGE #5359
+				SAY DYING #5360
+				SAY HURT #4094
+				SAY AREA_FOREST #4095
+				SAY AREA_CITY #5357
+				SAY AREA_DUNGEON #4096
+				SAY AREA_DAY #5358
+				SAY AREA_NIGHT #4097
+				SAY SELECT_COMMON1 #4098
+				SAY SELECT_COMMON2 #4099
+				SAY SELECT_COMMON3 #4100
+				SAY SELECT_COMMON4 #30796
+				SAY SELECT_COMMON5 #30798
+				SAY SELECT_COMMON6 #30799
+				SAY SELECT_ACTION1 #4101
+				SAY SELECT_ACTION2 #30800
+				SAY SELECT_ACTION3 #30801
+				SAY SELECT_ACTION4 #4104
+				SAY SELECT_ACTION5 #30806
+				SAY SELECT_ACTION6 #30807
+				SAY SELECT_ACTION7 #4107
+				SAY SELECT_RARE1 #30808
+				SAY SELECT_RARE2 #30809
+				SAY CRITICAL_HIT #30937
+				SAY CRITICAL_MISS #31850
+				SAY TARGET_IMMUNE #31901
+				SAY INVENTORY_FULL #33805
+				SAY PICKED_POCKET #34379
+				SAY HIDDEN_IN_SHADOWS #34380
+				SAY SPELL_DISRUPTED #34381
+				SAY SET_A_TRAP #34744
+			END
+		BUT_ONLY
+	END
+END
+
+// dummy (silent) wavs are used for the remaining voices in BG1 portion of the game (quest/banter relevant ones). In case some mods attaches original voice tracks in dialogue I replaced all of them with dummy files.
+ACTION_FOR_EACH voice IN MINSC01_ MINSC02_ MINSC03_ MINSC04_ MINSC05_ MINSC06_ MINSC07_ MINSC08_ MINSC09_ MINSC10_ MINSC11_ MINSC12_ MINSC14_ MINSC16_ MINSC17_ MINSC18_ MINSC19_ MINSC20_ MINSC21_ MINSC22_ MINSC23_ MINSC24_ MINSC25_ MINSC26_ MINSC27_ MINSC28_ MINSC29_ MINSC30_ MINSC31_ MINSC32_ MINSC33_ MINSC34_ MINSC35_ MINSC36_ MINSC37_ MINSC38_ MINSC39_ MINSC40_ MINSC41_ BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%voice%.wav~) BEGIN
+		COPY ~EET_Tweaks/base/voices/dummy.wav~ ~override/%voice%.wav~
+	END
+END
+
+// SoD
+OUTER_SPRINT npc ~MINSC.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~MINSC7_.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+COPY_EXISTING ~BDMINSC.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~[ %TAB%]+\(Global("bd_NewSounds","LOCALS",0)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches = 1) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1
+    False()~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+/////                                                  \\\\\
+///// Viconia                                          \\\\\
+/////                                                  \\\\\
+
+// the same voice actress (Gabriela Kownacka) plays the role in both games, so she keeps all of her BG1 voices and receives additional sounds introduced in BG2 (see Edwin)
+
+// replace cre voice entries
+ACTION_FOR_EACH npc IN VICONI VICONI4 VICONI6_ BEGIN
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%npc%.cre~) BEGIN
+		COPY_EXISTING ~%npc%.cre~ ~override~
+			PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+				SAY BATTLE_CRY1 #3614
+				SAY BATTLE_CRY2 #29812
+				SAY BATTLE_CRY3 #29813
+				SAY AREA_CITY #5281
+				SAY SELECT_COMMON4 #30517
+				SAY SELECT_COMMON5 #30520
+				SAY SELECT_COMMON6 #30524
+				SAY SELECT_RARE1 #30526
+				SAY SELECT_RARE2 #30527
+				SAY CRITICAL_HIT #30528
+				SAY CRITICAL_MISS #30529
+				SAY TARGET_IMMUNE #30534
+				SAY INVENTORY_FULL #30535
+				SAY PICKED_POCKET #30536
+				SAY HIDDEN_IN_SHADOWS #30537
+				SAY SPELL_DISRUPTED #30538
+				SAY SET_A_TRAP #30539
+			END
+		BUT_ONLY
+	END
+END
+
+// SoD
+OUTER_SPRINT npc ~VICONI.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~VICONI7.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+COPY_EXISTING ~BDVICONI.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~[ %TAB%]+\(Global("bd_NewSounds","LOCALS",0)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches = 1) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1
+    False()~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+/////                                                  \\\\\
+///// SOD Coran                                        \\\\\
+/////                                                  \\\\\
+
+OUTER_SPRINT npc ~CORAN.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~BDCORAN.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+/////                                                  \\\\\
+///// SOD Dynaheir                                     \\\\\
+/////                                                  \\\\\
+
+OUTER_SPRINT npc ~DYNAHE.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~DYNAHE7.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+COPY_EXISTING ~BDDYNAHE.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~[ %TAB%]+\(Global("bd_NewSounds","LOCALS",0)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches = 1) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1
+    False()~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+/////                                                  \\\\\
+///// SOD Garrick                                      \\\\\
+/////                                                  \\\\\
+
+OUTER_SPRINT npc ~GARRIC.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~BDGARRIC.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+/////                                                  \\\\\
+///// SOD Khalid                                       \\\\\
+/////                                                  \\\\\
+
+OUTER_SPRINT npc ~KHALID.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~KHALID7.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+COPY_EXISTING ~BDKHALID.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~[ %TAB%]+\(Global("bd_NewSounds","LOCALS",0)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches = 1) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1
+    False()~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+/////                                                  \\\\\
+///// SOD Safana                                       \\\\\
+/////                                                  \\\\\
+
+OUTER_SPRINT npc ~SAFANA.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~SAFANA7.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+COPY_EXISTING ~BDSAFANA.BCS~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		SPRINT textToReplace ~[ %TAB%]+\(Global("bd_NewSounds","LOCALS",0)\)~
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+		PATCH_IF (num_matches = 1) BEGIN
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~\1
+    False()~
+			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
+		END ELSE BEGIN
+			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
+		END
+	END
+BUT_ONLY
+
+/////                                                  \\\\\
+///// SOD Skie                                         \\\\\
+/////                                                  \\\\\
+
+//fully voiced SoD content, no point in assigning old sounds
+
+/////                                                  \\\\\
+///// SOD Tiax                                         \\\\\
+/////                                                  \\\\\
+
+OUTER_SPRINT npc ~TIAX.CRE~
+OUTER_SPRINT soundset ~soundset~
+LAM READ_SOUNDSET
+OUTER_SET overwrite = 2
+ACTION_FOR_EACH npc IN ~BDTIAX.CRE~ BEGIN
+	LAM WRITE_SOUNDSET
+END
+
+/////                                                  \\\\\
+///// Wraith Sarevok                                   \\\\\
+/////                                                  \\\\\
+
+// touched up Sarevok's (Daniel Olbrychski) Hell Trials speech to be more in line with his BG1 performance and his current spiritual appearance. During Hell Trials Sarevok uses the same, fully armoured animation as in BG1, so it didn't make sense that the Wraith had crystal clear voice as in ToB, where he is alive and no longer wears helmet that distorts his voice.
+COPY ~EET_Tweaks/base/voices/%LANGUAGE%/HELSAR~ ~override~

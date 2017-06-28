@@ -1,0 +1,80 @@
+//update baldur.ini / baldur.lua
+ACTION_IF ENGINE_IS ~bgee bg2ee iwdee~ BEGIN
+	ACTION_IF (FILE_EXISTS ~%USER_DIRECTORY%/Baldur.lua~) BEGIN
+<<<<<<<< .../Baldur.lua
+SetPrivateProfileString('%row%','%option%','%option_1%')
+>>>>>>>>
+		COPY ~%USER_DIRECTORY%/Baldur.lua~ ~%USER_DIRECTORY%~
+			DEFINE_ASSOCIATIVE_ARRAY table_EET_ini BEGIN
+				"Maximum Frame Rate" , ~%option_1%~ => "Program Options"
+			END
+			PHP_EACH table_EET_ini AS option => row BEGIN
+				COUNT_REGEXP_INSTANCES ~'%option%'~ num_matches
+				PATCH_IF (num_matches < 1) BEGIN
+					APPEND_FILE ~.../Baldur.lua~ EVALUATE_BUFFER
+				END ELSE BEGIN
+					REPLACE_TEXTUALLY ~^.+'%option%'.+$~ ~SetPrivateProfileString('%row%','%option%','%option_1%')~
+				END
+			END
+		BUT_ONLY
+	END ELSE BEGIN
+<<<<<<<< .../Baldur.lua
+SetPrivateProfileString('Program Options','Maximum Frame Rate','3')
+>>>>>>>>
+		COPY + ~.../Baldur.lua~ ~%USER_DIRECTORY%/Baldur.lua~
+	END
+END ELSE BEGIN //vanilla engine
+	ACTION_IF (FILE_EXISTS ~Baldur.ini~) BEGIN
+		COPY ~Baldur.ini~ ~Baldur.ini~
+			COUNT_REGEXP_INSTANCES ~Maximum Frame Rate~ num_matches
+			PATCH_IF (num_matches < 1) BEGIN
+				REPLACE_TEXTUALLY ~\(\[Program Options\]\)~ ~\1
+Maximum Frame Rate=60~
+			END ELSE BEGIN
+				REPLACE_TEXTUALLY ~Maximum Frame Rate.+$~ ~Maximum Frame Rate=60~
+			END
+	END ELSE BEGIN
+<<<<<<<< .../Baldur.lua
+[Program Options]
+Maximum Frame Rate=60
+>>>>>>>>
+		COPY + ~.../Baldur.lua~ ~Baldur.lua~
+	END
+END
+
+//additional delay. Unused, but can be set for languages that have many problems with cutting sounds even in 30 FPS because they are longer than English ones
+/*ACTION_IF ("%LANGUAGE%" STRING_EQUAL_CASE ~pl_PL~) BEGIN
+	OUTER_SET lang_val = 10
+END*/
+
+//Below code will update timers depending on the chosen FPS and should fix most of the issues for English audio
+//updates only Wait and SmallWait 1 line below DisplayStringX actions, so it shouldn't slow the game in other places
+COPY_EXISTING_REGEXP GLOB ~^.+\.BCS$~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_EVALUATE CASE_INSENSITIVE ~\(DisplayString.+[%newline%]+\)\(.*\)Wait(\([0-9]+\))\(.*\)~ BEGIN
+			SET time = "%MATCH3%"
+			SPRINT new_MATCH2 "%MATCH2%"
+			PATCH_IF "%MATCH2%" STRING_MATCHES_REGEXP ".*Small$" = 0 BEGIN
+				SET time = ("%time%" * "%value%" / 30)
+				/*PATCH_IF VARIABLE_IS_SET "%lang_val%" BEGIN
+					SET lang_add = ("%time%" / "%lang_val%")
+					SET time = ("%time%" + "%lang_add%")
+				END*/
+				INNER_PATCH_SAVE ~new_MATCH2~ ~%new_MATCH2%~ BEGIN
+					REPLACE_TEXTUALLY ~Small$~ ~~
+				END
+			END ELSE BEGIN
+				SET time = ("%time%" * 15 * "%value%" / 30)
+				/*PATCH_IF VARIABLE_IS_SET "%lang_val%" BEGIN
+					SET lang_add = ("%time%" / "%lang_val%")
+					SET time = ("%time%" + "%lang_add%")
+				END*/
+			END
+			PATCH_IF ("%time%" < 1) BEGIN
+				SET time = 1
+			END
+			PATCH_PRINT ~Patching %SOURCE_FILE%: %MATCH1%%MATCH2%Wait(%MATCH3%)%MATCH4% => %new_MATCH2%SmallWait(%time%)%MATCH4%~
+		END
+		~%MATCH1%%new_MATCH2%SmallWait(%time%)%MATCH4%~
+	END
+BUT_ONLY
