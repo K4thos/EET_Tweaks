@@ -45,7 +45,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY charsetsTable BEGIN
 	//"uk_ua" => ""
 	//"zh_cn" => ""
 END
-ACTION_DEFINE_ARRAY charsetsConvertArray BEGIN voices ironman tempus categorization END
+ACTION_DEFINE_ARRAY charsetsConvertArray BEGIN voices ironman tempus categorization wandcase END
 LAF HANDLE_CHARSETS
 	INT_VAR
 	infer_charset = 0

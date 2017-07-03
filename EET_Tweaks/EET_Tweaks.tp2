@@ -1,6 +1,6 @@
 BACKUP ~EET_Tweaks/backup~
 AUTHOR ~K4thos (swit)~
-VERSION ~1.6~
+VERSION ~1.7~
 README ~EET_Tweaks/lang/%LANGUAGE%/readme-EET_Tweaks.html~ ~EET_Tweaks/readme-EET_Tweaks.html~
 ASK_EVERY_COMPONENT
 
@@ -2262,7 +2262,7 @@ COPY_EXISTING ~AR0602.BCS~ ~override~
 		SPRINT textToReplace ~ActionOverride("K#ImportContainer"~
 		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
 		PATCH_IF (num_matches > 0) BEGIN
-			REPLACE_TEXTUALLY ~%textToReplace%~ ~ActionOverride("Picture1"~
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~ActionOverride("Table2"~
 			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
 		END ELSE BEGIN
 			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
@@ -2270,7 +2270,7 @@ COPY_EXISTING ~AR0602.BCS~ ~override~
 		SPRINT textToReplace ~"AR0602\*K#ImportContainer"~
 		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
 		PATCH_IF (num_matches > 0) BEGIN
-			REPLACE_TEXTUALLY ~%textToReplace%~ ~"AR0602*Picture1"~
+			REPLACE_TEXTUALLY ~%textToReplace%~ ~"AR0602*Table2"~
 			PATCH_PRINT ~Patching: %num_matches% matches found in %SOURCE_FILESPEC% for REPLACE_TEXTUALLY: %textToReplace%~
 		END ELSE BEGIN
 			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
@@ -2352,7 +2352,166 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	END
 BUT_ONLY
 
-//Wand Case
-//BDKEYR
+/////                                                  \\\\\
+///// Wand Case                                        \\\\\
+/////                                                  \\\\\
 
-//Ammo Belt, Bag of Holding, Gem Bag, Key Ring, Potion Case, Scroll Case
+BEGIN @930700 /*Wand Case*/
+DESIGNATED 4060
+GROUP @930000 /*Miscellaneous*/
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet~ @990000 /*This component is not compatible with your game*/
+FORBID_COMPONENT ~WandCase/WandCase.tp2~ 0 @990002 /*Similar tweak already installed*/
+
+LOAD_TRA ~EET_Tweaks/lang/%LANGUAGE%/wandcase.tra~
+
+COPY ~EET_Tweaks/base/wandcase/K#WANDCA.bam~ ~override~
+COPY ~EET_Tweaks/base/wandcase/K#WANDCA.itm~ ~override/K#WAND01.itm~
+	~EET_Tweaks/base/wandcase/K#WANDCA.itm~ ~override/K#WAND02.itm~
+	~EET_Tweaks/base/wandcase/K#WANDCA.itm~ ~override/K#WAND03.itm~
+	SAY NAME1 @0
+	SAY NAME2 @0
+	SAY IDENTIFIED_DESC @1
+	SAY UNIDENTIFIED_DESC @1
+COPY ~EET_Tweaks/base/wandcase/K#WANDCA.sto~ ~override/K#WAND01.sto~
+	~EET_Tweaks/base/wandcase/K#WANDCA.sto~ ~override/K#WAND02.sto~
+	~EET_Tweaks/base/wandcase/K#WANDCA.sto~ ~override/K#WAND03.sto~
+	SAY STORE_NAME @0
+
+// BG1 stores
+ACTION_IF GAME_IS ~bgee bgt eet~ BEGIN
+	COPY_EXISTING ~highhedg.sto~ ~override~
+		ADD_STORE_ITEM ~K#WAND01~ AFTER ~BAG06~ #0 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+END ELSE ACTION_IF GAME_IS ~tutu tutu_totsc~ BEGIN
+	COPY_EXISTING ~_ighhegd.sto~ ~override~
+		ADD_STORE_ITEM ~K#WAND01~ #0 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+END
+
+// BG2 stores
+ACTION_IF GAME_IS ~tob bg2ee bgt eet~ BEGIN
+	COPY_EXISTING ~ribald.sto~ ~override~
+		ADD_STORE_ITEM ~K#WAND02~ AFTER ~BAG02~ #0 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	COPY_EXISTING ~sarbar01.sto~ ~override~
+		ADD_STORE_ITEM ~K#WAND03~ AFTER ~BOOT01~ #0 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+END ELSE ACTION_IF GAME_IS ~soa~ BEGIN
+	COPY_EXISTING ~ribald.sto~ ~override~
+		ADD_STORE_ITEM ~K#WAND02~ #0 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+END
+
+/////                                                  \\\\\
+///// Key Ring                                         \\\\\
+/////                                                  \\\\\
+
+BEGIN @930800 /*Key Ring*/
+DESIGNATED 4070
+GROUP @930000 /*Miscellaneous*/
+REQUIRE_PREDICATE GAME_IS ~eet~ @990000 /*This component is not compatible with your game*/
+
+COPY_EXISTING ~bdkeyr.itm~ ~override/K#KEYR01.itm~
+	~bdkeyr.itm~ ~override/K#KEYR02.itm~
+	~bdkeyr.itm~ ~override/K#KEYR03.itm~
+COPY_EXISTING ~bdkeyr.sto~ ~override/K#KEYR01.sto~
+	~bdkeyr.sto~ ~override/K#KEYR02.sto~
+	~bdkeyr.sto~ ~override/K#KEYR03.sto~
+
+// BG1 stores
+COPY_EXISTING ~highhedg.sto~ ~override~
+	ADD_STORE_ITEM ~K#KEYR01~ AFTER ~BAG06~ #0 #0 #0 ~IDENTIFIED~ #1
+BUT_ONLY
+
+// BG2 stores
+COPY_EXISTING ~ribald.sto~ ~override~
+	ADD_STORE_ITEM ~K#KEYR02~ AFTER ~BAG02~ #0 #0 #0 ~IDENTIFIED~ #1
+BUT_ONLY
+COPY_EXISTING ~sarbar01.sto~ ~override~
+	ADD_STORE_ITEM ~K#KEYR03~ AFTER ~BOOT01~ #0 #0 #0 ~IDENTIFIED~ #1
+BUT_ONLY
+
+/////                                                  \\\\\
+///// Replace classic BG1 movies with BG:EE ones       \\\\\
+/////                                                  \\\\\
+
+BEGIN @930901 /*Replace movies*/
+DESIGNATED 4080
+SUBCOMPONENT @930900 /*Replace classic BG1 movies with BG:EE ones*/
+GROUP @930000 /*Miscellaneous*/
+REQUIRE_PREDICATE GAME_IS ~eet~ @990000 /*This component is not compatible with your game*/
+
+COPY - ~weidu.conf~ ~weidu.conf~
+	READ_2DA_ENTRY 0 2 3 "tlk_dir"
+
+MKDIR ~lang/%tlk_dir%/movies~
+COPY_LARGE ~EET/EE_movies~ ~lang/%tlk_dir%/movies~
+
+COPY_EXISTING ~bgee.lua~ ~override~
+	REPLACE_TEXTUALLY ~'intro_', 1, 120,~ ~'intro_', 1, 120,~
+	REPLACE_TEXTUALLY ~'intro_', 569, 629,~ ~'intro_', 719, 779,~
+	REPLACE_TEXTUALLY ~'intro_', 618, 668,~ ~'intro_', 809, 869,~
+	REPLACE_TEXTUALLY ~'intro_', 669, 741,~ ~'intro_', 889, 959,~
+	REPLACE_TEXTUALLY ~'intro_', 760, 820,~ ~'intro_', 949, 989,~
+BUT_ONLY
+
+BEGIN @930902 /*Also disable BG1 movies that don't have BG:EE variants*/
+DESIGNATED 4081
+SUBCOMPONENT @930900 /*Replace classic BG1 movies with BG:EE ones*/
+GROUP @930000 /*Miscellaneous*/
+REQUIRE_PREDICATE GAME_IS ~eet~ @990000 /*This component is not compatible with your game*/
+
+COPY - ~weidu.conf~ ~weidu.conf~
+	READ_2DA_ENTRY 0 2 3 "tlk_dir"
+
+MKDIR ~lang/%tlk_dir%/movies~
+COPY_LARGE ~EET/EE_movies~ ~lang/%tlk_dir%/movies~
+
+COPY_EXISTING ~bgee.lua~ ~override~
+	REPLACE_TEXTUALLY ~'intro_', 1, 120,~ ~'intro_', 1, 120,~
+	REPLACE_TEXTUALLY ~'intro_', 569, 629,~ ~'intro_', 719, 779,~
+	REPLACE_TEXTUALLY ~'intro_', 618, 668,~ ~'intro_', 809, 869,~
+	REPLACE_TEXTUALLY ~'intro_', 669, 741,~ ~'intro_', 889, 959,~
+	REPLACE_TEXTUALLY ~'intro_', 760, 820,~ ~'intro_', 949, 989,~
+BUT_ONLY
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY file_movie BEGIN
+	BG3300 => BEREGOST
+	BG0125 => BHAAL
+	BG2608 => CNDLKEEP
+	BG0111 => DUNGEON
+	BG0500 => DURLAG
+	BG5100 => GNOLL
+	BG0616 => IRONTHRN
+	BG0108 => PALACE
+	BG0224 => SEWER
+	BG0225 => SEWER
+	BG0226 => SEWER
+	BG0705 => TAVERN
+	BG1700 => WYVERN
+END
+
+ACTION_PHP_EACH file_movie AS file => movie BEGIN
+	COPY_EXISTING ~%file%.BCS~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY ~StartMovie("%movie%")~ ~~
+		END
+	BUT_ONLY
+END
+
+COPY_EXISTING_REGEXP GLOB ~.+\.ARE~ ~override~
+	READ_BYTE 0x48 flags
+	PATCH_IF (flags BAND BIT0) AND (flags BAND BIT1) AND (flags BAND BIT3) AND (flags BAND BIT6) BEGIN
+		READ_ASCII 0x94 script
+		PATCH_IF FILE_EXISTS_IN_GAME ~%script%.BCS~ BEGIN
+			INNER_ACTION BEGIN
+				COPY_EXISTING ~%script%.BCS~ ~override~
+					DECOMPILE_AND_PATCH BEGIN
+						REPLACE_TEXTUALLY ~StartMovie("BGSUNRIS")~ ~~
+						REPLACE_TEXTUALLY ~StartMovie("BGSUNSET")~ ~~
+					END
+				BUT_ONLY
+			END
+		END
+	END
+BUT_ONLY

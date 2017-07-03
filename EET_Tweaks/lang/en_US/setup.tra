@@ -117,6 +117,10 @@
 
 @930800 = ~Key Ring~
 
+@930900 = ~Replace classic BG1 movies with BG:EE ones~
+@930901 = ~Replace movies~
+@930902 = ~Also disable BG1 movies that don't have BG:EE variants~
+
 @980000 = ~Type in the integer value for XP CAP~
 @980001 = ~Type in the integer percentage value~
 @980002 = ~Type in integer frames count (30-60)~

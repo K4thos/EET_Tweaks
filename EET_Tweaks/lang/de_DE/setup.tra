@@ -107,6 +107,18 @@
 
 @930400 = ~Remove junk from global scripts~
 
+@930500 = ~Import party items to SoA~
+
+@930600 = ~Books/Scrolls categorization~
+
+@930700 = ~Wand Case~
+
+@930800 = ~Key Ring~
+
+@930900 = ~Replace classic BG1 movies with BG:EE ones~
+@930901 = ~Replace movies~
+@930902 = ~Also disable BG1 movies that don't have BG:EE variants~
+
 @980000 = ~Type in the integer value for XP CAP~
 @980001 = ~Type in the integer percentage value~
 @980002 = ~Type in the FPS value (range between 30 and 60)~

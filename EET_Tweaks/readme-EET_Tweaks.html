@@ -9,7 +9,7 @@
 <body>
 <h1>Baldur's Gate: Enhanced Edition Trilogy Tweaks (EET Tweaks)</h1>
 <div class="section">
-  <p><strong><a href="http://www.gibberlings3.net/">A Gibberlings Three Mod</a></strong> <br />
+  <p><strong><a href="http://www.gibberlings3.net/">A Gibberlings Three Mod</a></strong><br />
     <strong>Author</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=6804">K4thos</a><br>
 	<strong>Contributors</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=2909">WhiteAgnus</a>, <a href="http://gibberlings3.net/forums/index.php?showuser=7356">CrevsDaak</a>, <a href="http://gibberlings3.net/forums/index.php?showuser=6858">AstroBryGuy</a></p>
   <p><strong>On the web: </strong><a href="http://www.gibberlings3.net/eet_tweaks/"><strong>Home page</strong></a> and <a href="http://gibberlings3.net/forums/index.php?showforum=196"><strong>discussion forum</strong></a></p>
@@ -309,7 +309,6 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 <p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
 <p>The problem with increasing game framerate is annoying audio skipping in some cutscenes. This tweak should automatically fix most of such problems in vanilla Bioware content (just a guess based on what I've already tested). If you are using non English voices that are longer than original ones (in such cases they are usually also problematic even on 30 FPS) than this tweak may be a little less effective, but you should still notice major improvements. In the current version it works best with the cutscene coding present in vanilla BG2 and ToB. Due to the way Beamdog cutscenes are designed automatic approach doesn't work as intented (e.g. revised Sarevok ambush cutscene and Black Pits cutscenes will still have audio problems).<p>
 <p>PST:EE engine addeded few new triggers that can be used to bypass this problem but they are not available in other EE games yet. I'm planning to solve this in future if the engine will be ever updated to support those.</p> 
-
 <p>Available options:</p>
 <ol>
 	<li>60 FPS</li>
@@ -321,7 +320,7 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 <p>Compatibility: BG2:EE, EET</p>
 <p>Vanilla game script coding lefts a lot to be desired performance wise when it comes to handling global scripts stuff (code that is working constantly for the entire game). This tweak aims to remove things from BALDUR.BCS and BALDUR25.BCS that can be achieved locally, which in the end should result in better in-game performance. Some things from the below list may be skipped during installation if some other mod already changed the default implementation.</p>
 <ul>
-	<li>Cleric's Holy Symbols - this is probably the worst offender. As far as I know <em>HasItem</em> trigger is one of the most demanding ones in IE games. In order to give Cleric a Holy Symbol at level 25 (something that will be done maybe once or twice in the late BG2 portion of the game) there are 18 blocks with this trigger that are parsed at the same frame during entire game, whenever global script is in use. Whatever was the reason for this (looks like a thing adopted from G3 BG2 Fixpack) the implementation is just bad. This tweak changes CDHLYSYM.SPL to spawn an invisible creature with local script attached that will do exactly the same thing without any performance hit.</li>
+	<li>Cleric's Holy Symbols - this is probably the worst offender. As far as I know <em>HasItem</em> trigger is one of the most demanding ones in IE games. In order to give Cleric a Holy Symbol at level 25 (something that will be done maybe once or twice in the late BG2 portion of the game) there are 24 blocks with this trigger that are parsed at the same frame during entire game, whenever global script is in use. Whatever was the reason for this (looks like a thing adopted from G3 BG2 Fixpack) the implementation is just bad. This tweak changes CDHLYSYM.SPL to spawn an invisible creature with local script attached that will do exactly the same thing without any performance hit.</li>
 	<li>Lilarcor (talking sword) - another situation where demanding triggers are used without good enough reason. Fortunately with a timer delay, but still talking weapons in global scripts are a known factor for FPS drops in IE games. Lilarcor has now new item effect added that will spawn invisible creature when item is equipped.</li>
 	<li>Unused test script blocks - BALDUR.BCS contains some leftover code used for testing textscreens that can be wiped out without any effect on game.</li>
 	<li>Unused Familiar script blocks with wrong DV - BALDUR25.BCS has references to not existing familiar Death Variables which can be safely removed.</li>
@@ -331,13 +330,32 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 </ul>
 
 <h3>Import party items to SoA</h3>
-<p>Compatibility: EET<br />
-<p>This component transfers your BG1 inventory into Irenicus Dungeon (look behin the Picture next to the golem in starting area).</p>
+<p>Compatibility: EET</p>
+<p>This component transfers your BG1 inventory into Irenicus Dungeon (table near duergars).</p>
 
 <h3>Books/Scrolls categorization</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET<br />
+<p>Compatibility: BG:EE, BG2:EE, EET</p>
 <p>This tweak automatically categorizes Book and Scroll item files to use appropriate category (if needed) in order to make them storable in Scroll Case (impossible if the item uses Miscellaneous category, which is often the case for Books and sometimes for Scrolls). Items referenced in ITEMDIAL.2DA, ITEMSPEC.2DA and Books with effects and/or abilities are excluded from categorization. Category detection is done by comparing default ground icons assigned to items (GBOOK01 for books, GSCRL01.BAM for scrolls).</p>
 <p>The component also changes 16 'Dusty Books' scattered around the Durlag’s Tower floors, that usually only have one line written in them, into scrolls (with name changed to 'Dusty Page', appropriate Inventory, Ground, Description icons, weight and price assigned). This makes them copyable into Journal and I think makes a bit more sense - why would Durlag use an entire 2 pounds book to write one line of information?</p>
+
+<h3>Wand Case (by Mortianna)</h3>
+<p>Compatibility: BG2, Tutu, BGT, BG:EE, BG2:EE, EET</p>
+<p>Adds Wand Case that can keep your wands the same way as Bag of Holding holds other items. The Wand Case may be purchased from Thalantyr at High Hedge, at Ribald’s Adventurer’s Mart in SoA and the Saradush Tavern in ToB.</p>
+<p></p>
+
+<h3>Key Ring</h3>
+<p>Compatibility: EET (other versions may come in future if someone will contribute converted BAM inventory icon)</p>
+<p>Adds Key Ring that can keep your keys the same way as Bag of Holding holds other items. The Key Ring may be purchased from Thalantyr at High Hedge, at Ribald’s Adventurer’s Mart in SoA and the Saradush Tavern in ToB.</p>
+<p>It's the exact same item that is added to your inventory during Siege of Dragonspear but under different name, so keys won't be shared between different Key Rings.</p>
+
+<h3>Replace classic BG1 movies with BG:EE ones</h3>
+<p>Compatibility: EET</p>
+<p>By default EET imports all classic BG1 movies rather than using EE variants. This tweak allows you to rewert this implementation. Second option also can disable classic BG1 movies that don't have variants in BG:EE (13 movies).<p>
+<p>Available options:</p>
+<ol>
+	<li>Replace movies</li>
+	<li>Also disable BG1 movies that don't have BG:EE variants</li>
+</ol>
 
 </div>
 
@@ -359,6 +377,7 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 	<li>Many thanks to Fouinto for beta testing</li>
 	<li>Many thanks to Gibberlings 3 Modding Community for hosting</li>
 	<li>Many thanks to gugulug5000 for 'Change Durlag’s books to scrolls' tweak idea and description</li>
+	<li>Many thanks to Mortianna for 'Wand Case' tweak</li>
 	<li>Many thanks to porfirion for Sarevok's edited voices in BG2:SoA Hell Trials</li>
 	<li>Many thanks to Weimer for creating the WeiDU utility</li>
 	<li>Many thanks to WhiteAgnus for GitHub contributions to the project and German translation</li>
@@ -393,7 +412,7 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 <h2>Version History</h2>
 <div class="section">
 
-<p><a href="#" onclick="toggle('1.0'); toggle('1.1'); toggle('1.2'); toggle('1.3'); toggle('1.4'); return false; toggle('1.5'); return false; toggle('1.6'); return true;">Expand/Collapse older history</a></p>
+<p><a href="#" onclick="toggle('1.0'); toggle('1.1'); toggle('1.2'); toggle('1.3'); toggle('1.4'); toggle('1.5'); toggle('1.6'); return false; toggle('1.7'); return true;">Expand/Collapse older history</a></p>
 
 <h3><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (30.12.2015)</a></h3>
 
@@ -451,6 +470,16 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 	<li>Several components have been removed since they either don't work on patch 2.x or are now deprecated</li>
 </ul>
 
+<h3><a href="#" onclick="toggle('1.7'); return false;">Version 1.7 (02.07.2017)</a></h3>
+
+<ul class="hidelist" id="1.7">
+	<li>'Import party items to SoA' component now moves items to table near duergars rather than near golem</li>
+	<li>'Remove junk from global scripts' component updated for patch 2.x scripts</li>
+	<li>New component: 'Replace classic BG1 movies with BG:EE ones'</li>
+	<li>New component: 'Wand Case' by Mortianna</li>
+	<li>New component: 'Key Ring'</li>
+</ul>
+
 </div>
 
 <script type="text/javascript">
@@ -476,7 +505,7 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
         elements[i].style.display = 'none';
       }
     }
-	toggle('1.6');
+	toggle('1.7');
   //-->
 </script>
 

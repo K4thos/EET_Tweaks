@@ -1,5 +1,73 @@
 IF
   HasItem("CDHLYSYM",Player1)
+  !Name("Aerie",Player1)
+  !Name("Viconia",Player1)
+  Kit(Player1,OHTYR)
+THEN
+  RESPONSE #100
+    ApplySpellRES("CDHLYSY2",Player1)
+    ActionOverride(Player1,TransformItem("CDHLYSYM","beltty"))
+END
+
+IF
+  HasItem("CDHLYSYM",Player2)
+  !Name("Aerie",Player2)
+  !Name("Viconia",Player2)
+  Kit(Player2,OHTYR)
+THEN
+  RESPONSE #100
+    ApplySpellRES("CDHLYSY2",Player2)
+    ActionOverride(Player2,TransformItem("CDHLYSYM","beltty"))
+END
+
+IF
+  HasItem("CDHLYSYM",Player3)
+  !Name("Aerie",Player3)
+  !Name("Viconia",Player3)
+  Kit(Player3,OHTYR)
+THEN
+  RESPONSE #100
+    ApplySpellRES("CDHLYSY2",Player3)
+    ActionOverride(Player3,TransformItem("CDHLYSYM","beltty"))
+END
+
+IF
+  HasItem("CDHLYSYM",Player4)
+  !Name("Aerie",Player4)
+  !Name("Viconia",Player4)
+  Kit(Player4,OHTYR)
+THEN
+  RESPONSE #100
+    ApplySpellRES("CDHLYSY2",Player4)
+    ActionOverride(Player4,TransformItem("CDHLYSYM","beltty"))
+END
+
+IF
+  HasItem("CDHLYSYM",Player5)
+  !Name("Aerie",Player5)
+  !Name("Viconia",Player5)
+  Kit(Player5,OHTYR)
+THEN
+  RESPONSE #100
+    ApplySpellRES("CDHLYSY2",Player5)
+    ActionOverride(Player5,TransformItem("CDHLYSYM","beltty"))
+END
+
+IF
+  HasItem("CDHLYSYM",Player6)
+  !Name("Aerie",Player6)
+  !Name("Viconia",Player6)
+  Kit(Player6,OHTYR)
+THEN
+  RESPONSE #100
+    ApplySpellRES("CDHLYSY2",Player6)
+    ActionOverride(Player6,TransformItem("CDHLYSYM","beltty"))
+END
+
+IF
+  HasItem("CDHLYSYM",Player1)
+  !Name("Aerie",Player1)
+  !Name("Viconia",Player1)
   OR(4)
     Alignment(Player1,CHAOTIC_NEUTRAL)
     Alignment(Player1,NEUTRAL_EVIL)
@@ -13,6 +81,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player1)
+  !Name("Aerie",Player1)
+  !Name("Viconia",Player1)
   !Kit(Player1,GODLATHANDER)
   OR(5)
     GlobalGT("CDWorkingForHelm","GLOBAL",0)
@@ -28,6 +98,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player1)
+  !Name("Aerie",Player1)
+  !Name("Viconia",Player1)
   !Kit(Player1,GODHELM)
   OR(3)
     GlobalGT("CDWorkingForLathander","GLOBAL",0)
@@ -41,6 +113,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player2)
+  !Name("Aerie",Player2)
+  !Name("Viconia",Player2)
   OR(4)
     Alignment(Player2,CHAOTIC_NEUTRAL)
     Alignment(Player2,NEUTRAL_EVIL)
@@ -54,6 +128,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player2)
+  !Name("Aerie",Player2)
+  !Name("Viconia",Player2)
   !Kit(Player2,GODLATHANDER)
   OR(5)
     GlobalGT("CDWorkingForHelm","GLOBAL",0)
@@ -69,6 +145,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player2)
+  !Name("Aerie",Player2)
+  !Name("Viconia",Player2)
   !Kit(Player2,GODHELM)
   OR(3)
     GlobalGT("CDWorkingForLathander","GLOBAL",0)
@@ -82,6 +160,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player3)
+  !Name("Aerie",Player3)
+  !Name("Viconia",Player3)
   OR(4)
     Alignment(Player3,CHAOTIC_NEUTRAL)
     Alignment(Player3,NEUTRAL_EVIL)
@@ -95,6 +175,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player3)
+  !Name("Aerie",Player3)
+  !Name("Viconia",Player3)
   !Kit(Player3,GODLATHANDER)
   OR(5)
     GlobalGT("CDWorkingForHelm","GLOBAL",0)
@@ -110,6 +192,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player3)
+  !Name("Aerie",Player3)
+  !Name("Viconia",Player3)
   !Kit(Player3,GODHELM)
   OR(3)
     GlobalGT("CDWorkingForLathander","GLOBAL",0)
@@ -123,6 +207,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player4)
+  !Name("Aerie",Player4)
+  !Name("Viconia",Player4)
   OR(4)
     Alignment(Player4,CHAOTIC_NEUTRAL)
     Alignment(Player4,NEUTRAL_EVIL)
@@ -136,6 +222,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player4)
+  !Name("Aerie",Player4)
+  !Name("Viconia",Player4)
   !Kit(Player4,GODLATHANDER)
   OR(5)
     GlobalGT("CDWorkingForHelm","GLOBAL",0)
@@ -151,6 +239,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player4)
+  !Name("Aerie",Player4)
+  !Name("Viconia",Player4)
   !Kit(Player4,GODHELM)
   OR(3)
     GlobalGT("CDWorkingForLathander","GLOBAL",0)
@@ -164,6 +254,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player5)
+  !Name("Aerie",Player5)
+  !Name("Viconia",Player5)
   OR(4)
     Alignment(Player5,CHAOTIC_NEUTRAL)
     Alignment(Player5,NEUTRAL_EVIL)
@@ -177,6 +269,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player5)
+  !Name("Aerie",Player5)
+  !Name("Viconia",Player5)
   !Kit(Player5,GODLATHANDER)
   OR(5)
     GlobalGT("CDWorkingForHelm","GLOBAL",0)
@@ -192,6 +286,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player5)
+  !Name("Aerie",Player5)
+  !Name("Viconia",Player5)
   !Kit(Player5,GODHELM)
   OR(3)
     GlobalGT("CDWorkingForLathander","GLOBAL",0)
@@ -205,6 +301,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player6)
+  !Name("Aerie",Player6)
+  !Name("Viconia",Player6)
   OR(4)
     Alignment(Player6,CHAOTIC_NEUTRAL)
     Alignment(Player6,NEUTRAL_EVIL)
@@ -218,6 +316,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player6)
+  !Name("Aerie",Player6)
+  !Name("Viconia",Player6)
   !Kit(Player6,GODLATHANDER)
   OR(5)
     GlobalGT("CDWorkingForHelm","GLOBAL",0)
@@ -233,6 +333,8 @@ END
 
 IF
   HasItem("CDHLYSYM",Player6)
+  !Name("Aerie",Player6)
+  !Name("Viconia",Player6)
   !Kit(Player6,GODHELM)
   OR(3)
     GlobalGT("CDWorkingForLathander","GLOBAL",0)
