@@ -19,7 +19,7 @@ END ELSE BEGIN //osx, unix
 	OUTER_SPRINT os_slash ~/~
 	OUTER_SPRINT exe ~~
 	OUTER_SPRINT bin ~./~
-	OUTER_SPRINT WEIDU_EXECUTABLE ~./EET_Tweaks/weidu_%WEIDU_OS%~
+	OUTER_SPRINT WEIDU_EXECUTABLE ~./setup-EET_Tweaks~
 END
 
 <<<<<<<< .../blank.txt

@@ -2409,7 +2409,7 @@ END
 BEGIN @930800 /*Key Ring*/
 DESIGNATED 4070
 GROUP @930000 /*Miscellaneous*/
-REQUIRE_PREDICATE GAME_IS ~eet~ @990000 /*This component is not compatible with your game*/
+REQUIRE_PREDICATE GAME_INCLUDES ~sod~ @990000 /*This component is not compatible with your game*/
 
 COPY_EXISTING ~bdkeyr.itm~ ~override/K#KEYR01.itm~
 	~bdkeyr.itm~ ~override/K#KEYR02.itm~
@@ -2424,12 +2424,16 @@ COPY_EXISTING ~highhedg.sto~ ~override~
 BUT_ONLY
 
 // BG2 stores
-COPY_EXISTING ~ribald.sto~ ~override~
-	ADD_STORE_ITEM ~K#KEYR02~ AFTER ~BAG02~ #0 #0 #0 ~IDENTIFIED~ #1
-BUT_ONLY
-COPY_EXISTING ~sarbar01.sto~ ~override~
-	ADD_STORE_ITEM ~K#KEYR03~ AFTER ~BOOT01~ #0 #0 #0 ~IDENTIFIED~ #1
-BUT_ONLY
+ACTION_IF FILE_EXISTS_IN_GAME ~ribald.sto~ BEGIN
+	COPY_EXISTING ~ribald.sto~ ~override~
+		ADD_STORE_ITEM ~K#KEYR02~ AFTER ~BAG02~ #0 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sarbar01.sto~ BEGIN
+	COPY_EXISTING ~sarbar01.sto~ ~override~
+		ADD_STORE_ITEM ~K#KEYR03~ AFTER ~BOOT01~ #0 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+END
 
 /////                                                  \\\\\
 ///// Replace classic BG1 movies with BG:EE ones       \\\\\
