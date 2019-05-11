@@ -6,7 +6,7 @@ OUTER_SPRINT newline ~%WNL%%LNL%%MNL%%TAB% ~
 OUTER_SPRINT slash ~/~
 OUTER_SPRINT quote ~"~
 OUTER_SPRINT tilde "~"
-OUTER_SPRINT tra_path ~EET_Tweaks/lang~
+OUTER_SPRINT tra_path ~%MOD_FOLDER%/lang~
 
 OUTER_SPRINT value ~dummy~
 
@@ -45,12 +45,12 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY charsetsTable BEGIN
 	//"uk_ua" => ""
 	//"zh_cn" => ""
 END
-ACTION_DEFINE_ARRAY charsetsConvertArray BEGIN voices ironman tempus categorization wandcase END
+ACTION_DEFINE_ARRAY charsetsConvertArray BEGIN voices ironman categorization wandcase END
 LAF HANDLE_CHARSETS
 	INT_VAR
 	infer_charset = 0
 	STR_VAR
-	tra_path = ~EET_Tweaks/lang~
+	tra_path = EVAL ~%MOD_FOLDER%/lang~
 	charset_table = charsetsTable
 	convert_array = charsetsConvertArray
 END

@@ -2,5 +2,6 @@
 
 command_path=${0%/*}
 cd "$command_path"
-./setup-EET_Tweaks
+chmod +x ./EET_Tweaks/weidu_osx_amd64
+./EET_Tweaks/weidu_osx_amd64
 exit 0

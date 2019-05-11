@@ -13,9 +13,9 @@
     <strong>Author</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=6804">K4thos</a><br>
 	<strong>Contributors</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=2909">WhiteAgnus</a>, <a href="http://gibberlings3.net/forums/index.php?showuser=7356">CrevsDaak</a>, <a href="http://gibberlings3.net/forums/index.php?showuser=6858">AstroBryGuy</a></p>
   <p><strong>On the web: </strong><a href="http://www.gibberlings3.net/eet_tweaks/"><strong>Home page</strong></a> and <a href="http://gibberlings3.net/forums/index.php?showforum=196"><strong>discussion forum</strong></a></p>
-  <p><strong>Version 1.7</strong><br />
-    <strong>Languages: </strong>English, Polish, German<br />
-    <strong>Platforms: </strong>Windows, Mac OS X</p>
+  <p><strong>Version 1.8</strong><br />
+    <strong>Languages: </strong>English, Polish<br />
+    <strong>Platforms: </strong>Windows, Mac OS</p>
 </div>
 
 <!-- ================== T a b l e ================== --><a id="table" name="Table of Contents"></a>
@@ -60,7 +60,7 @@
 
 <p>To start installation, double-click setup-EET_Tweaks.exe and follow the instructions on screen. Please run setup-EET_Tweaks.exe in your game folder to reinstall, uninstall, or otherwise change components.</p>
 
-<h3>Mac OS X</h3>
+<h3>Mac OS</h3>
 
 <p>To start installation, double-click setup-EET_Tweaks.command and follow the instructions on screen. Please run setup-EET_Tweaks.command in your game folder to reinstall, uninstall, or otherwise change components.</p>
 
@@ -227,6 +227,11 @@
 <p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
 <p>This tweak converts every single party XP reward in game (also affects mods) to rewards distributed individually for each of the party member. It will affect solo and smaller party players significantly, but total XP pool is not changed by this tweak (excluding integer rounding), so if you are playing with party of 6 you won't notice any difference in your game because all party members will receive their XP.</p>
 
+<h3>Party XP for killing creatures distributed individually</h3>
+<p>Compatibility: games with EEex support</p>
+<p>This tweak adjusts creature's XP reward based on the party size (also affects mods). E.g. a team of 3 characters will receive 3/6 of the normal XP for killing a monster, and solo character just 1/6.</p>
+<p>The component is dependent upon <a href="https://github.com/Bubb13/EEex">EEex</a> (not running the game via EEex.exe will result in CTD).</p>
+
 </div>
 
 <h2>Gameplay</h2>
@@ -270,23 +275,12 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 	<li>Disabled</li>
 </ol>
 
-<h3>Protagonist can die</h3>
-<p>Compatibility: BG2:EE, EET</p>
-<p>Adds a flag to all areas in game to prevent Game Over screen when protagonist dies, but other party members are still alive (also affects mods). Tweak can be disabled in-game by setting K#DISABLE_PC_CAN_DIE global variable to 1.</p>
-<!--
-<p>Available options:</p>
-<ol>
-	<li>Protagonist can die</li>
-	<li>Protagonist can be either Imprisoned, Petrified or Charmed (Bhaal essence is lost only when character really dies or there is no one left to bring him/her back from middle death state)</li>
-</ol>
--->
-
 <!--
 <h3>Ironman Mode</h3>
 -->
 
 <h3>One time area spawn points</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET</p>
+<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, EET</p>
 <p>Disables area spawn point after creature is spawned for the first time (no respawning).</p>
 
 </div>
@@ -294,37 +288,9 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 <h2>Miscellaneous</h2>
 <div class="section">
 
-<h3>Add Priest of Tempus kit for Priests</h3>
-<p>Compatibility: BG:EE, BG2:EE, EET (skipped if you installed IWD-in-EET)</p>
-<p>Implements playable Priest of Tempus kit from IWD:EE.</p>
-
-<h3>More bandit scalps</h3>
-<p>Compatibility: BG:EE, EET, BGT</p>
-<p>More BG1 bandits shall have scalps when you install this component.</p>
-
-<h3>FPS & cutscenes audio adjustment</h3>
-<p>Compatibility: BG2, Tutu, BGT, CA, IWD-in-BG2, BG:EE, BG2:EE, IWD:EE, EET</p>
-<p>The problem with increasing game framerate is annoying audio skipping in some cutscenes. This tweak should automatically fix most of such problems in vanilla Bioware content (just a guess based on what I've already tested). If you are using non English voices that are longer than original ones (in such cases they are usually also problematic even on 30 FPS) than this tweak may be a little less effective, but you should still notice major improvements. In the current version it works best with the cutscene coding present in vanilla BG2 and ToB. Due to the way Beamdog cutscenes are designed automatic approach doesn't work as intented (e.g. revised Sarevok ambush cutscene and Black Pits cutscenes will still have audio problems).<p>
-<p>PST:EE engine addeded few new actions that can be used to bypass this problem but they are not available in other EE games yet. I'm planning to solve this in future if the EE engine will be updated to support them.</p> 
-<p>Available options:</p>
-<ol>
-	<li>60 FPS</li>
-	<li>45 FPS</li>
-	<li>Custom value (type in integer value up to 60)</li>
-</ol>
-
-<h3>Remove junk from global scripts</h3>
-<p>Compatibility: BG2:EE, EET</p>
-<p>Vanilla game script coding lefts a lot to be desired performance wise when it comes to handling global scripts stuff (code that is working constantly for the entire game). This tweak aims to remove things from BALDUR.BCS and BALDUR25.BCS that can be achieved locally, which in the end should result in better in-game performance. Some things from the below list may be skipped during installation if some other mod already changed the default implementation.</p>
-<ul>
-	<li>Cleric's Holy Symbols - this is probably the worst offender. As far as I know <em>HasItem</em> trigger is one of the most demanding ones in IE games. In order to give Cleric a Holy Symbol at level 25 (something that will be done maybe once or twice in the late BG2 portion of the game) there are 24 blocks with this trigger that are parsed at the same frame during entire game, whenever global script is in use. Whatever was the reason for this (looks like a thing adopted from G3 BG2 Fixpack) the implementation is just bad. This tweak changes CDHLYSYM.SPL to spawn an invisible creature with local script attached that will do exactly the same thing without any performance hit.</li>
-	<li>Lilarcor (talking sword) - another situation where demanding triggers are used without good enough reason. Fortunately with a timer delay, but still talking weapons in global scripts are a known factor for FPS drops in IE games. Lilarcor has now new item effect added that will spawn invisible creature when item is equipped.</li>
-	<li>Unused test script blocks - BALDUR.BCS contains some leftover code used for testing textscreens that can be wiped out without any effect on game.</li>
-	<li>Unused Familiar script blocks with wrong DV - BALDUR25.BCS has references to not existing familiar Death Variables which can be safely removed.</li>
-	<li>Drow items changing to dust on surface - not so demanding for the engine thanks to the Global trigger, but still controversial when you consider that the same variable is checked 84 times in the same frame (even more if you are using mods that adds additional drow items) for the whole ToB portion of the game (only present in BALDUR25.BCS). This tweak will again spawn an invisible creature with local script, this time in all areas that sets <em>oh_drow_items_safe</em> variable to 0 (also affects mods).</li>
-	<li>Malchior Harpell's appearance - moved the spawning method from BALDUR.BCS to AR0800.BCS. Due to this change it's possible to evade Harpell completely if you don't enter Athkatla Graveyard District (first place where you can meet him) with Drizzt's equipment, but I think that's still better than playing whole game game with 8 useless PartyHasItem checks present in global script. The way this has been originally coded (<a href="https://forum.baldursgate.com/discussion/30392/melchor-harpell-way-to-rip-me-out-of-my-immersion/p1">constantly respawning encounter</a>) is silly either way, so not much loss. I would call it improvement actually. No conflicts with <em>BG2 Tweaks - Keep Drizzt's Loot, Disable Malchor Harpell</em> component.</li>
-	<li>Leftover BG:EE ARE scripts code - this is unrelated to global scripts, but still worth cleaning. In 2 cases (AR0514.BCS, AR2001.BCS) leftovers can be harmful for BG2 portion of the game because there is junk BG:EE code in scripts attached to existing areas. That is why this component fixes it via REPLACE_BCS_BLOCK. Additionally there are 33 harmless ARE scripts leftover that don't have corresponding area files (they exist only in BG:EE) - these are also cleaned to make working with Near Infinity tool faster and more reliable (no false reports when searching for resources in scripts). Ideally, it would be officially handled by Beamdog <a href="http://forum.baldursgate.com/discussion/39661/junk-data-from-bg1-scripts-in-bg2-wrong-script-attached-to-are">via patch</a>, but until it happens this tweak will do the job.</li>
-</ul>
+<h3>Higher framerates support</h3>
+<p>Compatibility: BG:EE, BG2:EE, IWD:EE, EET</p>
+<p>This tweak fixes annoying audio skipping problems that normally happens when playing the game with higher framerates. If you find any cutscene that is not working correctly after installing this tweak please report it, so that I can analyse if the script patching code could be further improved. The tweak is limited to EE games since it uses new script actions, first introduced in PST:EE. This tweak doesn't change the default framerate, so you need to manually edit the INI file (or install Argent77's "Frame Rate" component from HiddenGameplayOptions mod)</p>
 
 <h3>Import party items to SoA</h3>
 <p>Compatibility: EET</p>
@@ -338,7 +304,6 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 <h3>Wand Case (by Mortianna)</h3>
 <p>Compatibility: BG2, Tutu, BGT, BG:EE, BG2:EE, EET</p>
 <p>Adds Wand Case that can keep your wands the same way as Bag of Holding holds other items. The Wand Case may be purchased from Thalantyr at High Hedge, at Ribald’s Adventurer’s Mart in SoA and the Saradush Tavern in ToB.</p>
-<p></p>
 
 <h3>Key Ring</h3>
 <p>Compatibility: BG:EE (with SoD expansion), EET (other versions may come in future if someone will contribute converted BAM inventory icon)</p>
@@ -377,15 +342,14 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 	<li>Many thanks to Mortianna for contributing 'Wand Case' tweak</li>
 	<li>Many thanks to porfirion for Sarevok's edited voices in BG2:SoA Hell Trials</li>
 	<li>Many thanks to Weimer for creating the WeiDU utility</li>
-	<li>Many thanks to WhiteAgnus for GitHub contributions to the project and German translation</li>
+	<li>Many thanks to WhiteAgnus for GitHub contributions to the project</li>
 	<li>Many thanks to Wisp for the Enhanced Edition WeiDU development</li>
 	<li>Many thanks to you and all the other players who have contributed to the completeness of this modification</li>
 </ul>
 
 <h3>Translations</h3>
 
-<p><strong>Polish:</strong> K4thos</p>
-<p><strong>German:</strong> WhiteAgnus</p>
+<p><strong>Polish:</strong> K4thos, Cahir</p>
 
 </div>
 <!-- ================== L e g a l e s e ================== --><a id="legalese" name="legalese"></a>
@@ -409,7 +373,7 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 <h2>Version History</h2>
 <div class="section">
 
-<p><a href="#" onclick="toggle('1.0'); toggle('1.1'); toggle('1.2'); toggle('1.3'); toggle('1.4'); toggle('1.5'); toggle('1.6'); return false; toggle('1.7'); return true;">Expand/Collapse older history</a></p>
+<p><a href="#" onclick="toggle('1.0'); toggle('1.1'); toggle('1.2'); toggle('1.3'); toggle('1.4'); toggle('1.5'); toggle('1.6'); toggle('1.7'); return false; toggle('1.8'); return true;">Expand/Collapse older history</a></p>
 
 <h3><a href="#" onclick="toggle('1.0'); return false;">Version 1.0 (30.12.2015)</a></h3>
 
@@ -478,6 +442,21 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
 	<li>Added Mac OS X command file</li>
 </ul>
 
+<h3><a href="#" onclick="toggle('1.8'); return false;">Version 1.8 (01.06.2018)</a></h3>
+
+<ul class="hidelist" id="1.8">
+	<li>WeiDU updated to Version 246</li>
+	<li>64-bit WeiDU binaries added to package (32-bit setup-EET_Tweaks used by default for windows, 64-bit for Mac OS)</li>
+	<li>New component: 'Party XP for killing creatures distributed individually' - dependent upon EEex</li>
+	<li>'Higher framerates support' (previously known as 'FPS & cutscenes audio adjustment') has been improved - it now takes advantage of new actions introduced in patch 2.5 (INI editing options has been removed - it's recommended to install Argent77's "Frame Rate slider" component from HiddenGameplayOptions mod or edit the file manually)</li>
+	<li>Removed 'Add Priest of Tempus kit for Priests' component (added officially in patch 2.5)</li>
+	<li>Removed 'Remove junk from global scripts' component (not worth the effort keeping it updated after each patch)</li>
+	<li>Removed 'Protagonist can die' component (reported to cause issues)</li>
+	<li>Removed 'More bandit scalps' component (bacause who cares)</li>
+	<li>Removed outdated German translation - 99% of the strings were in English</li>
+	<li>Added INI file with mod metadata</li>
+</ul>
+
 </div>
 
 <script type="text/javascript">
@@ -503,7 +482,7 @@ Conceptually incompatible with BG2 Tweaks' "Cast Spells from Scrolls at Characte
         elements[i].style.display = 'none';
       }
     }
-	toggle('1.7');
+	toggle('1.8');
   //-->
 </script>
 

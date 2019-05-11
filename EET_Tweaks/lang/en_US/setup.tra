@@ -79,6 +79,8 @@
 
 @910800 = ~Party XP for quests distributed individually~
 
+@910900 = ~Party XP for killing creatures distributed individually~
+
 @920000 = ~Gameplay~
 
 @920100 = ~Disable hostile reaction after charm~
@@ -90,24 +92,13 @@
 @920302 = ~Constitution loss for 1 week~
 @920303 = ~Disabled~
 
-@920400 = ~Protagonist can die~
-
 @920500 = ~Ironman Mode~
 
 @920600 = ~One time area spawn points (no respawning)~
 
 @930000 = ~Miscellaneous~
 
-@930100 = ~Add Priest of Tempus kit for Priests~
-
-@930200 = ~More bandit scalps~
-
-@930300 = ~FPS & cutscenes audio adjustment~
-@930301 = ~60 FPS~
-@930302 = ~45 FPS~
-@930303 = ~Custom value~
-
-@930400 = ~Remove junk from global scripts~
+@930300 = ~Higher framerates support~
 
 @930500 = ~Import party items to SoA~
 
@@ -130,3 +121,4 @@
 @990002 = ~Similar tweak already installed~
 @990003 = ~Conflicting BG2 Tweaks component detected: Cast Spells from Scrolls at Character Level~
 @990004 = ~This kit is already in the game~
+@990005 = ~This component is dependent upon EEex~
