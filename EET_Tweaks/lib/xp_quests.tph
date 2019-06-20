@@ -33,7 +33,7 @@ COPY_EXISTING ~XPLIST.2da~ ~override~
 BUT_ONLY
 
 ACTION_FOR_EACH ext IN BCS DLG BEGIN
-	COPY_EXISTING_REGEXP GLOB ~.+\.%ext%~ ~override~
+	COPY_EXISTING_REGEXP GLOB ~.+\.%ext%$~ ~override~
 		DECOMPILE_AND_PATCH BEGIN
 			REPLACE_EVALUATE CASE_INSENSITIVE ~AddexperienceParty(\([1-9][0-9]*\))~ BEGIN
 				SET "XP_value" = "%MATCH1%"
@@ -72,7 +72,7 @@ ACTION_FOR_EACH ext IN BCS DLG BEGIN
 	BUT_ONLY
 END
 
-COPY_EXISTING_REGEXP GLOB ~.+\.SPL~ ~override~
+COPY_EXISTING_REGEXP GLOB ~.+\.SPL$~ ~override~
 	READ_LONG 0x64 "abil_off" ELSE 0
 	READ_SHORT 0x68 "abil_num" ELSE 0
 	READ_LONG 0x6a "fx_off" ELSE 0
@@ -117,7 +117,7 @@ COPY_EXISTING_REGEXP GLOB ~.+\.SPL~ ~override~
 	END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~.+\.ITM~ ~override~
+COPY_EXISTING_REGEXP GLOB ~.+\.ITM$~ ~override~
 	READ_LONG 0x64 "abil_off" ELSE 0
 	READ_SHORT 0x68 "abil_num" ELSE 0
 	READ_LONG 0x6a "fx_off" ELSE 0
@@ -162,7 +162,7 @@ COPY_EXISTING_REGEXP GLOB ~.+\.ITM~ ~override~
 	END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~.+\.EFF~ ~override~
+COPY_EXISTING_REGEXP GLOB ~.+\.EFF$~ ~override~
 	READ_LONG 0x10 "opcode"
 	PATCH_IF ("%opcode%" = 104) BEGIN //XP bonus
 		READ_LONG 0x1c "XP_value" //Value
