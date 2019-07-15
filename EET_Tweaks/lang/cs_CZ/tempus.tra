@@ -1,0 +1,57 @@
+//  Czech translation by Vicq \\
+
+//IWD:EE @40774
+@0 = ~knìz Tempusu~
+//IWD:EE @40775
+@1 = ~Knìz Tempusu~
+//IWD:EE @40776
+@2 = ~KNÌZ TEMPUSU: Tempus, známý také jako Pán bitev nebo Vrahomlat, je nestálý ve svých náladách, ale pøi své chaotické povaze se chová ke všem stejnì. Lord Tempus mùže bojovat jednou na tvé stranì a podruhé proti tobì; taková už je válka. Stoupenci Tempuse proto najdete na obou stranách konfliktu, protože nikdo neví, na kterou stranu se pøikloní.
+
+Výhody:
+- Mùže seslat kouzlo Božská síla; jednou dennì od 1. úrovnì sesílatele a na každých 5 úrovní jedna možnost navíc.
+BOŽSKÁ SÍLA: Pomocí tohoto kouzla získá sesílatel stejnou sílu a dovednost jako váleèník na stejné úrovni. Síla knìze je nastavena na 18/00 - i kdyby byla normálnì vyšší - THAC0 je nastaveno na hodnotu váleèníka stejné úrovnì a za každou úroveñ získává sesílatel doèasnì 1 život navíc. Tyto hodnoty trvají po dobu pùsobení kouzla nebo do jeho zrušení.         
+
+- Mùže seslat kouzlo Bitevní chaos; jednou dennì od 1. úrovnì sesílatele a na každých 10 úrovní jedna možnost navíc.
+BITEVNÍ CHAOS: Kouzlo pøidává bonusy všem spojencùm a postihy všem nepøátelùm v rozsahu 20 metrù od sesílatele. Kouzlo trvá 1 kolo, náhodnì ovlivòuje obranné èíslo, poèet životù, THAC0, body na záchranu a na štìstí. Síla kouzla zaèíná na 1 (= 5 životù) na 1. úrovni sesílatele a za každých 6 úrovní se zvyšuje o 1.
+
+Nevýhody:
+– Charakter postavy musí být chaotický nebo absolutnì neutrální.~
+
+//IWD:EE @36319
+@3 = ~Božská síla~
+//IWD:EE @36320
+@4 = ~Božská síla
+(Zaklínadlo)
+
+Úroveò: 4
+Dosah: 0
+Trvání: 1 kolo/úroveò (max. 7 kol)
+Doba sesílání: 6
+Oblast úèinku: Sesílatel
+Záchranný hod: není
+
+Pomocí tohoto kouzla získá sesílatel stejnou sílu a dovednost jako váleèník na stejné úrovni. Síla knìze je nastavena na 18/00 - i kdyby byla normálnì vyšší - THAC0 je nastaveno na hodnotu váleèníka stejné úrovnì a za každou úroveñ získává sesílatel doèasnì 1 život navíc. Tyto hodnoty trvají po dobu pùsobení kouzla nebo do jeho zrušení.~
+//IWD:EE @40778
+@5 = ~Bitevní chaos~
+//IWD:EE @40779
+@6 = ~Bitevní chaos
+
+Kouzlo pøidává bonusy všem spojencùm a sankce všem nepøátelùm v rozsahu 20 metrù od sesílatele. Kouzlo trvá 1 kolo náhodnì ovlivòuje obranné èíslo, poèet životù, THAC0, body na záchranu a na štìstí. Síla kouzla zaèíná na 1 (= 5 životù) na 1. úrovni sesílatele a za každých 6 úrovní se zvyšuje o 1.~
+//IWD:EE @40256
+@7 = ~Bitevní bonusy~
+//IWD:EE @40257
+@8 = ~Bitevní postihy~
+//BG2:EE @65112 (Lathander -> Tempus)
+@9 = ~Svatý symbol Tempuse~
+//BG2:EE @66455 (Dawnbringer -> Lord of Battles)
+@10 = ~Svatý symbol Tempuse
+Jenom tìm nejváženìjším a nejoddanìjším služebníkùm Pána bitev jsou poskytnuty tyto mocné svaté symboly. 
+
+VLASTNOSTI:
+
+Vlastnosti pøi vybavení:
+–  Síla: +1
+–  Magická odolnost: +5%
+–  Mùže si zapamatovat navíc jedno kouzlo klerika na 6. a 7. úrovni.
+
+Váha: 0~

@@ -1,0 +1,128 @@
+//  Czech translation by Vicq \\
+
+@900000 = ~Stale postavy~
+
+@900100 = ~Edwin - vzhled~
+@900101 = ~BG1~
+@900102 = ~BG2~
+
+@900200 = ~Imoen - vzhled~
+@900201 = ~BG1~
+@900202 = ~BG2~
+@900203 = ~SoD~
+
+@900300 = ~Jaheira - vzhled~
+@900301 = ~BG1~
+@900302 = ~BG2~
+
+@900400 = ~Minsc - vzhled~
+@900401 = ~BG1~
+@900402 = ~BG2~
+
+@900500 = ~Viconia - vzhled~
+@900501 = ~BG1~
+@900502 = ~BG2~
+@900503 = ~SoD~
+
+@900600 = ~Vzhled cameo postav~
+
+@900700 = ~Hlasy postav~
+
+@910000 = ~Nastaveni XP~
+
+@910100 = ~Celkovy zkusenostni limit (XP CAP)~
+@910101 = ~2,950,000~
+@910102 = ~8,000,000~
+@910103 = ~Odstranit~
+@910104 = ~Uzivatelska hodnota~
+
+@910200 = ~Dodatecny XP CAP pro BG1~
+@910201 = ~ 89,000~
+@910202 = ~161,000~
+@910203 = ~500,000~
+@910204 = ~Uzivatelska hodnota~
+
+@910300 = ~Dodatecny XP CAP pro SoD~
+@910301 = ~ 89,000~
+@910302 = ~161,000~
+@910303 = ~500,000~
+@910304 = ~Uzivatelska hodnota~
+
+@910400 = ~Dodatecny XP CAP pro SoA~
+@910401 = ~2,500,000~
+@910402 = ~2,950,000~
+@910403 = ~8,000,000~
+@910404 = ~Uzivatelska hodnota~
+
+@910500 = ~Nastaveni XP pro pasti, kouzla a zamky~
+@910501 = ~BG1 (vychozi)~
+@910502 = ~BG2~
+@910503 = ~Vanilla friendly progressive~
+@910504 = ~Odstranit XP~
+@910505 = ~Uzivatelska hodnota~
+
+@910600 = ~Nastaveni XP pro zabijeni tvoru~
+@910601 = ~Zvysit na 150%~
+@910602 = ~Snizit na 75%~
+@910603 = ~Snizit na 50%~
+@910604 = ~Snizit na 25%~
+@910605 = ~Snizit na 10%~
+@910606 = ~Odstranit~
+@910607 = ~Uzivatelska hodnota~
+
+@910700 = ~Nastaveni XP for ukoly~
+@910701 = ~Zvysit na 150%~
+@910702 = ~Snizit na 75%~
+@910703 = ~Snizit na 50%~
+@910704 = ~Snizit na 25%~
+@910705 = ~Snizit na 10%~
+@910706 = ~Odstranit~
+@910707 = ~Uzivatelska hodnota~
+
+@910800 = ~Skupinova XP pro ukoly je distribuovana individualne~
+
+@910900 = ~Skupinova XP for zabijeni priser je distribuovana individualne~
+
+@920000 = ~Hrani hry~
+
+@920100 = ~Odstranit nepratelskou reakci po kouzlech~
+
+@920200 = ~PnP úrovnì sesilatele kouzel~
+
+@920300 = ~Nastavit nasledky smrti~
+@920301 = ~Ztrata konstituce & blokovane privolavani na 1 tyden~
+@920302 = ~Ztrata konstituce na 1 tyden~
+@920303 = ~Odstranit~
+
+@920500 = ~Rezim IRONMAN~
+
+@920600 = ~Jednorazove body na zrozeni (bez oziveni)~
+
+@930000 = ~Ruzne~
+
+@930300 = ~Podpora vyssich hodnot FPS~
+
+
+@930500 = ~Importovat vybaveni skupiny do SoA~
+
+@930600 = ~Poradac na knihy/svitky~
+
+@930700 = ~Pouzdro na hulky~
+
+@930800 = ~Krouzek na klice~
+
+@930900 = ~Nahradit klasicka BG1 videa soubory z BG:EE~
+@930901 = ~Nahradit videa~
+@930902 = ~Odstranit videa, ktera nemaji BG:EE variantu~
+
+@980000 = ~Zadejte celym cislem zkusenostni limit (XP CAP)~
+@980001 = ~Zadejte celym cislem pocet procent~
+@980002 = ~Zadejte hodnotu FPS celym cisem (30-60)~
+
+@990000 = ~Tato soucast neni kompatibilni s vasi hrou~
+@990001 = ~Tato soucast neni dostupna ve vasem jazyku~
+@990002 = ~Obdobny tweak uz je nainstalovan~
+@990003 = ~Zjisteny konflikt BG2 tweaku: Vycarovat kouzla ze svitku na urovni postavy~
+@990004 = ~Tento kit uz je ve hre~
+
+@990005 = ~Tato komponenta zavisi na EEex~

@@ -1,6 +1,6 @@
 BACKUP ~EET_Tweaks/backup~
 AUTHOR ~K4thos (swit)~
-VERSION ~1.9~
+VERSION ~1.10~
 README ~EET_Tweaks/lang/%LANGUAGE%/readme-EET_Tweaks.html~ ~EET_Tweaks/readme-EET_Tweaks.html~
 ASK_EVERY_COMPONENT
 
@@ -16,6 +16,10 @@ LANGUAGE ~Polski (Polish)~
 	~pl_PL~
 	~EET_Tweaks/lang/pl_PL/prompts.tra~
 	~EET_Tweaks/lang/pl_PL/setup.tra~
+LANGUAGE ~Czech~
+	~cs_CZ~
+	~EET_Tweaks/lang/cs_CZ/prompts.tra~
+	~EET_Tweaks/lang/cs_CZ/setup.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
