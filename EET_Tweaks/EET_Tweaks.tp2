@@ -1,6 +1,6 @@
 BACKUP ~EET_Tweaks/backup~
 AUTHOR ~K4thos (swit)~
-VERSION ~1.10~
+VERSION ~1.11~
 README ~EET_Tweaks/lang/%LANGUAGE%/readme-EET_Tweaks.html~ ~EET_Tweaks/readme-EET_Tweaks.html~
 ASK_EVERY_COMPONENT
 
