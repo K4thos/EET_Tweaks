@@ -20,6 +20,10 @@ LANGUAGE ~Czech~
 	~cs_CZ~
 	~EET_Tweaks/lang/cs_CZ/prompts.tra~
 	~EET_Tweaks/lang/cs_CZ/setup.tra~
+LANGUAGE ~Russian~
+	~ru_RU~
+	~EET_Tweaks/lang/ru_RU/prompts.tra~
+	~EET_Tweaks/lang/ru_RU/setup.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
