@@ -1,124 +1,124 @@
-@900000 = ~Consistent NPCs~
+@900000 = ~Spojnosc Bohaterow Niezaleznych~
 
-@900100 = ~Edwin appearance~
+@900100 = ~Wyglad Edwina~
 @900101 = ~BG1~
 @900102 = ~BG2~
 
-@900200 = ~Imoen appearance~
+@900200 = ~Wyglad Imoen~
 @900201 = ~BG1~
 @900202 = ~BG2~
 @900203 = ~SoD~
 
-@900300 = ~Jaheira appearance~
+@900300 = ~Wyglad Jaheiry~
 @900301 = ~BG1~
 @900302 = ~BG2~
 
-@900400 = ~Minsc appearance~
+@900400 = ~Wyglad Minsca~
 @900401 = ~BG1~
 @900402 = ~BG2~
 
-@900500 = ~Viconia appearance~
+@900500 = ~Wyglad Viconii~
 @900501 = ~BG1~
 @900502 = ~BG2~
 @900503 = ~SoD~
 
-@900600 = ~Cameo NPCs appearance~
+@900600 = ~Wyglad epizodycznych Bohaterow Niezaleznych~
 
-@900700 = ~NPC voices~
+@900700 = ~Odglosy Bohaterow Niezaleznych~
 
-@910000 = ~XP adjustments~
+@910000 = ~Dostosowanie Punktow Doswiadczenia~
 
-@910100 = ~Total XP CAP~
-@910101 = ~2,950,000~
-@910102 = ~8,000,000~
-@910103 = ~Disabled~
-@910104 = ~Custom value~
+@910100 = ~Limit Punktow Doswiadczenia~
+@910101 = ~2 950 000~
+@910102 = ~8 000 000 (domyslnie)~
+@910103 = ~Brak~
+@910104 = ~Wartosc niestandardowa~
 
-@910200 = ~Additional XP CAP for BG1~
-@910201 = ~ 89,000~
-@910202 = ~161,000~
-@910203 = ~500,000~
-@910204 = ~Custom value~
+@910200 = ~Dodatkowy limit Punktow Doswiadczenia dla BG1~
+@910201 = ~ 89 000~
+@910202 = ~161 000~
+@910203 = ~500 000~
+@910204 = ~Wartosc niestandardowa~
 
-@910300 = ~Additional XP CAP for SoD~
-@910301 = ~ 89,000~
-@910302 = ~161,000~
-@910303 = ~500,000~
-@910304 = ~Custom value~
+@910300 = ~Dodatkowy limit Punktow Doswiadczenia dla dodatku SoD~
+@910301 = ~ 89 000~
+@910302 = ~161 000~
+@910303 = ~500 000~
+@910304 = ~Wartosc niestandardowa~
 
-@910400 = ~Additional XP CAP for SoA~
-@910401 = ~2,500,000~
-@910402 = ~2,950,000~
-@910403 = ~8,000,000~
-@910404 = ~Custom value~
+@910400 = ~Dodatkowy limit Punktow Doswiadczenia dla Cieni Amn~
+@910401 = ~2 500 000~
+@910402 = ~2 950 000~
+@910403 = ~8 000 000~
+@910404 = ~Wartosc niestandardowa~
 
-@910500 = ~XP for Traps, Spells and Lockpicking~
-@910501 = ~BG1 values (default)~
-@910502 = ~BG2 values~
-@910503 = ~Vanilla friendly progressive~
-@910504 = ~Disabled~
-@910505 = ~Custom value~
+@910500 = ~Punkty Doswiadczenia za pulapki, nauke czarow i otwieranie zamkow~
+@910501 = ~Wartosci z BG1 (domyslnie)~
+@910502 = ~Wartosci z BG2~
+@910503 = ~Progresywne~
+@910504 = ~Brak~
+@910505 = ~Wartosc niestandardowa~
 
-@910600 = ~XP for killing creatures~
-@910601 = ~Increase to 150%~
-@910602 = ~Decrease to 75%~
-@910603 = ~Decrease to 50%~
-@910604 = ~Decrease to 25%~
-@910605 = ~Decrease to 10%~
-@910606 = ~Disable~
-@910607 = ~Custom value~
+@910600 = ~Punkty Doswiadczenia za zabijanie istot~
+@910601 = ~Zwieksz do 150%~
+@910602 = ~Zredukuj do 75%~
+@910603 = ~Zredukuj do 50%~
+@910604 = ~Zredukuj do 25%~
+@910605 = ~Zredukuj do 10%~
+@910606 = ~Brak~
+@910607 = ~Wartosc niestandardowa~
 
-@910700 = ~XP for quests~
-@910701 = ~Increase to 150%~
-@910702 = ~Decrease to 75%~
-@910703 = ~Decrease to 50%~
-@910704 = ~Decrease to 25%~
-@910705 = ~Decrease to 10%~
-@910706 = ~Disable~
-@910707 = ~Custom value~
+@910700 = ~Punkty Doswiadczenia za zadania~
+@910701 = ~Zwieksz do 150%~
+@910702 = ~Zredukuj do 75%~
+@910703 = ~Zredukuj do 50%~
+@910704 = ~Zredukuj do 25%~
+@910705 = ~Zredukuj do 10%~
+@910706 = ~Brak~
+@910707 = ~Wartosc niestandardowa~
 
-@910800 = ~Party XP for quests distributed individually~
+@910800 = ~Doswiadczenie druzyny za zadania dzielone indywidualnie~
 
-@910900 = ~Party XP for killing creatures distributed individually~
+@910900 = ~Doswiadczenie druzyny za zabijanie dzielone indywidualnie~
 
-@920000 = ~Gameplay~
+@920000 = ~Rozgrywka~
 
-@920100 = ~Disable hostile reaction after charm~
+@920100 = ~Usun agresywna reakcje po zauroczeniu~
 
-@920200 = ~PnP spell scroll caster levels~
+@920200 = ~Podrecznikowy poziom rzucajacego czary dla zwojow~
 
-@920300 = ~Familiar death consequences~
-@920301 = ~Constitution loss & blocked summoning for 1 week~
-@920302 = ~Constitution loss for 1 week~
-@920303 = ~Disabled~
+@920300 = ~Konsekwencje smierci chowanca~
+@920301 = ~Utrata Kondycji i niezdolnosc do przywolania przez 1 tydzien~
+@920302 = ~Utrata Kondycji przez 1 tydzien~
+@920303 = ~Brak~
 
-@920500 = ~Ironman Mode~
+@920500 = ~Tryb IRONMAN~
 
-@920600 = ~One time area spawn points (no respawning)~
+@920600 = ~Jednorazowe punkty spawnowania~
 
-@930000 = ~Miscellaneous~
+@930000 = ~Pozostale usprawnienia~
 
-@930300 = ~Higher framerates support~
+@930300 = ~Wsparcie do wyzszej czestotliwosci wyswietlania klatek~
 
-@930500 = ~Import party items to SoA~
+@930500 = ~Importuj przedmioty druzyny do Cieni Amn~
 
-@930600 = ~Books/Scrolls categorization~
+@930600 = ~Poprawne kategoryzowanie ksiazek i zwojow~
 
-@930700 = ~Wand Case~
+@930700 = ~Futeral na rozdzki~
 
-@930800 = ~Key Ring~
+@930800 = ~Kolko na klucze~
 
-@930900 = ~Replace classic BG1 movies with BG:EE ones~
-@930901 = ~Replace movies~
-@930902 = ~Also disable BG1 movies that don't have BG:EE variants~
+@930900 = ~Podmien klasyczne filmy BG1 na te z BG:EE~
+@930901 = ~Podmien filmy~
+@930902 = ~Usun filmy BG1, ktore nie maja odpowiednikow w BG:EE~
 
-@980000 = ~Type in the integer value for XP CAP~
-@980001 = ~Type in the integer percentage value~
-@980002 = ~Type in integer frames count (30-60)~
+@980000 = ~Wprowadz wartosc liczbowa dla limitu Punktow Doswiadczenia~
+@980001 = ~Wprowadz wartosc procentowa~
+@980002 = ~Wprowadz wartosc liczbowa dla liczby ramek (30-60)~
 
-@990000 = ~This component is not compatible with your game~
-@990001 = ~This component is not available for your language~
-@990002 = ~Similar tweak already installed~
-@990003 = ~Conflicting BG2 Tweaks component detected: Cast Spells from Scrolls at Character Level~
-@990004 = ~This kit is already in the game~
-@990005 = ~This component is dependent upon EEex~
+@990000 = ~Ten komponent nie jest kompatybilny z ta gra~
+@990001 = ~Ten komponent nie jest dostepny dla wybranego jezyka~
+@990002 = ~Podobne usprawnienie jest juz zainstalowane~
+@990003 = ~Wykryto konflikt z komponentem BG2 Tweaks~
+@990004 = ~Ta podklasa jest juz dostepna w tej grze~
+@990005 = ~Ten komponent wymaga zainstalowanego EEex~
