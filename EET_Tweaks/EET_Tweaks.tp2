@@ -24,7 +24,11 @@ LANGUAGE ~Russian~
 	~ru_RU~
 	~EET_Tweaks/lang/ru_RU/prompts.tra~
 	~EET_Tweaks/lang/ru_RU/setup.tra~
-
+LANGUAGE ~Simplified Chinese~
+	~zh_CN~
+	~EET_Tweaks/lang/zh_CN/prompts.tra~
+	~EET_Tweaks/lang/zh_CN/setup.tra~
+	
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
