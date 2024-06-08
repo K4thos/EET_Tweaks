@@ -28,7 +28,11 @@ LANGUAGE ~Simplified Chinese~
 	~zh_CN~
 	~EET_Tweaks/lang/zh_CN/prompts.tra~
 	~EET_Tweaks/lang/zh_CN/setup.tra~
-	
+LANGUAGE ~German~
+	~de_DE~
+	~EET_Tweaks/lang/de_DE/prompts.tra~
+	~EET_Tweaks/lang/de_DE/setup.tra~
+
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
