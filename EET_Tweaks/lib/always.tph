@@ -92,3 +92,29 @@ DEFINE_ACTION_MACRO EET_WRITE_APPEARANCE BEGIN
 		BUT_ONLY
 	END
 END
+
+/////                                                  \\\\\
+///// functions                                        \\\\\
+/////                                                  \\\\\
+
+DEFINE_PATCH_FUNCTION EET_UPDATE_PORTRAIT
+INT_VAR
+  is_large = 0
+STR_VAR
+  resref = ~~
+BEGIN
+  SET is_large = (is_large != 0)  // normalize to 0 or 1
+  GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+  PHP_EACH ab_array AS _ => ab_off BEGIN
+    GET_OFFSET_ARRAY2 fx_array "%ab_off%" SPL_V10_HEAD_EFFECTS
+    PHP_EACH fx_array AS _ => fx_off BEGIN
+      READ_SHORT (fx_off + 0x00) opcode
+      PATCH_IF (opcode == 107) BEGIN  // Change portrait
+        READ_LONG (fx_off + 0x08) param1
+        PATCH_IF (param1 == is_large) BEGIN
+          WRITE_ASCIIE (fx_off + 0x14) ~%resref%~ (8)
+        END
+      END
+    END
+  END
+END
