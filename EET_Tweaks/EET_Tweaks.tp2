@@ -62,8 +62,8 @@ ACTION_FOR_EACH file IN EDWIN EDWIN2 EDWIN4 EDWIN6 EDWIN7_ E35 EDWIN7 EDWIN9 EDW
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#POREDW.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 BEGIN @900102 /*BG2*/
@@ -79,8 +79,8 @@ ACTION_FOR_EACH file IN EDWIN EDWIN2 EDWIN4 EDWIN6 EDWIN7_ E35 EDWIN7 EDWIN9 EDW
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#POREDW.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 /////                                                  \\\\\
@@ -100,8 +100,8 @@ ACTION_FOR_EACH file IN IMOEN IMOEN1 IMOEN2 IMOEN4 IMOEN6_ BDIMOEN BDIMDEAD BDIM
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#PORIMO.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 BEGIN @900202 /*BG2*/
@@ -117,8 +117,8 @@ ACTION_FOR_EACH file IN IMOEN IMOEN1 IMOEN2 IMOEN4 IMOEN6_ BDIMOEN BDIMDEAD BDIM
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#PORIMO.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 BEGIN @900203 /*SoD*/
@@ -134,8 +134,8 @@ ACTION_FOR_EACH file IN IMOEN IMOEN1 IMOEN2 IMOEN4 IMOEN6_ BDIMOEN BDIMDEAD BDIM
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#PORIMO.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 /////                                                  \\\\\
@@ -155,8 +155,8 @@ ACTION_FOR_EACH file IN JAHEIR JAHEIR2 JAHEIR4 JAHEIR6 JAHEIR7_ E36 TTJAHIER JAH
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#PORJAH.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 BEGIN @900302 /*BG2*/
@@ -172,8 +172,8 @@ ACTION_FOR_EACH file IN JAHEIR JAHEIR2 JAHEIR4 JAHEIR6 JAHEIR7_ E36 TTJAHIER JAH
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#PORJAH.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 /////                                                  \\\\\
@@ -193,8 +193,8 @@ ACTION_FOR_EACH file IN MINSC MINSC2 MINSC4 MINSC6 MINSC7_ E32 TTMINSC MINSC7 MI
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#PORMIN.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 BEGIN @900402 /*BG2*/
@@ -210,8 +210,8 @@ ACTION_FOR_EACH file IN MINSC MINSC2 MINSC4 MINSC6 MINSC7_ E32 TTMINSC MINSC7 MI
 	LAM EET_WRITE_APPEARANCE
 END
 COPY_EXISTING ~K#PORMIN.SPL~ ~override~
-	WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-	WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+  LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 BUT_ONLY
 
 /////                                                  \\\\\
@@ -232,8 +232,8 @@ ACTION_FOR_EACH file IN VICONI VICONI4 VICONI6_ VICONI7 VICONI6 VICONI8 VICONI9 
 END
 ACTION_FOR_EACH file IN ~BDVICPOR~ ~K#PORVIC~ BEGIN
 	COPY_EXISTING ~%file%.SPL~ ~override~
-		WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-		WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+    LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+    LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 	BUT_ONLY
 END
 
@@ -251,8 +251,8 @@ ACTION_FOR_EACH file IN VICONI VICONI4 VICONI6_ VICONI7 VICONI6 VICONI8 VICONI9 
 END
 ACTION_FOR_EACH file IN ~BDVICPOR~ ~K#PORVIC~ BEGIN
 	COPY_EXISTING ~%file%.SPL~ ~override~
-		WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-		WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+    LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+    LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 	BUT_ONLY
 END
 
@@ -270,8 +270,8 @@ ACTION_FOR_EACH file IN VICONI VICONI4 VICONI6_ VICONI7 VICONI6 VICONI8 VICONI9 
 END
 ACTION_FOR_EACH file IN ~BDVICPOR~ ~K#PORVIC~ BEGIN
 	COPY_EXISTING ~%file%.SPL~ ~override~
-		WRITE_ASCIIE ~0xde~ ~%small%~ #8 //Small portrait
-		WRITE_ASCIIE ~0x10e~ ~%medium%~ #8 //Large portrait
+    LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 0 STR_VAR resref = EVAL ~%small%~ END  //Small portrait
+    LPF EET_UPDATE_PORTRAIT INT_VAR is_large = 1 STR_VAR resref = EVAL ~%medium%~ END //Large portrait
 	BUT_ONLY
 END
 
