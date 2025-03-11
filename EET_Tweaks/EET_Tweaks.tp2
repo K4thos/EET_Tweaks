@@ -32,6 +32,10 @@ LANGUAGE ~German~
 	~de_DE~
 	~EET_Tweaks/lang/de_DE/prompts.tra~
 	~EET_Tweaks/lang/de_DE/setup.tra~
+LANGUAGE ~French~
+	~fr_FR~
+	~EET_Tweaks/lang/fr_FR/prompts.tra~
+	~EET_Tweaks/lang/fr_FR/setup.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
